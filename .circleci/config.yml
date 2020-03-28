@@ -24,6 +24,7 @@ jobs:
       - image: katafractari/node-10-python-aws-cli
     steps:
       - checkout
+      - run: npm run install
       - run: npm run build
       - run: aws s3 sync build/ s3://${BUCKET_NAME}
 
