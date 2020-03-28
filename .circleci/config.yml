@@ -26,7 +26,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build
-      - run: aws s3 sync build/ s3://${BUCKET_NAME}
+      - run: aws s3 sync --acl public-read build/ s3://${BUCKET_NAME}
 
 workflows:
   version: 2
