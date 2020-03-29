@@ -35,5 +35,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://ec2-3-125-21-233.eu-central-1.compute.amazonaws.com"
+  "baseUrl": "http://ec2-3-125-21-233.eu-central-1.compute.amazonaws.com"
 }
