@@ -1,27 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
+import { Route, BrowserRouter, Redirect, Switch } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
+import jwtDecode from "jwt-decode";
 import axios from "axios";
+import Navbar from "./components/Navbar/";
+import Homepage from "./pages/Home/";
+import Messages from "components/utils/Messages";
 
-function App() {
-  const [test, setTest] = useState("");
+let user = "";
 
-  const callBackend = async () => {
-    const response = await axios.get("/retrieve?id=2");
-    console.log(response);
-    setTest(response.data.testField);
-  };
+try {
+  const jwt = localStorage.getItem("jwt");
+  if (jwt) {
+    const decoded = jwtDecode(jwt);
+    if (decoded.exp * 1000 > Date.now()) {
+      user = decoded.sub;
+      axios.defaults.headers.common = {
+        Authorization: `Bearer ${jwt}`,
+      };
+    } else {
+      localStorage.removeItem("jwt");
+    }
+  }
+} catch (e) {}
+
+export const UserContext = createContext({});
+
+const App = () => {
+  const [username, setUsername] = useState(user);
 
   return (
     <StylesProvider injectFirst>
-      <h1 style={{ color: "blue" }}>This almost looks fun</h1>
-      <input type="button" onClick={callBackend} value="Ask backend" />
-      {test === "" ? (
-        ""
-      ) : (
-        <h2 style={{ color: "red" }}>Backend replied with:{test}</h2>
-      )}
+      <UserContext.Provider value={{ username, setUsername }}>
+        <Messages>
+          <BrowserRouter>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateRows: "auto 1fr",
+                height: "100vh",
+              }}
+            >
+              <Navbar />
+              <Switch>
+                <Route path="/" component={Homepage} exact />
+                <Route render={() => <Redirect to="/" />} />
+              </Switch>
+            </div>
+          </BrowserRouter>
+        </Messages>
+      </UserContext.Provider>
     </StylesProvider>
   );
-}
+};
 
 export default App;
