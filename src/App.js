@@ -8,8 +8,10 @@ import Homepage from "./pages/Home/";
 import Messages from "components/utils/Messages";
 
 let user = "";
+let savedLanguage = "";
 
 try {
+  savedLanguage = localStorage.getItem("language") || "EN";
   const jwt = localStorage.getItem("jwt");
   if (jwt) {
     const decoded = jwtDecode(jwt);
@@ -28,10 +30,13 @@ export const UserContext = createContext({});
 
 const App = () => {
   const [username, setUsername] = useState(user);
+  const [language, setLanguage] = useState(savedLanguage);
 
   return (
     <StylesProvider injectFirst>
-      <UserContext.Provider value={{ username, setUsername }}>
+      <UserContext.Provider
+        value={{ username, setUsername, language, setLanguage }}
+      >
         <Messages>
           <BrowserRouter>
             <div
