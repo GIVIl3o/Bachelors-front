@@ -1,0 +1,14 @@
+.languageButton {
+  margin-left: 70%;
+  border: 1px solid;
+  border-radius: 8%;
+  min-width: 4rem;
+}
+
+.navbarConteiner {
+  margin-top: 8%;
+}
+
+.logo {
+  width: 15%;
+}
