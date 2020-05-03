@@ -6,3 +6,18 @@
 .pointer {
   cursor: pointer;
 }
+
+.color {
+  font-weight: normal;
+  color: 2b2b2b;
+}
+
+.secondaryText {
+  font-size: 1.5rem;
+  color: hsla(0, 0%, 0%, 0.8);
+}
+
+.login {
+  font-weight: bold;
+  margin-left: 10px;
+}

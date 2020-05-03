@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import AppBar from "@material-ui/core/AppBar";
 import { Button } from "@material-ui/core";
 import {
   languageButton,
@@ -23,9 +22,16 @@ const Navbar = () => {
     <div className={navbarConteiner}>
       <img
         src="https://s3.eu-central-1.amazonaws.com/scrumhub.co/images/logo.png"
+        alt=""
         className={logo}
+        onDragStart={(e) => e.preventDefault()}
       />
-      <Button className={languageButton} onClick={changeLanguage}>
+      <Button
+        className={languageButton}
+        onClick={changeLanguage}
+        color="primary"
+        variant="outlined"
+      >
         {language}
       </Button>
     </div>
