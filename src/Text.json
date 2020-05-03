@@ -10,5 +10,25 @@
   "login_button": { "EN": "Username", "GE": "სახელი" },
   "sign_up": { "EN": "Sign Up for free!", "GE": "შემოგვიერთდი!" },
   "have_account": { "EN": "Already have an account?", "GE": "გაქვს ექაუნთი?" },
-  "login": { "EN": "Log in", "GE": "შესვლა" }
+  "login": { "EN": "Log in", "GE": "შესვლა" },
+  "password": { "EN": "Password", "GE": "პაროლი" },
+  "repeat_password": { "EN": "Confirm Password", "GE": "გაიმეორეთ პაროლი" },
+  "submit_sign_up": { "EN": "Continue", "GE": "გაგრძელება" },
+  "profile_image": { "EN": "Profile Image", "GE": "პროფილის სურათი" },
+  "username_length": {
+    "EN": "Username must be at least 4 characters",
+    "GE": "მომხმარებლის სახელი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
+  },
+  "password_length": {
+    "EN": "Password must be at least 4 characters",
+    "GE": "პაროლი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
+  },
+  "password_mismatch": {
+    "EN": "Passwords do not match",
+    "GE": "პაროლები ერთმანეთს არ ემთხვევა"
+  },
+  "avatarHover": {
+    "EN": "Click to change avatar",
+    "GE": "ავატარის შესაცვლელად დააჭირეთ"
+  }
 }
