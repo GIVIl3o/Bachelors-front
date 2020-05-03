@@ -1,6 +1,7 @@
 .input {
   width: 100%;
-  margin-top: 1.25rem;
+  margin-top: 1.75rem;
+  text-transform: none;
 }
 
 .pointer {
@@ -18,6 +19,38 @@
 }
 
 .login {
-  font-weight: bold;
+  color: #0366d6;
   margin-left: 10px;
+  cursor: pointer;
+}
+
+.marginLeft {
+  margin-left: 0.5rem;
+}
+.marginLeftClean {
+  margin-left: 0rem;
+}
+
+.submit {
+  margin-top: 1.75rem;
+  width: 100%;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  text-transform: none;
+}
+
+.paper {
+  margin-top: 1rem;
+  padding: 1.5rem;
+}
+
+.avatar {
+  cursor: pointer;
+  margin: auto;
+  display: inline-flex;
+}
+
+.avatarDiv {
+  text-align: center;
+  height: 2rem;
 }
