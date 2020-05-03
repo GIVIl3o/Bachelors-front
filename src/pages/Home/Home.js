@@ -1,11 +1,22 @@
-import React from "react";
-import { center } from "./styles.module.css";
-import Registration from "components/Registration";
+import React, { useContext } from "react";
+import { UserContext } from "App";
 
 const Home = () => {
+  const { setUsername } = useContext(UserContext);
+
+  const logout = () => {
+    localStorage.removeItem("jwt");
+    setUsername(undefined);
+  };
+
   return (
-    <div className={center}>
-      <Registration />
+    <div style={{ alignSelf: "baseline" }}>
+      <input
+        type="submit"
+        onClick={logout}
+        value="Logout"
+        style={{ margin: "20px" }}
+      />
     </div>
   );
 };

@@ -1,14 +1,17 @@
 .languageButton {
-  margin-left: 70%;
-  border: 1px solid;
-  border-radius: 8%;
-  min-width: 4rem;
+  color: black;
+  height: 3rem;
+  align-self: center;
 }
 
 .navbarConteiner {
-  margin-top: 8%;
+  margin-top: 4rem;
+  height: 4rem;
+  display: grid;
+  grid-template-columns: 1fr min-content;
 }
 
 .logo {
-  width: 15%;
+  height: 4rem;
+  cursor: pointer;
 }
