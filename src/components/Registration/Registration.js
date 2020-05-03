@@ -1,11 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import TextFieldPassword from "components/utils/TextFieldPassword/";
-import { TextField, InputAdornment } from "@material-ui/core";
+import {
+  TextField,
+  InputAdornment,
+  Button,
+  Paper,
+  Avatar,
+} from "@material-ui/core";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import SubmitButton from "components/utils/SubmitButton";
 import axios from "axios";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import { UserContext } from "App";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import Tooltip from "@material-ui/core/Tooltip";
 
 import {
   input,
@@ -13,17 +21,32 @@ import {
   color,
   secondaryText,
   login,
+  marginLeft,
+  marginLeftClean,
+  paper,
+  submit,
+  avatar,
+  avatarDiv,
 } from "./styles.module.css";
 
-const register = (state, setState, setUsername, setMessage) => {
+const register = (state, setState, setUsername, setMessage, text) => {
+  if (state.username.length < 4) {
+    setMessage(text.username_length, MessageTypes.warning);
+    return;
+  }
+  if (state.password.length < 4) {
+    setMessage(text.password_length, MessageTypes.warning);
+    return;
+  }
   if (state.password !== state.repeatPassword) {
-    setMessage("Passwords do not match", MessageTypes.error);
+    setMessage(text.password_mismatch, MessageTypes.error);
     return;
   }
 
   const formData = new FormData();
   formData.append("username", state.username);
   formData.append("password", state.password);
+  state.image && formData.append("avatar", state.image);
 
   setState({ ...state, loading: true });
 
@@ -49,6 +72,7 @@ const Registration = () => {
   const setMessage = useContext(MessageContext);
   const { setUsername } = useContext(UserContext);
   const { text } = useContext(UserContext);
+  const usernameRef = useRef(null);
 
   const [state, setState] = useState({
     username: "",
@@ -60,6 +84,26 @@ const Registration = () => {
   const updateState = (e) =>
     setState({ ...state, [e.target.name]: e.target.value });
 
+  const labelProps = {
+    classes: { shrink: marginLeftClean, root: marginLeft },
+  };
+
+  const imageChanged = (image) => {
+    if (!image) return;
+
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      setState({
+        ...state,
+        image,
+        profileImageResult: fileReader.result,
+      });
+    };
+    fileReader.readAsDataURL(image);
+  };
+
+  const defaultAvatar = "/images/default_avatar.png";
+
   return (
     <div>
       <h1 className={color}>{text.sign_up}</h1>
@@ -67,53 +111,90 @@ const Registration = () => {
         {text.have_account}
         <span className={login}>{text.login}</span>
       </div>
-      <form>
+      <Paper className={paper}>
+        <div className={avatarDiv}>
+          <label htmlFor="contained-button-file">
+            <Tooltip title={text.avatarHover} placement="top">
+              <Avatar
+                src={state.profileImageResult || defaultAvatar}
+                className={avatar}
+              />
+            </Tooltip>
+          </label>
+        </div>
         <TextField
           label={text.login_button}
           color="primary"
           variant="outlined"
           InputProps={{
             endAdornment: (
-              <InputAdornment position="end" className={pointer}>
+              <InputAdornment
+                position="end"
+                className={pointer}
+                onClick={() => usernameRef.current.focus()}
+              >
                 <AccountCircle />
               </InputAdornment>
             ),
           }}
+          InputLabelProps={labelProps}
           className={input}
           value={state.username}
           onChange={updateState}
           name="username"
+          inputRef={usernameRef}
           autoFocus
         />
         <TextFieldPassword
           className={input}
           variant="outlined"
-          label="Password"
+          label={text.password}
           name="password"
           onChange={updateState}
+          InputLabelProps={labelProps}
         />
         <TextFieldPassword
           className={input}
           variant="outlined"
-          label="Repeat password"
+          label={text.repeat_password}
           name="repeatPassword"
           onChange={updateState}
+          InputLabelProps={labelProps}
         />
+
+        <input
+          accept="image/*"
+          style={{ display: "none" }}
+          id="contained-button-file"
+          type="file"
+          onChange={(e) => imageChanged(e.target.files[0])}
+        />
+        <label htmlFor="contained-button-file">
+          <Button
+            variant="contained"
+            component="span"
+            color="secondary"
+            className={input}
+            startIcon={<CloudUploadIcon />}
+          >
+            {text.profile_image}
+          </Button>
+        </label>
 
         <SubmitButton
           variant="contained"
           color="primary"
           onClick={(e) => {
             e.preventDefault();
-            register(state, setState, setUsername, setMessage);
+            register(state, setState, setUsername, setMessage, text);
           }}
           disabled={state.image === null}
           loading={state.loading}
-          className={input}
+          className={submit}
         >
-          Sign up
+          {text.submit_sign_up}
         </SubmitButton>
-      </form>
+      </Paper>
     </div>
   );
 };
