@@ -2,3 +2,32 @@
   align-self: center;
   justify-self: center;
 }
+
+.layout {
+  display: grid;
+  height: min-content;
+  grid-gap: 5rem;
+}
+
+.textClass {
+  align-self: end;
+  margin-left: 1rem;
+}
+
+@media only screen and (max-width: 750px) {
+  .layout {
+    grid-gap: 2rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.description {
+  color: hsla(0, 0%, 0%, 0.8);
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
