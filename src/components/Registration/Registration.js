@@ -7,7 +7,13 @@ import axios from "axios";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import { UserContext } from "App";
 
-import { input, pointer } from "./styles.module.css";
+import {
+  input,
+  pointer,
+  color,
+  secondaryText,
+  login,
+} from "./styles.module.css";
 
 const register = (state, setState, setUsername, setMessage) => {
   if (state.password !== state.repeatPassword) {
@@ -42,6 +48,7 @@ const register = (state, setState, setUsername, setMessage) => {
 const Registration = () => {
   const setMessage = useContext(MessageContext);
   const { setUsername } = useContext(UserContext);
+  const { text } = useContext(UserContext);
 
   const [state, setState] = useState({
     username: "",
@@ -54,50 +61,60 @@ const Registration = () => {
     setState({ ...state, [e.target.name]: e.target.value });
 
   return (
-    <form>
-      <TextField
-        label="Username"
-        color="secondary"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end" className={pointer}>
-              <AccountCircle />
-            </InputAdornment>
-          ),
-        }}
-        className={input}
-        value={state.username}
-        onChange={updateState}
-        name="username"
-        autoFocus
-      />
-      <TextFieldPassword
-        className={input}
-        label="Password"
-        name="password"
-        onChange={updateState}
-      />
-      <TextFieldPassword
-        className={input}
-        label="Repeat password"
-        name="repeatPassword"
-        onChange={updateState}
-      />
+    <div>
+      <h1 className={color}>{text.sign_up}</h1>
+      <div className={secondaryText}>
+        {text.have_account}
+        <span className={login}>{text.login}</span>
+      </div>
+      <form>
+        <TextField
+          label={text.login_button}
+          color="primary"
+          variant="outlined"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end" className={pointer}>
+                <AccountCircle />
+              </InputAdornment>
+            ),
+          }}
+          className={input}
+          value={state.username}
+          onChange={updateState}
+          name="username"
+          autoFocus
+        />
+        <TextFieldPassword
+          className={input}
+          variant="outlined"
+          label="Password"
+          name="password"
+          onChange={updateState}
+        />
+        <TextFieldPassword
+          className={input}
+          variant="outlined"
+          label="Repeat password"
+          name="repeatPassword"
+          onChange={updateState}
+        />
 
-      <SubmitButton
-        variant="contained"
-        color="primary"
-        onClick={(e) => {
-          e.preventDefault();
-          register(state, setState, setUsername, setMessage);
-        }}
-        disabled={state.image === null}
-        loading={state.loading}
-        className={input}
-      >
-        Sign up
-      </SubmitButton>
-    </form>
+        <SubmitButton
+          variant="contained"
+          color="primary"
+          onClick={(e) => {
+            e.preventDefault();
+            register(state, setState, setUsername, setMessage);
+          }}
+          disabled={state.image === null}
+          loading={state.loading}
+          className={input}
+        >
+          Sign up
+        </SubmitButton>
+      </form>
+    </div>
   );
 };
 

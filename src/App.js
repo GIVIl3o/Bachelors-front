@@ -6,6 +6,8 @@ import axios from "axios";
 import Navbar from "./components/Navbar/";
 import Homepage from "./pages/Home/";
 import Messages from "components/utils/Messages";
+import Text from "Text.json";
+import withWidth, { isWidthUp, isWidthDown } from "@material-ui/core/withWidth";
 
 let user = "";
 let savedLanguage = "";
@@ -28,14 +30,23 @@ try {
 
 export const UserContext = createContext({});
 
-const App = () => {
+const App = ({ width }) => {
   const [username, setUsername] = useState(user);
   const [language, setLanguage] = useState(savedLanguage);
+
+  const text = { ...Text };
+  Object.keys(Text).forEach((t) => (text[t] = Text[t][language]));
+
+  const cssMargin = isWidthDown("xs", width)
+    ? {}
+    : isWidthUp("md", width)
+    ? { marginLeft: "5rem", marginRight: "5rem" }
+    : { marginLeft: "2rem", marginRight: "2rem" };
 
   return (
     <StylesProvider injectFirst>
       <UserContext.Provider
-        value={{ username, setUsername, language, setLanguage }}
+        value={{ username, setUsername, text, language, setLanguage }}
       >
         <Messages>
           <BrowserRouter>
@@ -44,6 +55,7 @@ const App = () => {
                 display: "grid",
                 gridTemplateRows: "auto 1fr",
                 height: "100vh",
+                ...cssMargin,
               }}
             >
               <Navbar />
@@ -59,4 +71,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withWidth()(App);
