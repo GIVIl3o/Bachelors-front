@@ -20,23 +20,26 @@ const Navbar = () => {
   };
 
   return (
-    <div className={navbarConteiner}>
-      <Link to="/" style={{ width: "fit-content" }}>
-        <img
-          src="https://s3.eu-central-1.amazonaws.com/scrumhub.co/images/logo.png"
-          alt=""
-          className={logo}
-          onDragStart={(e) => e.preventDefault()}
-        />
-      </Link>
-      <Button
-        className={languageButton}
-        onClick={changeLanguage}
-        color="primary"
-        variant="outlined"
-      >
-        {language}
-      </Button>
+    <div>
+      <div className={navbarConteiner}>
+        <Link to="/" style={{ width: "fit-content" }}>
+          <img
+            src="https://s3.eu-central-1.amazonaws.com/scrumhub.co/images/logo.png"
+            alt=""
+            className={logo}
+            onDragStart={(e) => e.preventDefault()}
+          />
+        </Link>
+        <Button
+          className={languageButton}
+          onClick={changeLanguage}
+          color="primary"
+          variant="outlined"
+        >
+          {language}
+        </Button>
+      </div>
+      <hr />
     </div>
   );
 };
