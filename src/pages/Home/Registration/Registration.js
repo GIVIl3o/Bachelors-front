@@ -27,6 +27,7 @@ import {
   submit,
   avatar,
   avatarDiv,
+  upperLoginText,
 } from "./styles.module.css";
 import { Link } from "react-router-dom";
 
@@ -107,13 +108,15 @@ const Registration = () => {
   const defaultAvatar = "/images/default_avatar.png";
 
   return (
-    <div>
-      <h1 className={color}>{text.sign_up}</h1>
-      <div className={secondaryText}>
-        {text.have_account}
-        <Link className={login} to="/login">
-          {text.login}
-        </Link>
+    <form>
+      <div className={upperLoginText}>
+        <h1 className={color}>{text.sign_up}</h1>
+        <div className={secondaryText}>
+          {text.have_account}
+          <Link className={login} to="/login">
+            {text.login}
+          </Link>
+        </div>
       </div>
       <Paper className={paper}>
         <div className={avatarDiv}>
@@ -199,7 +202,7 @@ const Registration = () => {
           {text.submit_sign_up}
         </SubmitButton>
       </Paper>
-    </div>
+    </form>
   );
 };
 

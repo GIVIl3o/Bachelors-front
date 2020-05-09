@@ -25,7 +25,7 @@
   text-decoration: none;
 }
 
-.marginLeft {
+.marinLeft {
   margin-left: 0.5rem;
 }
 .marginLeftClean {
@@ -54,4 +54,8 @@
 .avatarDiv {
   text-align: center;
   height: 2rem;
+}
+
+.upperLoginText {
+  margin-left: 1rem;
 }
