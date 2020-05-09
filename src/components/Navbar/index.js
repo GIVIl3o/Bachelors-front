@@ -1,11 +1,7 @@
-import React, { useContext } from "react";
-import Navbar from "./Navbar";
+import React from "react";
 import UnAuthenticatedNavbar from "./UnAuthenticatedNavbar";
-import { UserContext } from "App";
 
 export default ({ children, ...props }) => {
-  const { username } = useContext(UserContext);
-  const Home = username ? Navbar : UnAuthenticatedNavbar;
-
-  return <Home {...props}>{children}</Home>;
+  // TODO authenticated think of
+  return <UnAuthenticatedNavbar {...props}>{children}</UnAuthenticatedNavbar>;
 };

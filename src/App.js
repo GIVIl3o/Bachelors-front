@@ -9,6 +9,7 @@ import LoginPage from "./pages/Login/";
 import Messages from "components/utils/Messages";
 import Text from "Text.json";
 import withWidth, { isWidthUp, isWidthDown } from "@material-ui/core/withWidth";
+import Footer from "./components/Footer";
 
 let user = "";
 let savedLanguage = "";
@@ -45,6 +46,13 @@ const App = ({ width }) => {
     ? { marginLeft: "5rem", marginRight: "5rem" }
     : { marginLeft: "2rem", marginRight: "2rem" };
 
+  const routes = username
+    ? [{ path: "/", component: Homepage }]
+    : [
+        { path: "/", component: Homepage },
+        { path: "/login", component: LoginPage },
+      ];
+
   return (
     <StylesProvider injectFirst>
       <UserContext.Provider
@@ -55,17 +63,24 @@ const App = ({ width }) => {
             <div
               style={{
                 display: "grid",
-                gridTemplateRows: "auto 1fr",
+                gridTemplateRows: "auto 1fr auto",
                 height: "100vh",
                 ...cssMargin,
               }}
             >
               <Navbar />
               <Switch>
-                <Route path="/" component={Homepage} exact />
-                <Route path="/login" component={LoginPage} exact />
+                {routes.map((route) => (
+                  <Route
+                    path={route.path}
+                    component={route.component}
+                    exact
+                    key={route.path}
+                  />
+                ))}
                 <Route render={() => <Redirect to="/" />} />
               </Switch>
+              <Footer />
             </div>
           </BrowserRouter>
         </Messages>

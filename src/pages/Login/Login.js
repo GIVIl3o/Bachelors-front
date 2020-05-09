@@ -10,7 +10,8 @@ import { UserContext } from "App";
 import {
   marginLeft,
   marginLeftClean,
-  centerPaper,
+  centerForm,
+  paper,
   pointer,
   input,
   avatarWrapper,
@@ -59,6 +60,8 @@ const Login = () => {
   const usernameRef = useRef(null);
   const setMessage = useContext(MessageContext);
 
+  document.title = text.login_title;
+
   const updateState = (e) =>
     setState({ ...state, [e.target.name]: e.target.value });
 
@@ -70,58 +73,63 @@ const Login = () => {
   };
 
   return (
-    <Paper className={centerPaper}>
-      <div className={avatarWrapper}>
-        <Avatar src={state.image || defaultAvatar} style={{ margin: "auto" }} />
-      </div>
-      <TextField
-        label={text.login_button}
-        color="primary"
-        variant="outlined"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment
-              position="end"
-              className={pointer}
-              onClick={() => usernameRef.current.focus()}
-            >
-              <AccountCircle />
-            </InputAdornment>
-          ),
-        }}
-        InputLabelProps={labelProps}
-        className={input}
-        value={state.username}
-        onChange={updateState}
-        name="username"
-        inputRef={usernameRef}
-        onBlur={updateImage}
-        autoFocus
-      />
+    <form className={centerForm}>
+      <Paper className={paper}>
+        <div className={avatarWrapper}>
+          <Avatar
+            src={state.image || defaultAvatar}
+            style={{ margin: "auto" }}
+          />
+        </div>
+        <TextField
+          label={text.login_button}
+          color="primary"
+          variant="outlined"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment
+                position="end"
+                className={pointer}
+                onClick={() => usernameRef.current.focus()}
+              >
+                <AccountCircle />
+              </InputAdornment>
+            ),
+          }}
+          InputLabelProps={labelProps}
+          className={input}
+          value={state.username}
+          onChange={updateState}
+          name="username"
+          inputRef={usernameRef}
+          onBlur={updateImage}
+          autoFocus
+        />
 
-      <TextFieldPassword
-        className={input}
-        variant="outlined"
-        label={text.password}
-        name="password"
-        onChange={updateState}
-        InputLabelProps={labelProps}
-      />
+        <TextFieldPassword
+          className={input}
+          variant="outlined"
+          label={text.password}
+          name="password"
+          onChange={updateState}
+          InputLabelProps={labelProps}
+        />
 
-      <SubmitButton
-        variant="contained"
-        color="primary"
-        onClick={(e) => {
-          e.preventDefault();
-          login(state, setState, setUsername, setMessage, textLang);
-        }}
-        disabled={state.image === null}
-        loading={state.loading}
-        className={submit}
-      >
-        {text.submit_sign_up}
-      </SubmitButton>
-    </Paper>
+        <SubmitButton
+          variant="contained"
+          color="primary"
+          onClick={(e) => {
+            e.preventDefault();
+            login(state, setState, setUsername, setMessage, textLang);
+          }}
+          disabled={state.image === null}
+          loading={state.loading}
+          className={submit}
+        >
+          {text.submit_sign_up}
+        </SubmitButton>
+      </Paper>
+    </form>
   );
 };
 

@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
-import { layout, textClass, description } from "./styles.module.css";
-import Registration from "components/Registration";
+import { layout, textClass, description } from "./UnAuthenticated.module.css";
+import Registration from "pages/Home/Registration";
 import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 import { UserContext } from "App";
 
 const Home = ({ width }) => {
   const { text } = useContext(UserContext);
+
+  document.title = text.unauthorized_home_title;
 
   return (
     <div className={layout}>
