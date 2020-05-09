@@ -5,6 +5,7 @@ import jwtDecode from "jwt-decode";
 import axios from "axios";
 import Navbar from "./components/Navbar/";
 import Homepage from "./pages/Home/";
+import LoginPage from "./pages/Login/";
 import Messages from "components/utils/Messages";
 import Text from "Text.json";
 import withWidth, { isWidthUp, isWidthDown } from "@material-ui/core/withWidth";
@@ -35,6 +36,7 @@ const App = ({ width }) => {
   const [language, setLanguage] = useState(savedLanguage);
 
   const text = { ...Text };
+  const textLang = { ...Text };
   Object.keys(Text).forEach((t) => (text[t] = Text[t][language]));
 
   const cssMargin = isWidthDown("xs", width)
@@ -46,7 +48,7 @@ const App = ({ width }) => {
   return (
     <StylesProvider injectFirst>
       <UserContext.Provider
-        value={{ username, setUsername, text, language, setLanguage }}
+        value={{ username, setUsername, text, textLang, language, setLanguage }}
       >
         <Messages>
           <BrowserRouter>
@@ -61,6 +63,7 @@ const App = ({ width }) => {
               <Navbar />
               <Switch>
                 <Route path="/" component={Homepage} exact />
+                <Route path="/login" component={LoginPage} exact />
                 <Route render={() => <Redirect to="/" />} />
               </Switch>
             </div>
