@@ -28,18 +28,19 @@ import {
   avatar,
   avatarDiv,
 } from "./styles.module.css";
+import { Link } from "react-router-dom";
 
-const register = (state, setState, setUsername, setMessage, text) => {
+const register = (state, setState, setUsername, setMessage, textLang) => {
   if (state.username.length < 4) {
-    setMessage(text.username_length, MessageTypes.warning);
+    setMessage(textLang.username_length, MessageTypes.warning);
     return;
   }
   if (state.password.length < 4) {
-    setMessage(text.password_length, MessageTypes.warning);
+    setMessage(textLang.password_length, MessageTypes.warning);
     return;
   }
   if (state.password !== state.repeatPassword) {
-    setMessage(text.password_mismatch, MessageTypes.error);
+    setMessage(textLang.password_mismatch, MessageTypes.error);
     return;
   }
 
@@ -54,7 +55,7 @@ const register = (state, setState, setUsername, setMessage, text) => {
     .post("/registration", formData)
     .then((response) => {
       localStorage.setItem("jwt", response.data);
-      setMessage(`Welcome ${state.username}`, MessageTypes.success);
+      setMessage(textLang.authentication_welcome, MessageTypes.success);
       setState({ ...state, loading: false });
       axios.defaults.headers.common = {
         Authorization: `Bearer ${response.data}`,
@@ -62,8 +63,9 @@ const register = (state, setState, setUsername, setMessage, text) => {
       setUsername(state.username);
     })
     .catch((error) => {
-      const errorMessage = error.response.data;
-      setMessage(errorMessage.message, MessageTypes.error);
+      error.response.status === 400 &&
+        setMessage(textLang.username_taken, MessageTypes.error);
+
       setState({ ...state, loading: false });
     });
 };
@@ -71,7 +73,7 @@ const register = (state, setState, setUsername, setMessage, text) => {
 const Registration = () => {
   const setMessage = useContext(MessageContext);
   const { setUsername } = useContext(UserContext);
-  const { text } = useContext(UserContext);
+  const { text, textLang } = useContext(UserContext);
   const usernameRef = useRef(null);
 
   const [state, setState] = useState({
@@ -109,12 +111,14 @@ const Registration = () => {
       <h1 className={color}>{text.sign_up}</h1>
       <div className={secondaryText}>
         {text.have_account}
-        <span className={login}>{text.login}</span>
+        <Link className={login} to="/login">
+          {text.login}
+        </Link>
       </div>
       <Paper className={paper}>
         <div className={avatarDiv}>
           <label htmlFor="contained-button-file">
-            <Tooltip title={text.avatarHover} placement="top">
+            <Tooltip title={text.avatar_hover} placement="top">
               <Avatar
                 src={state.profileImageResult || defaultAvatar}
                 className={avatar}
@@ -186,7 +190,7 @@ const Registration = () => {
           color="primary"
           onClick={(e) => {
             e.preventDefault();
-            register(state, setState, setUsername, setMessage, text);
+            register(state, setState, setUsername, setMessage, textLang);
           }}
           disabled={state.image === null}
           loading={state.loading}
