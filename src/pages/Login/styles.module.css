@@ -5,13 +5,16 @@
   margin-left: 0rem;
 }
 
-.centerPaper {
+.centerForm {
   height: fit-content;
   width: fit-content;
-  padding: 2rem;
   justify-self: center;
   align-self: center;
   margin-bottom: 5rem;
+}
+
+.paper {
+  padding: 2rem;
 }
 
 .pointer {

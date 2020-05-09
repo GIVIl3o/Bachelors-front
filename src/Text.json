@@ -42,5 +42,29 @@
   "username_taken": {
     "EN": "User with such username already exists",
     "GE": "მომხმარებელი ასეთი სახელით უკვე არსებობს"
+  },
+  "footer_text": {
+    "EN": "Footer text Maria will think of",
+    "GE": "ფუტერის ტექსტი"
+  },
+  "unauthorized_home_title": {
+    "EN": "Scrumhub | Sign Up",
+    "GE": "Scrumhub | რეგისტრაცია"
+  },
+  "login_title": {
+    "EN": "Scrumhub | Sign In",
+    "GE": "Scrumhub | შესვლა"
+  },
+  "home_title": {
+    "EN": "Scrumhub | Home",
+    "GE": "Scrumhub | პანელი"
+  },
+  "currently_have": {
+    "EN": "You currently have:",
+    "GE": "ახლა გაქვთ:"
+  },
+  "project_header": {
+    "EN": "PROJECTS",
+    "GE": "პროექტები"
   }
 }
