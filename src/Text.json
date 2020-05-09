@@ -27,8 +27,20 @@
     "EN": "Passwords do not match",
     "GE": "პაროლები ერთმანეთს არ ემთხვევა"
   },
-  "avatarHover": {
+  "avatar_hover": {
     "EN": "Click to change avatar",
     "GE": "ავატარის შესაცვლელად დააჭირეთ"
+  },
+  "wrong_credentials": {
+    "EN": "Wrong username or password",
+    "GE": "არასწორი სახელი ან პაროლი"
+  },
+  "authentication_welcome": {
+    "EN": "Welcome",
+    "GE": "გამარჯობა"
+  },
+  "username_taken": {
+    "EN": "User with such username already exists",
+    "GE": "მომხმარებელი ასეთი სახელით უკვე არსებობს"
   }
 }

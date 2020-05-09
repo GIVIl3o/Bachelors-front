@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useContext } from "react";
 import Snackbar from "@material-ui/core/Snackbar";
 import { IconButton, SnackbarContent } from "@material-ui/core";
 import clsx from "clsx";
@@ -9,6 +9,7 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import ErrorIcon from "@material-ui/icons/Error";
 import InfoIcon from "@material-ui/icons/Info";
 import CloseIcon from "@material-ui/icons/Close";
+import { UserContext } from "App";
 
 export const MessageContext = createContext();
 
@@ -16,36 +17,38 @@ const variantIcon = {
   success: CheckCircleIcon,
   warning: WarningIcon,
   error: ErrorIcon,
-  info: InfoIcon
+  info: InfoIcon,
 };
 
-const useStyles1 = makeStyles(theme => ({
+const useStyles1 = makeStyles((theme) => ({
   success: {
-    backgroundColor: green[600]
+    backgroundColor: green[600],
   },
   error: {
-    backgroundColor: theme.palette.error.dark
+    backgroundColor: theme.palette.error.dark,
   },
   info: {
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.primary.main,
   },
   warning: {
-    backgroundColor: amber[700]
+    backgroundColor: amber[700],
   },
   icon: {
-    fontSize: 20
+    fontSize: 20,
   },
   iconVariant: {
     opacity: 0.9,
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
   },
   message: {
     display: "flex",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 }));
 
-function MySnackbarContentWrapper(props) {
+const MySnackbarContentWrapper = (props) => {
+  const { language } = useContext(UserContext);
+
   const classes = useStyles1();
   const { className, message, onClose, variant, ...other } = props;
   const Icon = variantIcon[variant];
@@ -56,24 +59,24 @@ function MySnackbarContentWrapper(props) {
       message={
         <span className={classes.message}>
           <Icon className={clsx(classes.icon, classes.iconVariant)} />
-          {message}
+          {message[language]}
         </span>
       }
       action={[
         <IconButton key="close" color="inherit" onClick={onClose}>
           <CloseIcon className={classes.icon} />
-        </IconButton>
+        </IconButton>,
       ]}
       {...other}
     />
   );
-}
+};
 
 export const MessageTypes = {
   success: "success",
   warning: "warning",
   error: "error",
-  info: "info"
+  info: "info",
 };
 
 const Messages = ({ children }) => {
@@ -81,7 +84,7 @@ const Messages = ({ children }) => {
     open: false,
     message: "",
     messageType: MessageTypes.error,
-    timeoutId: 0
+    timeoutId: 0,
   });
 
   const close = (event, reason) => {
@@ -98,7 +101,7 @@ const Messages = ({ children }) => {
       messageType,
       timeoutId: window.setTimeout(() => {
         setState({ ...state, message, messageType, open: false });
-      }, messageTime)
+      }, messageTime),
     });
   };
 
