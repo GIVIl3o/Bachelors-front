@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import axios from "axios";
-import { baseUrl } from "../package.json";
+import { baseUrl, imageBase } from "../package.json";
 
 axios.defaults.baseURL = baseUrl;
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App imageBase={imageBase} />, document.getElementById("root"));
