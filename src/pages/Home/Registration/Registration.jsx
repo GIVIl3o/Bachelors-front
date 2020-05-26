@@ -1,12 +1,8 @@
 import React, { useState, useContext, useRef } from "react";
 import TextFieldPassword from "components/utils/TextFieldPassword/";
-import {
-  TextField,
-  InputAdornment,
-  Button,
-  Paper,
-  Avatar,
-} from "@material-ui/core";
+import MarginTextField from "components/utils/MarginTextField";
+
+import { InputAdornment, Button, Paper, Avatar } from "@material-ui/core";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import SubmitButton from "components/utils/SubmitButton";
 import axios from "axios";
@@ -21,8 +17,6 @@ import {
   color,
   secondaryText,
   login,
-  marginLeft,
-  marginLeftClean,
   paper,
   submit,
   avatar,
@@ -87,10 +81,6 @@ const Registration = () => {
   const updateState = (e) =>
     setState({ ...state, [e.target.name]: e.target.value });
 
-  const labelProps = {
-    classes: { shrink: marginLeftClean, root: marginLeft },
-  };
-
   const imageChanged = (image) => {
     if (!image) return;
 
@@ -106,7 +96,7 @@ const Registration = () => {
   };
 
   const defaultAvatar = "/images/default_avatar.png";
-
+  console.log("dasssss");
   return (
     <form>
       <div className={upperLoginText}>
@@ -129,7 +119,7 @@ const Registration = () => {
             </Tooltip>
           </label>
         </div>
-        <TextField
+        <MarginTextField
           label={text.login_button}
           color="primary"
           variant="outlined"
@@ -144,7 +134,6 @@ const Registration = () => {
               </InputAdornment>
             ),
           }}
-          InputLabelProps={labelProps}
           className={input}
           value={state.username}
           onChange={updateState}
@@ -158,7 +147,7 @@ const Registration = () => {
           label={text.password}
           name="password"
           onChange={updateState}
-          InputLabelProps={labelProps}
+          value={state.password}
         />
         <TextFieldPassword
           className={input}
@@ -166,7 +155,7 @@ const Registration = () => {
           label={text.repeat_password}
           name="repeatPassword"
           onChange={updateState}
-          InputLabelProps={labelProps}
+          value={state.repeatPassword}
         />
 
         <input

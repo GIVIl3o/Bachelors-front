@@ -3,13 +3,14 @@ import { Route, BrowserRouter, Redirect, Switch } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
-import Navbar from "./components/Navbar/";
-import Homepage from "./pages/Home/";
-import LoginPage from "./pages/Login/";
+import Navbar from "./components/Navbar";
+import Homepage from "./pages/Home";
+import LoginPage from "./pages/Login";
 import Messages from "components/utils/Messages";
 import Text from "Text.json";
 import withWidth, { isWidthUp, isWidthDown } from "@material-ui/core/withWidth";
 import Footer from "./components/Footer";
+import Epics from "./pages/Epics";
 
 let user = "";
 let savedLanguage = "";
@@ -32,7 +33,7 @@ try {
 
 export const UserContext = createContext({});
 
-const App = ({ width }) => {
+const App = ({ width, imageBase }) => {
   const [username, setUsername] = useState(user);
   const [language, setLanguage] = useState(savedLanguage);
 
@@ -47,7 +48,10 @@ const App = ({ width }) => {
     : { marginLeft: "2rem", marginRight: "2rem" };
 
   const routes = username
-    ? [{ path: "/", component: Homepage }]
+    ? [
+        { path: "/", component: Homepage },
+        { path: "/projects/:id", component: Epics },
+      ]
     : [
         { path: "/", component: Homepage },
         { path: "/login", component: LoginPage },
@@ -56,7 +60,15 @@ const App = ({ width }) => {
   return (
     <StylesProvider injectFirst>
       <UserContext.Provider
-        value={{ username, setUsername, text, textLang, language, setLanguage }}
+        value={{
+          imageBase,
+          username,
+          setUsername,
+          text,
+          textLang,
+          language,
+          setLanguage,
+        }}
       >
         <Messages>
           <BrowserRouter>

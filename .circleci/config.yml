@@ -1,9 +1,9 @@
 version: 2.1
 jobs:
-  build:
+  deploy:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:8.9.1
+      - image: katafractari/node-10-python-aws-cli
     steps:
       - checkout
       - restore_cache:
@@ -13,18 +13,9 @@ jobs:
 
       - save_cache:
           paths:
-            - ~/.m2
+            - ./node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm test -- --watchAll=false --passWithNoTests
-
-  deploy:
-    working_directory: ~/repo
-    docker:
-      - image: katafractari/node-10-python-aws-cli
-    steps:
-      - checkout
-      - run: npm install
       - run: npm run build
       - run: aws s3 sync --acl public-read build/ s3://${BUCKET_NAME}
 
@@ -32,7 +23,4 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
+      - deploy

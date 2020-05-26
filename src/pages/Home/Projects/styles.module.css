@@ -19,6 +19,19 @@
   display: flex;
   align-items: flex-end;
   border-style: groove;
+  max-width: 400px;
+  cursor: pointer;
+  color: #3c3c3c;
+  border-color: #9a9a9a66;
+}
+
+.project:visited {
+  border-color: #9a9a9a66;
+}
+
+.project:hover {
+  border-color: cornflowerblue;
+  color: #6141ff;
 }
 
 .projectName {
@@ -30,12 +43,21 @@
   display: grid;
   border-style: groove;
   cursor: pointer;
+  max-width: 400px;
+}
+
+.addProject:hover {
+  border-color: cornflowerblue;
+  color: #6141ff;
 }
 
 .addProjectText {
-  align-self: center;
-  justify-self: center;
   font-size: 250px;
   color: #555555;
   user-select: none;
+  text-align: center;
+}
+
+.addProjectText:hover {
+  color: inherit;
 }

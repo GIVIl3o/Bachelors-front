@@ -1,0 +1,37 @@
+.input {
+  width: 100%;
+  margin-top: 2.1rem;
+  text-transform: none;
+}
+
+.textPadding {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.addMemberWrapper {
+  display: flex;
+  margin-top: 2.1rem;
+  align-items: center;
+}
+
+.memberSelector {
+  flex: 1 1 auto;
+}
+.margin {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.member {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.memberAvatar {
+  display: inline-block;
+}
