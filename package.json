@@ -43,6 +43,6 @@
       "last 1 safari version"
     ]
   },
-  "baseUrl": "http://localhost:8080",
+  "baseUrl": "http://ec2-3-125-21-233.eu-central-1.compute.amazonaws.com",
   "imageBase": "https://s3.eu-central-1.amazonaws.com/scrumhub.co"
 }
