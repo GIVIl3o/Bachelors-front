@@ -1,0 +1,11 @@
+.marginText {
+  padding-left: 1rem;
+}
+
+.root {
+  margin-left: 1rem;
+}
+
+.shrink {
+  margin-left: 0rem;
+}

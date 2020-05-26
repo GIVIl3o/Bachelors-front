@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { TextField, InputAdornment } from "@material-ui/core";
+import { InputAdornment } from "@material-ui/core";
 
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 import { input, cursorPointer } from "./styles.module.css";
+import MarginTextField from "components/utils/MarginTextField";
 
 const TextFieldPassword = ({ setValue, ...rest }) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <TextField
+    <MarginTextField
       className={input}
       type={showPassword ? "text" : "password"}
       color="secondary"
@@ -22,7 +23,7 @@ const TextFieldPassword = ({ setValue, ...rest }) => {
           >
             {showPassword ? <Visibility /> : <VisibilityOff />}
           </InputAdornment>
-        )
+        ),
       }}
       {...rest}
     />
