@@ -66,5 +66,71 @@
   "project_header": {
     "EN": "PROJECTS",
     "GE": "პროექტები"
+  },
+  "create_project": {
+    "EN": "Create Project",
+    "GE": "პროექტის შექმნა"
+  },
+  "create_project_title": {
+    "EN": "Project Name",
+    "GE": "პროექტის სახელი"
+  },
+  "create_project_description": {
+    "EN": "Project Description",
+    "GE": "პროექტის აღწერა"
+  },
+  "create_project_description_too_long": {
+    "EN": "Project description can't be more than 300 characters",
+    "GE": "პროექტის არწერა 300 სიმბოლოს არ უნდა აღემატებოდეს"
+  },
+  "create_project_add_members": {
+    "EN": "Add Members",
+    "GE": "დაამატე წევრები"
+  },
+  "permissions_member": {
+    "ENUM": "MEMBER",
+    "EN": "member",
+    "GE": "წევრი"
+  },
+  "permissions_administrator": {
+    "ENUM": "ADMIN",
+    "EN": "administrator",
+    "GE": "ადმინისტრატორი"
+  },
+  "username_not_found": {
+    "EN": "Cannot find user",
+    "GE": "ასეთი მომხმარებელი ვერ მოიძებნა"
+  },
+  "project_title_min": {
+    "EN": "Project title must be at least 4 characters",
+    "GE": "პროექტის სახელი მინიმუმ 4 სიმბოლოსგან უნდა შედგებოდეს"
+  },
+  "project_description_min": {
+    "EN": "Project description must be at least 10 characters",
+    "GE": "პროექტის აღწერა მინიმუმ 10 სიმბოლოსგან უნდა შედგებოდეს"
+  },
+  "project_not_found": {
+    "EN": "Project not found",
+    "GE": "პროექტი ვერ მოიძებნა"
+  },
+  "project_epics": {
+    "EN": "Project Epics",
+    "GE": "პროექტის ეპიკები"
+  },
+  "add_epic": {
+    "EN": "Add Epic",
+    "GE": "ეპიკის დამატება"
+  },
+  "project_no_epics": {
+    "EN": "This project has no epics",
+    "GE": "ამ პროექტს არ გააჩნია ეპიკები"
+  },
+  "create_epic": {
+    "EN": "Create Epic",
+    "GE": "ეპიკის შექმნა"
+  },
+  "epic_name": {
+    "EN": "Epic Name",
+    "GE": "ეპიკის სახელი"
   }
 }

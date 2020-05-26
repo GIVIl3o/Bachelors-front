@@ -1,15 +1,14 @@
 import React, { useState, useContext, useRef } from "react";
 import TextFieldPassword from "components/utils/TextFieldPassword/";
-import { TextField, InputAdornment, Paper, Avatar } from "@material-ui/core";
+import { InputAdornment, Paper, Avatar } from "@material-ui/core";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import SubmitButton from "components/utils/SubmitButton";
 import axios from "axios";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import { UserContext } from "App";
+import MarginTextField from "components/utils/MarginTextField";
 
 import {
-  marginLeft,
-  marginLeftClean,
   centerForm,
   paper,
   pointer,
@@ -52,11 +51,7 @@ const Login = () => {
     image: "",
   });
 
-  const labelProps = {
-    classes: { shrink: marginLeftClean, root: marginLeft },
-  };
-
-  const { text, textLang, setUsername } = useContext(UserContext);
+  const { imageBase, text, textLang, setUsername } = useContext(UserContext);
   const usernameRef = useRef(null);
   const setMessage = useContext(MessageContext);
 
@@ -71,17 +66,17 @@ const Login = () => {
     const image = "/profile/" + state.username + ".png";
     state.username && setState({ ...state, image });
   };
-
+  console.log(state.image);
   return (
     <form className={centerForm}>
       <Paper className={paper}>
         <div className={avatarWrapper}>
           <Avatar
-            src={state.image || defaultAvatar}
+            src={imageBase + state.image || imageBase + defaultAvatar}
             style={{ margin: "auto" }}
           />
         </div>
-        <TextField
+        <MarginTextField
           label={text.login_button}
           color="primary"
           variant="outlined"
@@ -96,7 +91,6 @@ const Login = () => {
               </InputAdornment>
             ),
           }}
-          InputLabelProps={labelProps}
           className={input}
           value={state.username}
           onChange={updateState}
@@ -112,7 +106,7 @@ const Login = () => {
           label={text.password}
           name="password"
           onChange={updateState}
-          InputLabelProps={labelProps}
+          value={state.password}
         />
 
         <SubmitButton
