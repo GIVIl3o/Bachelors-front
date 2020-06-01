@@ -17,13 +17,38 @@
         background-color: #dadada;
         overflow: inherit !important;
         padding-right: inherit !important;
+        overflow-x: hidden;
       }
       * {
         box-sizing: border-box;
       }
+      .swal-button {
+        background-color: #3f51b5;
+      }
+      .swal-button:not(:disabled):hover {
+        background-color: #3f51b5;
+        color: white;
+      }
+      .swal-button--danger {
+        background-color: #f50057;
+      }
+      .swal-button--danger:not(:disabled):hover {
+        background-color: #f50057;
+      }
+      .swal-button--cancel {
+        background-color: #3f51b5;
+        color: white;
+      }
+      .swal-button--cancel:not(:disabled):hover {
+        background-color: #3f51b5;
+        color: white;
+      }
+      .swal-footer {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root" style="overflow-x: hidden;"></div>
   </body>
 </html>

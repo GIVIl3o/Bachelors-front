@@ -1,0 +1,49 @@
+.componentLayout {
+  width: 250px;
+  padding-top: 50px;
+  border-width: 1px;
+  border-left-style: inset;
+}
+
+.aboutProject {
+  font-size: 1.6rem;
+  display: block;
+  text-align: center;
+}
+
+.lineStyle {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+
+.ownerAvatarClass {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.ownerDiv {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.ownerSpan {
+  display: inline-block;
+  align-self: center;
+}
+
+.lineWrapper {
+  margin-top: 0.8rem;
+}
+
+.membersDiv {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+.lineStart {
+  color: #4b4b4b;
+}
+
+.alignCenter {
+  align-self: center;
+}

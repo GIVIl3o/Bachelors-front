@@ -39,7 +39,7 @@ const Navbar = () => {
           {language}
         </Button>
       </div>
-      <hr />
+      <hr style={{ marginBottom: "0" }} />
     </div>
   );
 };
