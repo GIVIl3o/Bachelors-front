@@ -1,0 +1,34 @@
+.wrapper {
+  margin-top: 1rem;
+  border-style: groove;
+  border-color: #9a9a9a66;
+  border-width: 2px;
+  box-shadow: none;
+  border-radius: 0px;
+  background-color: inherit;
+}
+
+.fontWeight {
+  font-weight: bold;
+}
+
+.headerWrapper {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  width: 100%;
+}
+
+.textWrapper {
+  font-size: 1.25rem;
+  height: min-content;
+  align-self: center;
+}
+
+.selectedEpic {
+  border-color: cornflowerblue;
+}
+
+.deleteEpicClass {
+  color: #f50057;
+  margin-right: 0.5rem;
+}

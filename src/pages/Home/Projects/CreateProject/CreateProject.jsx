@@ -19,6 +19,7 @@ import { UserContext } from "App";
 import axios from "axios";
 import Tooltip from "@material-ui/core/Tooltip";
 import { useHistory } from "react-router-dom";
+import swal from "sweetalert";
 
 import {
   input,
@@ -42,7 +43,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-const sendCreateProject = (state, setMessage, textLang, history) => {
+const sendCreateProject = (state, setMessage, text, textLang, history) => {
   if (state.title.length < 4) {
     setMessage(textLang.project_title_min, MessageTypes.error);
     return;
@@ -55,7 +56,13 @@ const sendCreateProject = (state, setMessage, textLang, history) => {
   const { selectedMember, selectedMemberPermission, ...toSend } = state;
 
   axios.put("/projects", toSend).then((response) => {
-    history.push(`/projects/${response.data}`);
+    swal({
+      title: text.project_created_sweet_title,
+      text: text.project_created_sweet_desc,
+      icon: "success",
+    }).then(() => {
+      history.push(`/projects/${response.data}`);
+    });
   });
 };
 
@@ -108,7 +115,7 @@ const CreateProject = ({ open, setOpen }) => {
     }
   }, [open, username]);
 
-  const RenderMember = ({ username, permission }) => {
+  const RenderMember = ({ username }) => {
     return (
       <Tooltip title={username} placement="top" className={member}>
         <Avatar
@@ -241,8 +248,7 @@ const CreateProject = ({ open, setOpen }) => {
           </IconButton>
           <IconButton
             onClick={() => {
-              console.log(state);
-              sendCreateProject(state, setMessage, textLang, history);
+              sendCreateProject(state, setMessage, text, textLang, history);
             }}
           >
             <DoneIcon fontSize="large" color="primary" />
