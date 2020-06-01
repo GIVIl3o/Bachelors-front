@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import Typography from "@material-ui/core/Typography";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import { format, addDays, isAfter } from "date-fns";
+import { format } from "date-fns";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import axios from "axios";
@@ -19,6 +18,7 @@ import {
   textWrapper,
   selectedEpic,
   deleteEpicClass,
+  noSprints,
 } from "./styles.module.css";
 
 const dateFormat = "dd.MM.yyyy";
@@ -82,6 +82,8 @@ const Epic = ({ epic, onOpen, selected, deleteEpic, projectId }) => {
         </div>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
+      {/* if epic has no sprints, show no sprints text */}
+
         <span>TODO: add sprints here</span>
       </ExpansionPanelDetails>
     </ExpansionPanel>

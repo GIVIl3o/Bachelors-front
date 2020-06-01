@@ -32,3 +32,9 @@
   color: #f50057;
   margin-right: 0.5rem;
 }
+
+.noSprints {
+  display: block;
+  margin-top: 3rem;
+  font-size: 2rem;
+}

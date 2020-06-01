@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useContext, useState } from "react";
 import { UserContext } from "App";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
@@ -56,6 +57,13 @@ return (
       <PutSprint setOpen={setPutSprint} {...PutSprint} />
       <EditProject />
     </div>
+=======
+import React from "react";
+
+const Sprints = () => {
+  return (
+    <span style={{ display: "block", backgroundColor: "blue" }}>Sprints</span>
+>>>>>>> 52e8b0d... Added navigation + project setting page started
   );
 };
 
