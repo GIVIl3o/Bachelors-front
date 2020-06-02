@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
-import { UserContext } from "App";
+import { UserContext, ProjectContext } from "App";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
-import { useHistory, useParams } from "react-router-dom";
 import PageLoading from "components/utils/PageLoading";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -19,7 +18,7 @@ import {
 } from "./styles.module.css";
 import Epic from "./Epic/Epic";
 import PutEpic from "./PutEpic";
-import { format, addDays, isAfter, parseISO, compareAsc } from "date-fns";
+import { addDays, parseISO, compareAsc } from "date-fns";
 
 const minDateDistanceDays = 7;
 
@@ -30,13 +29,14 @@ const newEpic = {
   toDate: addDays(new Date(), minDateDistanceDays),
 };
 
-const Epics = () => {
+const Epics = ({ match }) => {
   const { text, textLang } = useContext(UserContext);
-  const [loading, setLoading] = useState(true);
+
   const setMessage = useContext(MessageContext);
-  const history = useHistory();
-  const [project, setProject] = useState({});
-  const { id: projectId } = useParams();
+
+  const { project, setProject } = useContext(ProjectContext);
+
+  const projectId = match.params.id;
 
   const [openEpicEdit, setOpenEpic] = useState(false);
   const [displayAddEpic, setAddEpic] = useState(true);
@@ -56,15 +56,13 @@ const Epics = () => {
         }));
 
         setProject({ ...project, epics });
-        setLoading(false);
       })
       .catch(() => {
         setMessage(textLang.project_not_found, MessageTypes.error);
-        history.push("/");
       });
-  }, [history, projectId, setMessage, textLang.project_not_found]);
+  }, [projectId]);
 
-  if (loading) return <PageLoading />;
+  if (!project || projectId != project.id) return <PageLoading />;
 
   const epicComparator = (e1, e2) => compareAsc(e1.fromDate, e2.fromDate);
 
