@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import PageLoading from "components/utils/PageLoading";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Tooltip from "@material-ui/core/Tooltip";
+import data from "../Sprints/test_sprint.json"
 
 import axios from "axios";
 
@@ -50,6 +51,7 @@ const Epics = ({ match }) => {
       });
   }, [history, match.params.id, setMessage, textLang.project_not_found]);
 
+  
   if (loading) return <PageLoading />;
 
   return (
@@ -75,6 +77,12 @@ const Epics = ({ match }) => {
 
       <PutEpic setOpen={setPutEpic} {...putEpic} />
       <EditProject />
+
+      {/* TODO:: This is temporary, will be rendered elsewhere. */} 
+      <div>
+          project.epics.map((epic) => <Epic epic={epic} />
+
+      </div>
     </div>
   );
 };
