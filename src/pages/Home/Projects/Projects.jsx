@@ -34,7 +34,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ marginBottom: "2rem" }}>
       <span className={projectHeader}>{text.project_header}</span>
       <div className={projectsWrapper}>
         {projects.map((project) => (

@@ -16,6 +16,12 @@
   cursor: pointer;
 }
 
+.addIconWrapper {
+  position: relative;
+  height: 0px;
+  text-align: right;
+}
+
 .noEpics {
   display: block;
   margin-top: 3rem;
@@ -24,4 +30,10 @@
 
 .layout {
   display: grid;
+  grid-template-columns: 1fr auto;
+  height: 100%;
+}
+
+.epicsWrapper {
+  margin-top: 2rem;
 }
