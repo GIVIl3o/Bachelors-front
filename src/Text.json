@@ -200,5 +200,61 @@
   "epic_deleted": {
     "EN": "Epic successfully deleted",
     "GE": "ეპიკი წარმატებით წაიშალა"
+  },
+  "tab_epics": {
+    "EN": "Epics",
+    "GE": "ეპიკები"
+  },
+  "tab_sprints": {
+    "EN": "Sprints",
+    "GE": "სპრინტები"
+  },
+  "tab_settings": {
+    "EN": "About",
+    "GE": "პარამეტრები"
+  },
+  "settings_danger": {
+    "EN": "Danger Zone",
+    "GE": "სახიფათო მოქმედებები"
+  },
+  "settings_delete_header": {
+    "EN": "Delete Project",
+    "GE": "პროექტის წაშლა"
+  },
+  "settings_delete_explanation": {
+    "EN": "Once you delete a project there is no way back. Please be certain.",
+    "GE": "პროექტის წაშლის შემდგომ მისი აღდგენა შეუძლებელია. გთხოვთ კარგად დაფიქრდეთ."
+  },
+  "settings_delete_button": {
+    "EN": "Delete Project",
+    "GE": "პროექტის წაშლა"
+  },
+  "settings_delete_swal_title": {
+    "EN": "Are you sure?",
+    "GE": "დარწმუნებული ხარ?"
+  },
+  "settings_delete_swal_description": {
+    "EN": "This project will be pernamently deleted",
+    "GE": "პროექტი სამუდამოდ წაიშლება"
+  },
+  "settings_project_deleted": {
+    "EN": "Project successfully deleted",
+    "GE": "პროექტი წარმატებით წაიშალა"
+  },
+  "settings_transfer_ownership": {
+    "EN": "Transfer Ownership",
+    "GE": "პროექტის მესაკუთრეს შეცვლა"
+  },
+  "settings_transfer_ownership_description": {
+    "EN": "Transfer this project to another user",
+    "GE": "გადაეცეს ეს პროექტი სხვა მომხმარებლის საკუთრებაში"
+  },
+  "settings_transfer_ownership_button": {
+    "EN": "Transfer",
+    "GE": "გადაცემა"
+  },
+  "settings_transfer_owner_label": {
+    "EN": "New Owner",
+    "GE": "ახალი პატრონი"
   }
 }

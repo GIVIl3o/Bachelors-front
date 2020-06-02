@@ -1,7 +1,6 @@
 import React from "react";
-import UnAuthenticatedNavbar from "./UnAuthenticatedNavbar";
+import Navbar from "./Navbar";
 
 export default ({ children, ...props }) => {
-  // TODO authenticated think of
-  return <UnAuthenticatedNavbar {...props}>{children}</UnAuthenticatedNavbar>;
+  return <Navbar {...props}>{children}</Navbar>;
 };
