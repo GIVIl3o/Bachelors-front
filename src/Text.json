@@ -132,5 +132,21 @@
   "epic_name": {
     "EN": "Epic Name",
     "GE": "ეპიკის სახელი"
+  },
+  "add_sprint": {
+    "EN": "Add Sprint",
+    "GE": "სპრინტის დამატება"
+  },
+  "project_no_sprints": {
+    "EN": "This project has no sprints",
+    "GE": "ამ პროექტს არ გააჩნია სპრინტები"
+  },
+  "create_sprint": {
+    "EN": "Create sprint",
+    "GE": "სპრინტის შექმნა"
+  },
+  "sprint_name": {
+    "EN": "Sprint Name",
+    "GE": "სპრინტის სახელი"
   }
 }
