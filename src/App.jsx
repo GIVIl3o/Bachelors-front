@@ -11,6 +11,7 @@ import Text from "Text.json";
 import withWidth, { isWidthUp, isWidthDown } from "@material-ui/core/withWidth";
 import Footer from "./components/Footer";
 import Epics from "./pages/Epics";
+import Sprints from "./pages/Sprints";
 
 let user = "";
 let savedLanguage = "";
@@ -51,6 +52,7 @@ const App = ({ width, imageBase }) => {
     ? [
         { path: "/", component: Homepage },
         { path: "/projects/:id", component: Epics },
+        { path: "/epics/:id", component: Sprints},        
       ]
     : [
         { path: "/", component: Homepage },
