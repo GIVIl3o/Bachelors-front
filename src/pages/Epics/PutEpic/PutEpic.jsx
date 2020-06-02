@@ -1,120 +1,152 @@
 import React, { useState, useContext } from "react";
 
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
-import CloseIcon from "@material-ui/icons/Close";
-import DoneIcon from "@material-ui/icons/Done";
-import { IconButton } from "@material-ui/core";
 import MarginTextField from "components/utils/MarginTextField";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import { UserContext } from "App";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 import DateFnsUtils from "@date-io/date-fns";
 import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers";
+import SubmitButton from "components/utils/SubmitButton";
 
-import {} from "./styles.module.css";
+import { wrapper, input, submitWrapper } from "./styles.module.css";
+import { max as geMaxDate, addDays, isAfter, parseISO } from "date-fns";
 
-const defaultState = {
-  title: "",
-  description: "",
-  members: [],
-  selectedMember: "",
-};
+const minDateDistanceDays = 7;
+const dateFormat = "dd/MM/yyyy";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="down" ref={ref} {...props} />;
-});
-
-const sendCreateProject = (state, setMessage, textLang, history) => {
+const sendPutEpic = (
+  state,
+  setMessage,
+  textLang,
+  setOpen,
+  projectId,
+  setLoading,
+  allEpics,
+  setEpics
+) => {
   if (state.title.length < 4) {
-    setMessage(textLang.project_title_min, MessageTypes.error);
-    return;
-  }
-  if (state.description.length < 10) {
-    setMessage(textLang.project_description_min, MessageTypes.error);
+    setMessage(textLang.epic_title_short, MessageTypes.error);
     return;
   }
 
-  const { selectedMember, selectedMemberPermission, ...toSend } = state;
+  setLoading(true);
+  axios.put(`/epics?projectId=${projectId}`, state).then((response) => {
+    const responseEpic = response.data;
 
-  axios.put("/projects", toSend).then((response) => {
-    history.push(`/projects/${response.data}`);
+    const epic = {
+      ...responseEpic,
+      fromDate: parseISO(responseEpic.fromDate),
+      toDate: parseISO(responseEpic.toDate),
+    };
+
+    const filteredEpics = allEpics.filter((e) => e.id !== epic.id);
+    setEpics([...filteredEpics, epic]);
+
+    setOpen(false);
+    setLoading(false);
   });
 };
 
-const PutEpic = ({ open, setOpen, title }) => {
+const PutEpic = ({
+  open,
+  setOpen,
+  epic,
+  projectId,
+  setState,
+  allEpics,
+  setEpics,
+}) => {
   const { text, textLang } = useContext(UserContext);
-  const history = useHistory();
-
-  const selectedMemberPermission = textLang.permissions_member["ENUM"];
-
-  const [state, setState] = useState({
-    ...defaultState,
-    selectedMemberPermission,
-  });
+  const [loading, setLoading] = useState(false);
 
   const setMessage = useContext(MessageContext);
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
 
   const handleClose = () => {
-    const selectedMemberPermission = textLang.permissions_member["ENUM"];
-    setState({ ...defaultState, selectedMemberPermission });
     setOpen(false);
   };
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Dialog
-        open={open}
-        TransitionComponent={Transition}
-        onClose={handleClose}
-        maxWidth="sm"
-        fullWidth={true}
-      >
-        <DialogTitle style={{ textAlign: "center" }}>{title}</DialogTitle>
-        <DialogContent>
+      <Slide direction="left" in={open} mountOnEnter unmountOnExit>
+        <div className={wrapper}>
           <MarginTextField
-            autoFocus
-            fullWidth
-            value={state.title}
-            onChange={(e) => setState({ ...state, title: e.target.value })}
+            label={text.epic_name}
             color="primary"
             variant="outlined"
-            label={text.epic_name}
-            style={{ marginTop: "0rem" }}
-            required
+            value={epic.title}
+            onChange={(e) => setState({ ...epic, title: e.target.value })}
+            className={input}
+            autoFocus
           />
-
           <DatePicker
-            disablePast
             autoOk
-            label="Basic example"
+            label={text.epic_from_date}
             inputVariant="outlined"
-            value={selectedDate}
-            onChange={setSelectedDate}
-            format="dd/MM/yyyy"
+            value={epic.fromDate}
+            onChange={(fromDate) => {
+              if (
+                isAfter(addDays(fromDate, minDateDistanceDays), epic.toDate)
+              ) {
+                setState({
+                  ...epic,
+                  fromDate,
+                  toDate: addDays(fromDate, minDateDistanceDays),
+                });
+              } else {
+                setState({ ...epic, fromDate });
+              }
+            }}
+            format={dateFormat}
+            className={input}
+            TextFieldComponent={MarginTextField}
             animateYearScrolling
           />
-        </DialogContent>
-
-        <DialogActions>
-          <IconButton onClick={handleClose}>
-            <CloseIcon fontSize="large" color="secondary" />
-          </IconButton>
-          <IconButton
-            onClick={() => {
-              console.log(state);
-              sendCreateProject(state, setMessage, textLang, history);
-            }}
-          >
-            <DoneIcon fontSize="large" color="primary" />
-          </IconButton>
-        </DialogActions>
-      </Dialog>
+          <DatePicker
+            autoOk
+            label={text.epic_to_date}
+            inputVariant="outlined"
+            value={epic.toDate}
+            onChange={(toDate) => setState({ ...epic, toDate })}
+            format={dateFormat}
+            className={input}
+            minDate={geMaxDate(
+              addDays(epic.fromDate, minDateDistanceDays),
+              addDays(new Date(), 1)
+            )}
+            TextFieldComponent={MarginTextField}
+            animateYearScrolling
+          />
+          <div className={submitWrapper}>
+            <SubmitButton
+              variant="contained"
+              color="primary"
+              onClick={() =>
+                sendPutEpic(
+                  epic,
+                  setMessage,
+                  textLang,
+                  setOpen,
+                  projectId,
+                  setLoading,
+                  allEpics,
+                  setEpics
+                )
+              }
+              loading={loading}
+            >
+              {text.epic_submit}
+            </SubmitButton>
+            <SubmitButton
+              variant="contained"
+              color="secondary"
+              onClick={handleClose}
+            >
+              {text.epic_submit_cancel}
+            </SubmitButton>
+          </div>
+        </div>
+      </Slide>
     </MuiPickersUtilsProvider>
   );
 };

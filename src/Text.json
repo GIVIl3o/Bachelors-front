@@ -130,8 +130,76 @@
     "GE": "ეპიკის შექმნა"
   },
   "epic_name": {
-    "EN": "Epic Name",
+    "EN": "Epic Title",
     "GE": "ეპიკის სახელი"
+  },
+    "epic_from_date": {
+    "EN": "Start Date",
+    "GE": "საწყისი თარიღი"
+  },
+  "epic_to_date": {
+    "EN": "End Date",
+    "GE": "დასრულების თარიღი"
+  },
+  "epic_submit": {
+    "EN": "Submit",
+    "GE": "გაგზავნა"
+  },
+  "epic_submit_cancel": {
+    "EN": "Cancel",
+    "GE": "დახურვა"
+  },
+  "epic_title_short": {
+    "EN": "Epic title must be at least 4 characters",
+    "GE": "ეპიკის სახელი 4 სიმბოლოს მაინც უნდა შეიცავდეს"
+  },
+  "about_project": {
+    "EN": "About Project",
+    "GE": "პროექტის შესახებ"
+  },
+  "project_owner": {
+    "EN": "Creator: ",
+    "GE": "შემქმნელი: "
+  },
+  "project_name": {
+    "EN": "Title: ",
+    "GE": "სახელი: "
+  },
+  "project_members": {
+    "EN": "Members: ",
+    "GE": "წევრები: "
+  },
+  "project_description": {
+    "EN": "Description: ",
+    "GE": "აღწერა: "
+  },
+  "project_created_sweet_title": {
+    "EN": "Congratulations!",
+    "GE": "გილოცავთ!"
+  },
+  "project_created_sweet_desc": {
+    "EN": "Project created succesfully",
+    "GE": "პროექტი წარმატებით შეიქმნა"
+  },
+  "sweat_alert_sure": {
+    "EN": "Are you sure?",
+    "GE": "დარწმუნებული ხართ?"
+  },
+  "sweet_alert_description": {
+    "EN": "Given Epic will be pernamently deleted",
+    "GE": "მოცემული ეპიკი სამუდამოდ წაიშლება"
+  },
+  "sweet_alert_cancel": {
+    "EN": "CANCEL",
+    "GE": "გაუქმება"
+  },
+  "swee_alert_confirm": {
+    "EN": "CONFIRM",
+    "GE": "დათანხმება"
+  },
+  "epic_deleted": {
+    "EN": "Epic successfully deleted",
+    "GE": "ეპიკი წარმატებით წაიშალა"
   },
   "add_sprint": {
     "EN": "Add Sprint",
