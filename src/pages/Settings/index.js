@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 
-import Epics from "./Epics";
+import Settings from "./Settings";
 
 const toExport = ({ match, ...props }) => {
   if (match.type === "none" || match.type === "outOfView") return <Fragment />;
-  return <Epics match={match} {...props} />;
+  return <Settings match={match} {...props} />;
 };
 
 export default toExport;
