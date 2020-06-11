@@ -256,5 +256,37 @@
   "settings_transfer_owner_label": {
     "EN": "New Owner",
     "GE": "ახალი პატრონი"
+  },
+  "settings_change_swal_title": {
+    "EN": "Change owner",
+    "GE": "პატრონის შეცვლა"
+  },
+  "settings_change_swal_description": {
+    "EN": "Project will have new owner",
+    "GE": "პროექტს ახალი პატრონი ეყოლება"
+  },
+  "settings_project_changed": {
+    "EN": "Project Owner changed",
+    "GE": "პროექტის ახალი პატრონი ჰყავს"
+  },
+  "settings_project_change": {
+    "EN": "Change Project",
+    "GE": "პროექტის შეცვლა"
+  },
+  "settings_owner": {
+    "EN": "Owner:",
+    "GE": "პატრონი:"
+  },
+  "settings_admins": {
+    "EN": "Admins:",
+    "GE": "ადმინები:"
+  },
+  "settings_members": {
+    "EN": "Members:",
+    "GE": "წევრები:"
+  },
+  "settings_description": {
+    "EN": "Description:",
+    "GE": "აღწერა:"
   }
 }
