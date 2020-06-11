@@ -19,6 +19,7 @@ import {
   textWrapper,
   selectedEpic,
   deleteEpicClass,
+  noSprints,
 } from "./styles.module.css";
 
 const dateFormat = "dd.MM.yyyy";
@@ -82,6 +83,8 @@ const Epic = ({ epic, onOpen, selected, deleteEpic, projectId }) => {
         </div>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
+      {/* if epic has no sprints, show no sprints text */}
+
         <span>TODO: add sprints here</span>
       </ExpansionPanelDetails>
     </ExpansionPanel>
