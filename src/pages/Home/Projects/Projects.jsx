@@ -20,7 +20,7 @@ const Projects = () => {
   const [openProjectCreate, setOpenProjectCreate] = useState(false);
 
   const ProjectDiv = ({ id, title }) => (
-    <Link to={`/projects/${id}`} style={{ textDecoration: "none" }}>
+    <Link to={`/projects/${id}/epics`} style={{ textDecoration: "none" }}>
       <div className={project}>
         <span className={projectName}>{title}</span>
       </div>

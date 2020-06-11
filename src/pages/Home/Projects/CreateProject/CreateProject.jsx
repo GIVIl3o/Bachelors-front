@@ -15,7 +15,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MarginTextField from "components/utils/MarginTextField";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
-import { UserContext } from "App";
+import { UserContext, ProjectContext } from "App";
 import axios from "axios";
 import Tooltip from "@material-ui/core/Tooltip";
 import { useHistory } from "react-router-dom";
@@ -43,7 +43,14 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-const sendCreateProject = (state, setMessage, text, textLang, history) => {
+const sendCreateProject = (
+  state,
+  setMessage,
+  text,
+  textLang,
+  history,
+  setProject
+) => {
   if (state.title.length < 4) {
     setMessage(textLang.project_title_min, MessageTypes.error);
     return;
@@ -56,6 +63,9 @@ const sendCreateProject = (state, setMessage, text, textLang, history) => {
   const { selectedMember, selectedMemberPermission, ...toSend } = state;
 
   axios.put("/projects", toSend).then((response) => {
+    const project = { ...toSend, id: response.data, epics: [] };
+    setProject(project);
+
     swal({
       title: text.project_created_sweet_title,
       text: text.project_created_sweet_desc,
@@ -68,6 +78,8 @@ const sendCreateProject = (state, setMessage, text, textLang, history) => {
 
 const CreateProject = ({ open, setOpen }) => {
   const { imageBase, username, text, textLang } = useContext(UserContext);
+  const { setProject } = useContext(ProjectContext);
+
   const history = useHistory();
 
   const selectedMemberPermission = textLang.permissions_member["ENUM"];
@@ -248,7 +260,14 @@ const CreateProject = ({ open, setOpen }) => {
           </IconButton>
           <IconButton
             onClick={() => {
-              sendCreateProject(state, setMessage, text, textLang, history);
+              sendCreateProject(
+                state,
+                setMessage,
+                text,
+                textLang,
+                history,
+                setProject
+              );
             }}
           >
             <DoneIcon fontSize="large" color="primary" />

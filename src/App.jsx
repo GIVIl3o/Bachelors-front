@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, Fragment } from "react";
 import { Route, BrowserRouter, Redirect, Switch } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
 import jwtDecode from "jwt-decode";
@@ -11,7 +11,9 @@ import Text from "Text.json";
 import withWidth, { isWidthUp, isWidthDown } from "@material-ui/core/withWidth";
 import Footer from "./components/Footer";
 import Epics from "./pages/Epics";
-import Sprints from "./pages/Sprints";
+import SwipeableRoutes from "react-swipeable-routes";
+import Settings from "pages/Settings";
+import Sprints from "pages/Sprints";
 
 let user = "";
 let savedLanguage = "";
@@ -33,10 +35,13 @@ try {
 } catch (e) {}
 
 export const UserContext = createContext({});
+export const ProjectContext = createContext({});
 
 const App = ({ width, imageBase }) => {
   const [username, setUsername] = useState(user);
   const [language, setLanguage] = useState(savedLanguage);
+
+  const [project, setProject] = useState(undefined);
 
   const text = { ...Text };
   const textLang = { ...Text };
@@ -49,15 +54,22 @@ const App = ({ width, imageBase }) => {
     : { marginLeft: "2rem", marginRight: "2rem" };
 
   const routes = username
+
     ? [
         { path: "/", component: Homepage },
-        { path: "/projects/:id", component: Epics },
-        { path: "/epics/:id", component: Sprints},        
-      ]
+        // { path: "/projects/:id", component: Epics },
+        // { path: "/epics/:id", component: Sprints},
+    ]        
     : [
         { path: "/", component: Homepage },
         { path: "/login", component: LoginPage },
       ];
+
+  const projectRoutes = [
+    { path: "/projects/:id/epics", component: Epics },
+    { path: "/projects/:id/sprints", component: Sprints },
+    { path: "/projects/:id/about", component: Settings },
+  ];
 
   return (
     <StylesProvider injectFirst>
@@ -72,32 +84,50 @@ const App = ({ width, imageBase }) => {
           setLanguage,
         }}
       >
-        <Messages>
-          <BrowserRouter>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateRows: "auto 1fr auto",
-                height: "100vh",
-                ...cssMargin,
-              }}
-            >
-              <Navbar />
-              <Switch>
-                {routes.map((route) => (
-                  <Route
-                    path={route.path}
-                    component={route.component}
-                    exact
-                    key={route.path}
-                  />
-                ))}
-                <Route render={() => <Redirect to="/" />} />
-              </Switch>
-              <Footer />
-            </div>
-          </BrowserRouter>
-        </Messages>
+        <ProjectContext.Provider value={{ project, setProject }}>
+          <Messages>
+            <BrowserRouter>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateRows: "auto 1fr auto",
+                  height: "100vh",
+                  ...cssMargin,
+                }}
+              >
+                <Navbar />
+                <Switch>
+                  {routes.map((route) => (
+                    <Route
+                      path={route.path}
+                      component={route.component}
+                      exact
+                      key={route.path}
+                    />
+                  ))}
+                  {username && (
+                    <Fragment>
+                      <SwipeableRoutes containerStyle={{ height: "100%" }}>
+                        {projectRoutes.map((route) => (
+                          <Route
+                            path={route.path}
+                            component={route.component}
+                            exact
+                            key={route.path}
+                            defaultParams={{ id: "5" }}
+                          />
+                        ))}
+                      </SwipeableRoutes>
+                    </Fragment>
+                  )}
+
+                  <Route render={() => <Redirect to="/" />} />
+                </Switch>
+                <Footer />
+              </div>
+            </BrowserRouter>
+          </Messages>
+        </ProjectContext.Provider>
       </UserContext.Provider>
     </StylesProvider>
   );
