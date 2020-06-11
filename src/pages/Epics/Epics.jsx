@@ -148,15 +148,6 @@ const Epics = () => {
         />
       </div>
 
-      <PutEpic setOpen={setPutEpic} {...putEpic} />
-      <EditProject />
-
-      {/* TODO:: This is temporary, will be rendered elsewhere. */} 
-      <div>
-          project.epics.map((epic) => <Epic epic={epic} />
-
-      </div>
-
     </div>
   );
 };
