@@ -8,6 +8,10 @@
   background-color: inherit;
 }
 
+.wrapper:hover {
+  border-color: cornflowerblue;
+}
+
 .fontWeight {
   font-weight: bold;
 }
@@ -25,7 +29,7 @@
 }
 
 .selectedEpic {
-  border-color: cornflowerblue;
+  border-color: #1b00ff !important;
 }
 
 .deleteEpicClass {

@@ -2,22 +2,31 @@
   color: black;
   height: 3rem;
   align-self: center;
+  max-width: 50px;
+  justify-self: right;
 }
 
 .navbarConteiner {
   margin-top: 2rem;
   height: 4rem;
   display: grid;
-  grid-template-columns: min-content 1fr min-content;
+  grid-template-columns: 3fr 8fr 2fr;
 }
 
 .logo {
   height: 4rem;
   cursor: pointer;
+  width: 100%;
+  max-width: 199px;
+  min-width: 100px;
 }
 
 .tabWrapper {
   height: 3rem;
   align-self: end;
   margin-left: 1rem;
+}
+
+.tabClassName {
+  min-width: initial;
 }

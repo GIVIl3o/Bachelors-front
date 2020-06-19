@@ -1,0 +1,25 @@
+.wrapper {
+  border-width: 1px;
+  border-left-style: inset;
+  padding-top: 30px;
+  padding-left: 1rem;
+  height: 100%;
+  margin-left: 1rem;
+}
+
+.input {
+  margin-top: 20px;
+  display: block;
+}
+
+.submitWrapper {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.assigneeClass {
+  margin-top: 20px;
+  width: 100%;
+}

@@ -1,12 +1,8 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { UserContext, ProjectContext } from "App";
-import axios from "axios";
-import { parseISO } from "date-fns";
-import { MessageContext, MessageTypes } from "components/utils/Messages";
-import { useHistory } from "react-router";
-import PageLoading from "components/utils/PageLoading";
-import SettingsIcon from "@material-ui/icons/Settings";
+import { MessageContext } from "components/utils/Messages";
 import Tooltip from "@material-ui/core/Tooltip";
+import SettingsIconRotate from "components/utils/SettingsIconRotate";
 
 import {
   wrapper,
@@ -22,8 +18,7 @@ import { Avatar } from "@material-ui/core";
 const ChangeProjectView = ({ setEdit }) => {
   const { text, textLang, imageBase } = useContext(UserContext);
 
-  const setMessage = useContext(MessageContext);
-  const { project, setProject } = useContext(ProjectContext);
+  const { project } = useContext(ProjectContext);
 
   const DisplayAvatar = ({ username }) => (
     <div className={avatarClass}>
@@ -40,14 +35,11 @@ const ChangeProjectView = ({ setEdit }) => {
     <div className={wrapper}>
       <div className={titleWrapper}>
         <span>{project.title}</span>
-        <Tooltip
-          title={text.settings_project_change}
-          placement="top"
-          onClick={setEdit}
+        <SettingsIconRotate
+          textLang={textLang.settings_project_change}
           className={settingsWrapper}
-        >
-          <SettingsIcon fontSize="large" />
-        </Tooltip>
+          onClick={setEdit}
+        />
       </div>
       <div className={lineWrapper}>
         <span>{text.settings_owner}</span>

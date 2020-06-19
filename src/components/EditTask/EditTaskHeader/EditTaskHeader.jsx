@@ -1,0 +1,104 @@
+import React, { useState, useContext, Fragment } from "react";
+import { UserContext, ProjectContext } from "App";
+import EditIcon from "@material-ui/icons/Edit";
+import { InputAdornment } from "@material-ui/core";
+
+import {
+  wrapper,
+  titleClass,
+  closeClass,
+  dueClass,
+  toDateClass,
+  marginTop,
+  editIcon,
+  editTitleClass,
+  editWrapper,
+} from "./styles.module.css";
+import CloseIcon from "@material-ui/icons/Close";
+import { format } from "date-fns";
+import { TextField } from "@material-ui/core";
+import ClearIcon from "@material-ui/icons/Clear";
+import axios from "axios";
+
+const dateFormat = "dd.MM.yyyy";
+
+const EditTaskHeader = ({ taskId, onClose }) => {
+  const { text, textLang } = useContext(UserContext);
+
+  const { project, setProject } = useContext(ProjectContext);
+
+  const task = project.tasks.find((t) => t.id === taskId);
+
+  const sprint =
+    project.sprints && project.sprints.find((s) => s.id === task.sprintId);
+  const epic = project.epics.find((e) => e.id === 108);
+
+  const [editTitle, setEditTitle] = useState(false);
+  const [title, setTitle] = useState(task.title);
+
+  const dueDate = epic && (
+    <Fragment>
+      <span className={dueClass}>{text.task_details_due} </span>
+      <span className={toDateClass}>{format(epic.toDate, dateFormat)}</span>
+    </Fragment>
+  );
+
+  const changeTitle = () => {
+    setEditTitle(false);
+
+    const newTask = { ...task, title };
+    axios
+      .post(`/tasks/${task.id}?projectId=${project.id}`, newTask)
+      .then(() => {
+        const tasks = project.tasks.filter((t) => t.id !== task.id);
+        setProject({ ...project, tasks: [...tasks, newTask] });
+      });
+  };
+
+  const titleElement = (
+    <div>
+      {editTitle ? (
+        <div className={editWrapper} onBlur={changeTitle}>
+          <TextField
+            className={editTitleClass}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            autoFocus
+            InputProps={{
+              endAdornment: (
+                <InputAdornment
+                  position="end"
+                  style={{ cursor: "pointer  " }}
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={(e) => {
+                    setEditTitle(false);
+                    setTitle(task.title);
+                  }}
+                >
+                  <ClearIcon />
+                </InputAdornment>
+              ),
+            }}
+            style={{ width: "250px" }}
+          />
+        </div>
+      ) : (
+        <Fragment>
+          <span className={titleClass}>{title}</span>
+          <EditIcon className={editIcon} onClick={() => setEditTitle(true)} />
+        </Fragment>
+      )}
+    </div>
+  );
+
+  return (
+    <div className={wrapper}>
+      <div>
+        {titleElement}
+        <div className={marginTop}>{dueDate}</div>
+      </div>
+      <CloseIcon fontSize="large" className={closeClass} onClick={onClose} />
+    </div>
+  );
+};
+export default EditTaskHeader;
