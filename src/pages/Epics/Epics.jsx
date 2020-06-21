@@ -96,7 +96,7 @@ const Epics = ({ match }) => {
   };
 
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       {displayAddEpic && (
         <div className={addIconWrapper}>
           <Tooltip
@@ -126,7 +126,6 @@ const Epics = ({ match }) => {
                   epic={epic}
                   key={epic.id}
                   onOpen={(epic) => {
-                    console.log(epic);
                     setOpenEpic(true);
                     setAddEpic(false);
                     setOpenedEpic(epic);

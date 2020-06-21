@@ -33,6 +33,10 @@
   border-color: cornflowerblue;
   color: #6141ff;
 }
+.project:active {
+  border-color: #1b00ff;
+  color: #341bff !important;
+}
 
 .projectName {
   font-size: 1.25rem;
@@ -49,6 +53,14 @@
 .addProject:hover {
   border-color: cornflowerblue;
   color: #6141ff;
+}
+
+.addProject:active {
+  border-color: #1b00ff;
+}
+
+.addProjectText:active {
+  color: #341bff !important;
 }
 
 .addProjectText {

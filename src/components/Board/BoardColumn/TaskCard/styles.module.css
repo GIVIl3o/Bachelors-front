@@ -1,0 +1,42 @@
+.wrapper {
+  background-color: #dadada;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  margin-top: 0.5rem;
+  height: 5rem;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.draggedOverThisCard {
+  height: 10rem;
+}
+
+.titleWrapper {
+  display: block;
+}
+
+.bottomWrapper {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
+
+.taskIdClass {
+  color: #707070;
+  align-self: center;
+}
+
+.avatarWrapper {
+  width: 30px;
+  height: 30px;
+  justify-self: right;
+}
+
+.labelWrapper {
+  align-self: center;
+  text-transform: capitalize;
+  justify-self: center;
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.35rem;
+}

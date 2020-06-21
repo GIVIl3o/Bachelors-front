@@ -1,0 +1,30 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  margin-top: 1rem;
+  border-style: groove;
+  border-color: #9a9a9a66;
+  border-width: 2px;
+  padding: 0.7rem;
+  cursor: pointer;
+}
+
+.wrapper:hover {
+  border-color: cornflowerblue;
+}
+
+.titleWrapper {
+  align-self: center;
+}
+
+.titleClass {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding-left: 0.5rem;
+}
+
+.deleteButton {
+  color: #f50057;
+  margin-right: 0.5rem;
+}

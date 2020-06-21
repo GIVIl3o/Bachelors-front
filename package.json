@@ -22,7 +22,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
     "react-swipeable-routes": "^0.6.0",
-    "sweetalert": "^2.1.2"
+    "sweetalert2": "^9.15.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,6 +45,6 @@
       "last 1 safari version"
     ]
   },
-  "baseUrl": "http://localhost:8080",
+  "baseUrl": "http://ec2-3-125-21-233.eu-central-1.compute.amazonaws.com",
   "imageBase": "https://s3.eu-central-1.amazonaws.com/scrumhub.co"
 }

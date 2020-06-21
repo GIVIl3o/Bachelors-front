@@ -7,9 +7,8 @@ import { format } from "date-fns";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import axios from "axios";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 import { UserContext } from "App";
-import { MessageContext, MessageTypes } from "components/utils/Messages";
 
 import {
   wrapper,
@@ -26,31 +25,37 @@ const dateFormat = "dd.MM.yyyy";
 const Epic = ({ epic, onOpen, selected, deleteEpic, projectId }) => {
   const from = format(new Date(epic.fromDate), dateFormat);
   const to = format(new Date(epic.toDate), dateFormat);
-  const setMessage = useContext(MessageContext);
 
-  const { text, textLang } = useContext(UserContext);
+  const { text } = useContext(UserContext);
 
   const wrapperSelectedClasses = `${wrapper} ${selected ? selectedEpic : ""}`;
 
   const onDeleteEpic = (e) => {
     e.stopPropagation();
 
-    swal({
+    Swal.fire({
       title: text.sweet_alert_sure,
       text: text.sweet_alert_description,
       icon: "warning",
-      buttons: [text.sweet_alert_cancel, text.swee_alert_confirm],
-      dangerMode: true,
-    }).then((willDelete) => {
+      showCancelButton: true,
+      cancelButtonText: text.sweet_alert_cancel,
+      reverseButtons: true,
+      confirmButtonText: text.swee_alert_confirm,
+      focusCancel: true,
+    }).then(({ value: willDelete }) => {
       willDelete &&
         axios.delete(`/epics/${epic.id}?projectId=${projectId}`).then(() => {
           deleteEpic(epic.id);
-          setMessage(textLang.epic_deleted, MessageTypes.success);
+          Swal.fire({
+            title: text.epic_deleted,
+            icon: "success",
+            reverseButtons: true,
+            confirmButtonText: text.swee_alert_confirm,
+          });
         });
     });
   };
 
-  console.log(selected);
   return (
     <ExpansionPanel className={wrapperSelectedClasses}>
       <ExpansionPanelSummary

@@ -229,6 +229,10 @@
     "EN": "Sprints",
     "GE": "სპრინტები"
   },
+  "tab_backlog": {
+    "EN": "Backlog",
+    "GE": "ბექლოგი"
+  },
   "tab_settings": {
     "EN": "About",
     "GE": "პარამეტრები"
@@ -257,6 +261,10 @@
     "EN": "This project will be pernamently deleted",
     "GE": "პროექტი სამუდამოდ წაიშლება"
   },
+  "swal_ok": {
+    "EN": "OK",
+    "GE": "დათანხმება"
+  },
   "settings_project_deleted": {
     "EN": "Project successfully deleted",
     "GE": "პროექტი წარმატებით წაიშალა"
@@ -276,6 +284,235 @@
   "settings_transfer_owner_label": {
     "EN": "New Owner",
     "GE": "ახალი პატრონი"
+<<<<<<< HEAD
 >>>>>>> 52e8b0d... Added navigation + project setting page started
+=======
+  },
+  "settings_change_swal_title": {
+    "EN": "Change owner",
+    "GE": "პატრონის შეცვლა"
+  },
+  "settings_change_swal_description": {
+    "EN": "Project will have new owner",
+    "GE": "პროექტს ახალი პატრონი ეყოლება"
+  },
+  "settings_project_changed": {
+    "EN": "Project Owner changed",
+    "GE": "პროექტს ახალი პატრონი ჰყავს"
+  },
+  "settings_project_change": {
+    "EN": "Change Project",
+    "GE": "პროექტის შეცვლა"
+  },
+  "settings_owner": {
+    "EN": "Owner:",
+    "GE": "პატრონი:"
+  },
+  "settings_admins": {
+    "EN": "Admins:",
+    "GE": "ადმინები:"
+  },
+  "settings_members": {
+    "EN": "Members:",
+    "GE": "წევრები:"
+  },
+  "settings_description": {
+    "EN": "Description:",
+    "GE": "აღწერა:"
+<<<<<<< HEAD
+>>>>>>> df81eaf... settings added
+=======
+  },
+  "backlog_title": {
+    "EN": "Project Backlog",
+    "GE": "პროექტის ბექლოგი"
+  },
+  "backlog_add_tooltip": {
+    "EN": "Add Task",
+    "GE": "დაამატე საქმე"
+  },
+  "backlog_empty_backlog": {
+    "EN": "All tasks are already sorted",
+    "GE": "ყველა საქმე მიმაგრებულია სპრინტზე"
+  },
+  "backlog_new_title": {
+    "EN": "Task Title",
+    "GE": "დავალების სახელი"
+  },
+  "backlog_new_description": {
+    "EN": "Task Description",
+    "GE": "დავალების აღწერა"
+  },
+  "backlog_new_assignee": {
+    "EN": "Assigneee",
+    "GE": "შემსრულებელი"
+  },
+  "backlog_new_title_length": {
+    "EN": "Tasks title must consists of at least 4 characters",
+    "GE": "დავალება 4 სიმბოლოს მაინც უნდა შეიცავდეს"
+  },
+  "backlog_task_created": {
+    "EN": "Task created successfully",
+    "GE": "დავალება წარმატებით შეიქმნა"
+  },
+  "backlog_delete_task_title": {
+    "EN": "Task will be deleted pernamently",
+    "GE": "დავალება წაიშლება სამუდამოდ"
+  },
+  "backlog_task_deleted": {
+    "EN": "Task deleted successfully",
+    "GE": "დავალება წარმატებით წაიშალა"
+  },
+  "task_details_due": {
+    "EN": "Due: ",
+    "GE": "ვადა: "
+<<<<<<< HEAD
+>>>>>>> 4fa1c08... progress
+=======
+  },
+  "edit_task_description": {
+    "EN": "Description:",
+    "GE": "აღწერა:"
+  },
+  "edit_task_description_cancel": {
+    "EN": "Cancel",
+    "GE": "გაუქმება"
+  },
+  "edit_task_description_submit": {
+    "EN": "Save",
+    "GE": "შენახვა"
+  },
+  "task_assignee": {
+    "EN": "Assignee:",
+    "GE": "შემსრულებელი:"
+  },
+  "task_edit_no_assignee": {
+    "EN": "None",
+    "GE": "არ ჰყავს"
+  },
+  "task_edit_assign_yourself": {
+    "EN": "Assign Yourself",
+    "GE": "შევასრულებ"
+  },
+  "task_assignee_edit": {
+    "EN": "Edit",
+    "GE": "შეცვლა"
+  },
+  "task_assignee_unassigne": {
+    "EN": "unassigne",
+    "GE": "გააუქმე"
+  },
+  "task_progress": {
+    "EN": "progress",
+    "GE": "სტატუსი"
+  },
+  "constants_permissions_member": {
+    "EN": "member",
+    "GE": "წევრი"
+  },
+  "constants_permissions_admin": {
+    "EN": "admin",
+    "GE": "ადმინი"
+  },
+  "constants_permissions_owner": {
+    "EN": "owner",
+    "GE": "შემქმნელი"
+  },
+  "constants_progress_planned": {
+    "EN": "planned",
+    "GE": "დაგეგმილი"
+  },
+  "constants_progress_todo": {
+    "EN": "todo",
+    "GE": "გასაკეთებელი"
+  },
+  "constants_progress_doing": {
+    "EN": "doing",
+    "GE": "კეთდება"
+  },
+  "constants_progress_review": {
+    "EN": "review",
+    "GE": "მოწმდება"
+  },
+  "constants_progress_qa": {
+    "EN": "QA",
+    "GE": "იტესტება"
+  },
+  "constants_progress_closed": {
+    "EN": "closed",
+    "GE": "დაიხურა"
+  },
+  "constants_labels_minor": {
+    "EN": "minor",
+    "GE": "უმნიშვნელო"
+  },
+  "constants_labels_major": {
+    "EN": "major",
+    "GE": "მნიშვნელოვანი"
+  },
+  "constants_labels_blocker": {
+    "EN": "blocker",
+    "GE": "დამაბრკოლებელი"
+  },
+  "constants_labels_critical": {
+    "EN": "critical",
+    "GE": "კრიტიკული"
+  },
+  "edit_task_label": {
+    "EN": "label",
+    "GE": "იარლიყი"
+  },
+  "task_no_label": {
+    "EN": "No label selected",
+    "GE": "არ აქვს იარლიყი"
+  },
+  "task_sprint": {
+    "EN": "sprint",
+    "GE": "სპრინტი"
+  },
+  "task_no_sprint": {
+    "EN": "In backlog",
+    "GE": "ბექლოგშია"
+  },
+  "task_eidt_delete": {
+    "EN": "Delete task",
+    "GE": "დავალების წაშლა"
+  },
+  "swal_task_deleted": {
+    "EN": "Task will be deleted pernamently",
+    "GE": "დავალება სამუდამოდ წაიშლება"
+  },
+  "tab_active": {
+    "EN": "Active",
+    "GE": "აქტიური"
+  },
+  "board_column_wrap": {
+    "EN": "Collapse",
+    "GE": "დახურე"
+  },
+  "board_column_expand": {
+    "EN": "Expand",
+    "GE": "გაიშალოს"
+  },
+  "board_add_task": {
+    "EN": "Add task",
+    "GE": "დაამატე დავალება"
+  },
+  "board_add_task_title": {
+    "EN": "Title",
+    "GE": "სახელი"
+  },
+  "board_submit_new_task": {
+    "EN": "Submit Task",
+    "GE": "დაამატე დავალება"
+  },
+  "board_cancel_new_task": {
+    "EN": "Cancel",
+    "GE": "გაუქმება"
+  },
+  "board_task_title_must_be_4_characters": {
+    "EN": "title must be at least 4 characters",
+    "GE": "სახელი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
+>>>>>>> 35f0570... task details halfway in. task board started
   }
 }
