@@ -1,29 +1,36 @@
 import React, { useState, useContext } from "react";
 import Dialog from "@material-ui/core/Dialog";
-import { UserContext, ProjectContext } from "App";
+import { ProjectContext } from "App";
 
 import EditTaskHeader from "./EditTaskHeader";
 
-import { dialogWrapper } from "./styles.module.css";
+import { dialogWrapper, gridWrapper } from "./styles.module.css";
+import EditTaskRight from "./EditTaskRight/EditTaskRight";
+import EditTaskLeft from "./EditTaskLeft/EditTaskLeft";
 
 const EditTask = ({ taskId, setTaskId }) => {
-  const { text, textLang } = useContext(UserContext);
-
-  const { project, setProject } = useContext(ProjectContext);
+  const { project } = useContext(ProjectContext);
 
   const task = project.tasks.find((t) => t.id === taskId);
 
   const [open, setOpen] = useState(true);
 
-  const onClose = () => {
+  const onClose = (afterClosed) => {
     setOpen(false);
-    setTimeout(() => setTaskId(undefined), 200);
+    setTimeout(() => {
+      setTaskId(undefined);
+      afterClosed && afterClosed();
+    }, 200);
   };
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth={false}>
+    <Dialog open={open} onClose={() => onClose()} maxWidth={false}>
       <div className={dialogWrapper}>
-        <EditTaskHeader onClose={onClose} taskId={taskId} />
+        <EditTaskHeader onClose={onClose} task={task} />
+        <div className={gridWrapper}>
+          <EditTaskLeft task={task} />
+          <EditTaskRight task={task} onClose={onClose} />
+        </div>
       </div>
     </Dialog>
   );

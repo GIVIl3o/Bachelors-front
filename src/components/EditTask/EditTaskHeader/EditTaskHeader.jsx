@@ -22,12 +22,10 @@ import axios from "axios";
 
 const dateFormat = "dd.MM.yyyy";
 
-const EditTaskHeader = ({ taskId, onClose }) => {
+const EditTaskHeader = ({ task, onClose }) => {
   const { text, textLang } = useContext(UserContext);
 
   const { project, setProject } = useContext(ProjectContext);
-
-  const task = project.tasks.find((t) => t.id === taskId);
 
   const sprint =
     project.sprints && project.sprints.find((s) => s.id === task.sprintId);
@@ -84,7 +82,9 @@ const EditTaskHeader = ({ taskId, onClose }) => {
         </div>
       ) : (
         <Fragment>
-          <span className={titleClass}>{title}</span>
+          <span className={titleClass} onClick={() => setEditTitle(true)}>
+            {title}
+          </span>
           <EditIcon className={editIcon} onClick={() => setEditTitle(true)} />
         </Fragment>
       )}
@@ -92,13 +92,21 @@ const EditTaskHeader = ({ taskId, onClose }) => {
   );
 
   return (
-    <div className={wrapper}>
-      <div>
-        {titleElement}
-        <div className={marginTop}>{dueDate}</div>
+    <Fragment>
+      <div className={wrapper}>
+        <div>
+          {titleElement}
+          <div className={marginTop}>{dueDate}</div>
+        </div>
+        <CloseIcon
+          fontSize="large"
+          className={closeClass}
+          // important not to change to onClick={onClick}// argument will be passed
+          onClick={() => onClose()}
+        />
       </div>
-      <CloseIcon fontSize="large" className={closeClass} onClick={onClose} />
-    </div>
+      <hr style={{ marginBottom: "0px" }} />
+    </Fragment>
   );
 };
 export default EditTaskHeader;

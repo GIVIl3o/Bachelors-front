@@ -1,0 +1,8 @@
+.wrapper {
+  border-width: 1px;
+  border-left-style: inset;
+  height: 100%;
+  display: grid;
+  padding-left: 1rem;
+  grid-template-rows: min-content min-content min-content min-content;
+}
