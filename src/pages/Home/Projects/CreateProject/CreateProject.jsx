@@ -7,7 +7,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import CloseIcon from "@material-ui/icons/Close";
 import DoneIcon from "@material-ui/icons/Done";
-import { IconButton, Avatar } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -17,7 +17,6 @@ import MarginTextField from "components/utils/MarginTextField";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import { UserContext, ProjectContext } from "App";
 import axios from "axios";
-import Tooltip from "@material-ui/core/Tooltip";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -29,8 +28,8 @@ import {
   margin,
   cursorPointer,
   member,
-  memberAvatar,
 } from "./styles.module.css";
+import MemberAvatar from "components/MemberAvatar";
 
 const defaultState = {
   title: "",
@@ -127,26 +126,6 @@ const CreateProject = ({ open, setOpen }) => {
     }
   }, [open, username]);
 
-  const RenderMember = ({ username }) => {
-    return (
-      <Tooltip title={username} placement="top" className={member}>
-        <Avatar
-          src={imageBase + `/profile/${username}.png`}
-          className={memberAvatar}
-          onClick={() => {
-            const members = state.members.filter(
-              (user) => user.username !== username
-            );
-            const newUsernames = [...usernames, username];
-
-            setState({ ...state, members });
-            setUsernames(newUsernames);
-          }}
-        />
-      </Tooltip>
-    );
-  };
-
   return (
     <Fragment>
       <Dialog
@@ -228,7 +207,12 @@ const CreateProject = ({ open, setOpen }) => {
 
           <div>
             {state.members.map((user) => (
-              <RenderMember {...user} key={user.username} />
+              <MemberAvatar
+                id={user.username}
+                className={member}
+                key={user.username}
+              />
+              //<RenderMember {...user} key={user.username} />
             ))}
           </div>
 
