@@ -1,0 +1,52 @@
+.assigneeText {
+  color: #313131;
+  font-weight: bolder;
+  font-size: 1.25rem;
+}
+
+.wrapper {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-rows: min-content min-content;
+  height: 5rem;
+}
+
+.assigneeWrapper {
+  margin-top: 1rem;
+  display: grid;
+}
+
+.noAssignee {
+  cursor: pointer;
+}
+.noAssignee:hover {
+  text-decoration: underline;
+}
+.dontDisplaySelect {
+  visibility: hidden;
+  height: 0px;
+}
+
+.upperWrapper {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.editAssignee:hover {
+  text-decoration: underline;
+}
+
+.editAssignee {
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.avatarWrapper {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  cursor: pointer;
+}
+.assigneeUsername {
+  align-self: center;
+  margin-left: 0.5rem;
+}

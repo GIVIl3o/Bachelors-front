@@ -5,6 +5,7 @@ import {
   navbarConteiner,
   logo,
   tabWrapper,
+  tabClassName,
 } from "./styles.module.css";
 import { UserContext } from "App";
 import { Link, useLocation, useHistory } from "react-router-dom";
@@ -18,7 +19,7 @@ const Navbar = ({ match }) => {
   const { username, language, setLanguage } = useContext(UserContext);
 
   const history = useHistory();
-  const { text, textLang } = useContext(UserContext);
+  const { text } = useContext(UserContext);
 
   const changeLanguage = () => {
     let newLanguage = languageMap[language];
@@ -38,13 +39,14 @@ const Navbar = ({ match }) => {
   const tabs = [
     { path: prefix + "/epics", label: text.tab_epics },
     { path: prefix + "/sprints", label: text.tab_sprints },
+    { path: prefix + "/active", label: text.tab_active },
+    { path: prefix + "/backlog", label: text.tab_backlog },
     { path: prefix + "/about", label: text.tab_settings },
   ];
 
   if (isProjectPage)
     startTab = tabs.map((tab) => tab.path).findIndex((e) => e.startsWith(path));
 
-  console.log(startTab);
   const [tabN, setTabN] = useState(startTab);
 
   if (isProjectPage) {
@@ -76,6 +78,7 @@ const Navbar = ({ match }) => {
               onChange={(e, t) => setTabN(t)}
               indicatorColor="primary"
               textColor="primary"
+              variant="fullWidth"
             >
               {tabs.map((tab) => (
                 <Tab
@@ -83,6 +86,7 @@ const Navbar = ({ match }) => {
                   onClick={() => history.push(tab.path)}
                   key={tab.path}
                   style={{ width: "50px" }}
+                  className={tabClassName}
                 />
               ))}
             </Tabs>

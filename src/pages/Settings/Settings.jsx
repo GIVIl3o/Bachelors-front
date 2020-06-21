@@ -6,11 +6,12 @@ import { parseISO } from "date-fns";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import { useHistory } from "react-router";
 import PageLoading from "components/utils/PageLoading";
+import ChangeProject from "./ChangeProject";
 
 import {} from "./styles.module.css";
 
 const About = ({ match }) => {
-  const { text, textLang } = useContext(UserContext);
+  const { textLang } = useContext(UserContext);
 
   const projectId = match.params.id;
 
@@ -43,6 +44,7 @@ const About = ({ match }) => {
 
   return (
     <div>
+      <ChangeProject />
       <DangerZone />
     </div>
   );

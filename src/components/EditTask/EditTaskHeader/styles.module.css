@@ -1,0 +1,43 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  height: 3rem;
+}
+
+.titleClass {
+  font-weight: bolder;
+  font-size: 2rem;
+}
+
+.closeClass {
+  cursor: pointer;
+  align-self: baseline;
+}
+
+.dueClass {
+  font-size: 1.5rem;
+}
+.toDateClass {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.marginTop {
+  margin-top: 1rem;
+}
+
+.editIcon {
+  cursor: pointer;
+  margin-left: 1rem;
+  align-self: center;
+}
+
+.titleEditWrapper {
+  display: grid;
+  grid-template-columns: min-content min-content;
+}
+
+.editWrapper {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+}
