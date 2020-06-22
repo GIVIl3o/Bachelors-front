@@ -209,6 +209,10 @@
     "EN": "Sprints",
     "GE": "სპრინტები"
   },
+  "tab_backlog": {
+    "EN": "Backlog",
+    "GE": "ბექლოგი"
+  },
   "tab_settings": {
     "EN": "About",
     "GE": "პარამეტრები"
@@ -237,6 +241,10 @@
     "EN": "This project will be pernamently deleted",
     "GE": "პროექტი სამუდამოდ წაიშლება"
   },
+  "swal_ok": {
+    "EN": "OK",
+    "GE": "დათანხმება"
+  },
   "settings_project_deleted": {
     "EN": "Project successfully deleted",
     "GE": "პროექტი წარმატებით წაიშალა"
@@ -256,6 +264,83 @@
   "settings_transfer_owner_label": {
     "EN": "New Owner",
     "GE": "ახალი პატრონი"
+  },
+  "settings_change_swal_title": {
+    "EN": "Change owner",
+    "GE": "პატრონის შეცვლა"
+  },
+  "settings_change_swal_description": {
+    "EN": "Project will have new owner",
+    "GE": "პროექტს ახალი პატრონი ეყოლება"
+  },
+  "settings_project_changed": {
+    "EN": "Project Owner changed",
+    "GE": "პროექტს ახალი პატრონი ჰყავს"
+  },
+  "settings_project_change": {
+    "EN": "Change Project",
+    "GE": "პროექტის შეცვლა"
+  },
+  "settings_owner": {
+    "EN": "Owner:",
+    "GE": "პატრონი:"
+  },
+  "settings_admins": {
+    "EN": "Admins:",
+    "GE": "ადმინები:"
+  },
+  "settings_members": {
+    "EN": "Members:",
+    "GE": "წევრები:"
+  },
+  "settings_description": {
+    "EN": "Description:",
+    "GE": "აღწერა:"
+  },
+  "backlog_title": {
+    "EN": "Project Backlog",
+    "GE": "პროექტის ბექლოგი"
+  },
+  "backlog_add_tooltip": {
+    "EN": "Add Task",
+    "GE": "დაამატე საქმე"
+  },
+  "backlog_empty_backlog": {
+    "EN": "All tasks are already sorted",
+    "GE": "ყველა საქმე მიმაგრებულია სპრინტზე"
+  },
+  "backlog_new_title": {
+    "EN": "Task Title",
+    "GE": "დავალების სახელი"
+  },
+  "backlog_new_description": {
+    "EN": "Task Description",
+    "GE": "დავალების აღწერა"
+  },
+  "backlog_new_assignee": {  
+
+    "EN": "Assigneee",
+    "GE": "შემსრულებელი"
+  },
+  "backlog_new_title_length": {
+    "EN": "Tasks title must consists of at least 4 characters",
+    "GE": "დავალება 4 სიმბოლოს მაინც უნდა შეიცავდეს"
+  },
+  "backlog_task_created": {
+    "EN": "Task created successfully",
+    "GE": "დავალება წარმატებით შეიქმნა"
+  },
+  "backlog_delete_task_title": {
+    "EN": "Task will be deleted pernamently",
+    "GE": "დავალება წაიშლება სამუდამოდ"
+  },
+  "backlog_task_deleted": {
+    "EN": "Task deleted successfully",
+    "GE": "დავალება წარმატებით წაიშალა"
+  },
+  "task_details_due": {
+    "EN": "Due: ",
+    "GE": "ვადა: "
   },
   "add_sprint": {
     "EN": "Add Sprint",

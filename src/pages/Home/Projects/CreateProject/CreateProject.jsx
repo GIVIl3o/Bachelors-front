@@ -19,7 +19,7 @@ import { UserContext, ProjectContext } from "App";
 import axios from "axios";
 import Tooltip from "@material-ui/core/Tooltip";
 import { useHistory } from "react-router-dom";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 import {
   input,
@@ -65,13 +65,13 @@ const sendCreateProject = (
   axios.put("/projects", toSend).then((response) => {
     const project = { ...toSend, id: response.data, epics: [] };
     setProject(project);
+    history.push(`/projects/${response.data}/epics`);
 
-    swal({
+    Swal.fire({
       title: text.project_created_sweet_title,
       text: text.project_created_sweet_desc,
+      confirmButtonText: text.swal_ok,
       icon: "success",
-    }).then(() => {
-      history.push(`/projects/${response.data}`);
     });
   });
 };

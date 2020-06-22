@@ -5,7 +5,7 @@ import { buttonProgress } from "./styles.module.css";
 
 const SubmitButton = ({ loading, children, disabled, ...rest }) => {
   return (
-    <Button disabled={loading} type="submit" {...rest}>
+    <Button disabled={loading || disabled} type="submit" {...rest}>
       {children}
       {loading && <CircularProgress size={24} className={buttonProgress} />}
     </Button>
