@@ -133,7 +133,6 @@
     "EN": "Epic Title",
     "GE": "ეპიკის სახელი"
   },
-<<<<<<< HEAD
   "add_sprint": {
     "EN": "Add Sprint",
     "GE": "სპრინტის დამატება"
@@ -149,7 +148,7 @@
   "sprint_name": {
     "EN": "Sprint Name",
     "GE": "სპრინტის სახელი"
-=======
+  },
   "epic_from_date": {
     "EN": "Start Date",
     "GE": "საწყისი თარიღი"
@@ -217,9 +216,6 @@
   "epic_deleted": {
     "EN": "Epic successfully deleted",
     "GE": "ეპიკი წარმატებით წაიშალა"
-<<<<<<< HEAD
->>>>>>> e809a6d... epic page implemented
-=======
   },
   "tab_epics": {
     "EN": "Epics",
@@ -284,9 +280,6 @@
   "settings_transfer_owner_label": {
     "EN": "New Owner",
     "GE": "ახალი პატრონი"
-<<<<<<< HEAD
->>>>>>> 52e8b0d... Added navigation + project setting page started
-=======
   },
   "settings_change_swal_title": {
     "EN": "Change owner",
@@ -319,9 +312,6 @@
   "settings_description": {
     "EN": "Description:",
     "GE": "აღწერა:"
-<<<<<<< HEAD
->>>>>>> df81eaf... settings added
-=======
   },
   "backlog_title": {
     "EN": "Project Backlog",
@@ -366,9 +356,6 @@
   "task_details_due": {
     "EN": "Due: ",
     "GE": "ვადა: "
-<<<<<<< HEAD
->>>>>>> 4fa1c08... progress
-=======
   },
   "edit_task_description": {
     "EN": "Description:",
@@ -513,6 +500,5 @@
   "board_task_title_must_be_4_characters": {
     "EN": "title must be at least 4 characters",
     "GE": "სახელი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
->>>>>>> 35f0570... task details halfway in. task board started
   }
 }

@@ -11,21 +11,11 @@ import Text from "Text.json";
 import withWidth, { isWidthUp, isWidthDown } from "@material-ui/core/withWidth";
 import Footer from "./components/Footer";
 import Epics from "./pages/Epics";
-<<<<<<< HEAD
-import Sprints from "./pages/Sprints";
-=======
 import SwipeableRoutes from "react-swipeable-routes";
 import Settings from "pages/Settings";
 import Sprints from "pages/Sprints";
-<<<<<<< HEAD
->>>>>>> 52e8b0d... Added navigation + project setting page started
-=======
 import Backlog from "pages/Backlog";
-<<<<<<< HEAD
->>>>>>> 4fa1c08... progress
-=======
 import ActiveSprint from "pages/ActiveSprint";
->>>>>>> 35f0570... task details halfway in. task board started
 
 let user = "";
 let savedLanguage = "";
@@ -66,20 +56,11 @@ const App = ({ width, imageBase }) => {
     : { marginLeft: "2rem", marginRight: "2rem" };
 
   const routes = username
-<<<<<<< HEAD
     ? [
         { path: "/", component: Homepage },
         { path: "/projects/:id", component: Epics },
-<<<<<<< HEAD
-        { path: "/epics/:id", component: Sprints},        
-      ]
-=======
-    ? [{ path: "/", component: Homepage }]
->>>>>>> 52e8b0d... Added navigation + project setting page started
-=======
         // { path: "/epics/:id", component: Sprints},
-    ]        
->>>>>>> 24d577a... Fixed random bugs
+      ]
     : [
         { path: "/", component: Homepage },
         { path: "/login", component: LoginPage },

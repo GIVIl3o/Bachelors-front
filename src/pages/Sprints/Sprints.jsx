@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState, Fragment } from "react";
 import { UserContext } from "App";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import { useHistory } from "react-router-dom";
@@ -21,26 +20,26 @@ import Sprint from "./Sprint/Sprint";
 import PutSprint from "./PutSprint";
 
 const Sprints = ({ match }) => {
-const { text, textLang } = useContext(UserContext);
-const [loading, setLoading] = useState(true);
-const setMessage = useContext(MessageContext);
-const history = useHistory();
-const [project, setProject] = useState({});
-const [PutSprint, setPutSprint] = useState({
-  open: false,
-  title: "",
-  from: "",
-  to: "",
-});
-
-return (
+  const { text, textLang } = useContext(UserContext);
+  const [loading, setLoading] = useState(true);
+  const setMessage = useContext(MessageContext);
+  const history = useHistory();
+  const [project, setProject] = useState({});
+  const [PutSprint, setPutSprint] = useState({
+    open: false,
+    title: "",
+    from: "",
+    to: "",
+  });
+  /*
+  return (
     <div>
       <div className={textAddWrapper}>
         <span className={sprintText}>{text.project_sprints}</span>
         <Tooltip
           title={text.add_sprint}
           placement="top"
-        //   onClick={() => setPutSprint({ open: true, title: text.sprint_epic })}
+          //   onClick={() => setPutSprint({ open: true, title: text.sprint_epic })}
         >
           <AddCircleOutlineIcon fontSize="large" className={addIcon} />
         </Tooltip>
@@ -57,14 +56,9 @@ return (
       <PutSprint setOpen={setPutSprint} {...PutSprint} />
       <EditProject />
     </div>
-=======
-import React from "react";
-
-const Sprints = () => {
-  return (
-    <span style={{ display: "block", backgroundColor: "blue" }}>Sprints</span>
->>>>>>> 52e8b0d... Added navigation + project setting page started
   );
+  */
+  return <span>TODO</span>;
 };
 
 export default Sprints;

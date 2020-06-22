@@ -4,7 +4,7 @@ import { MessageContext, MessageTypes } from "components/utils/Messages";
 import PageLoading from "components/utils/PageLoading";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Tooltip from "@material-ui/core/Tooltip";
-import data from "../Sprints/test_sprint.json"
+import data from "../Sprints/test_sprint.json";
 
 import axios from "axios";
 
@@ -63,12 +63,7 @@ const Epics = ({ match }) => {
       });
   }, [projectId]);
 
-<<<<<<< HEAD
-  
-  if (loading) return <PageLoading />;
-=======
   if (!project || projectId != project.id) return <PageLoading />;
->>>>>>> 52e8b0d... Added navigation + project setting page started
 
   const epicComparator = (e1, e2) => compareAsc(e1.fromDate, e2.fromDate);
 
@@ -148,21 +143,6 @@ const Epics = ({ match }) => {
           setEpics={setEpics}
         />
       </div>
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-      <PutEpic setOpen={setPutEpic} {...putEpic} />
-      <EditProject />
-
-      {/* TODO:: This is temporary, will be rendered elsewhere. */} 
-      <div>
-          project.epics.map((epic) => <Epic epic={epic} />
-
-      </div>
-=======
->>>>>>> e809a6d... epic page implemented
-=======
->>>>>>> de8ca43... struggling with sprints
     </div>
   );
 };
