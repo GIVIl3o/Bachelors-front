@@ -59,7 +59,7 @@ const App = ({ width, imageBase }) => {
 
     ? [
         { path: "/", component: Homepage },
-        // { path: "/projects/:id", component: Epics },
+        { path: "/projects/:id", component: Epics },
         // { path: "/epics/:id", component: Sprints},
     ]        
     : [
