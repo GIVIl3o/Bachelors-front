@@ -342,6 +342,150 @@
     "EN": "Due: ",
     "GE": "ვადა: "
   },
+  "edit_task_description": {
+    "EN": "Description:",
+    "GE": "აღწერა:"
+  },
+  "edit_task_description_cancel": {
+    "EN": "Cancel",
+    "GE": "გაუქმება"
+  },
+  "edit_task_description_submit": {
+    "EN": "Save",
+    "GE": "შენახვა"
+  },
+  "task_assignee": {
+    "EN": "Assignee:",
+    "GE": "შემსრულებელი:"
+  },
+  "task_edit_no_assignee": {
+    "EN": "None",
+    "GE": "არ ჰყავს"
+  },
+  "task_edit_assign_yourself": {
+    "EN": "Assign Yourself",
+    "GE": "შევასრულებ"
+  },
+  "task_assignee_edit": {
+    "EN": "Edit",
+    "GE": "შეცვლა"
+  },
+  "task_assignee_unassigne": {
+    "EN": "unassigne",
+    "GE": "გააუქმე"
+  },
+  "task_progress": {
+    "EN": "progress",
+    "GE": "სტატუსი"
+  },
+  "constants_permissions_member": {
+    "EN": "member",
+    "GE": "წევრი"
+  },
+  "constants_permissions_admin": {
+    "EN": "admin",
+    "GE": "ადმინი"
+  },
+  "constants_permissions_owner": {
+    "EN": "owner",
+    "GE": "შემქმნელი"
+  },
+  "constants_progress_planned": {
+    "EN": "planned",
+    "GE": "დაგეგმილი"
+  },
+  "constants_progress_todo": {
+    "EN": "todo",
+    "GE": "გასაკეთებელი"
+  },
+  "constants_progress_doing": {
+    "EN": "doing",
+    "GE": "კეთდება"
+  },
+  "constants_progress_review": {
+    "EN": "review",
+    "GE": "მოწმდება"
+  },
+  "constants_progress_qa": {
+    "EN": "QA",
+    "GE": "იტესტება"
+  },
+  "constants_progress_closed": {
+    "EN": "closed",
+    "GE": "დაიხურა"
+  },
+  "constants_labels_minor": {
+    "EN": "minor",
+    "GE": "უმნიშვნელო"
+  },
+  "constants_labels_major": {
+    "EN": "major",
+    "GE": "მნიშვნელოვანი"
+  },
+  "constants_labels_blocker": {
+    "EN": "blocker",
+    "GE": "დამაბრკოლებელი"
+  },
+  "constants_labels_critical": {
+    "EN": "critical",
+    "GE": "კრიტიკული"
+  },
+  "edit_task_label": {
+    "EN": "label",
+    "GE": "იარლიყი"
+  },
+  "task_no_label": {
+    "EN": "No label selected",
+    "GE": "არ აქვს იარლიყი"
+  },
+  "task_sprint": {
+    "EN": "sprint",
+    "GE": "სპრინტი"
+  },
+  "task_no_sprint": {
+    "EN": "In backlog",
+    "GE": "ბექლოგშია"
+  },
+  "task_eidt_delete": {
+    "EN": "Delete task",
+    "GE": "დავალების წაშლა"
+  },
+  "swal_task_deleted": {
+    "EN": "Task will be deleted pernamently",
+    "GE": "დავალება სამუდამოდ წაიშლება"
+  },
+  "tab_active": {
+    "EN": "Active",
+    "GE": "აქტიური"
+  },
+  "board_column_wrap": {
+    "EN": "Collapse",
+    "GE": "დახურე"
+  },
+  "board_column_expand": {
+    "EN": "Expand",
+    "GE": "გაიშალოს"
+  },
+  "board_add_task": {
+    "EN": "Add task",
+    "GE": "დაამატე დავალება"
+  },
+  "board_add_task_title": {
+    "EN": "Title",
+    "GE": "სახელი"
+  },
+  "board_submit_new_task": {
+    "EN": "Submit Task",
+    "GE": "დაამატე დავალება"
+  },
+  "board_cancel_new_task": {
+    "EN": "Cancel",
+    "GE": "გაუქმება"
+  },
+  "board_task_title_must_be_4_characters": {
+    "EN": "title must be at least 4 characters",
+    "GE": "სახელი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
+  },
   "add_sprint": {
     "EN": "Add Sprint",
     "GE": "სპრინტის დამატება"

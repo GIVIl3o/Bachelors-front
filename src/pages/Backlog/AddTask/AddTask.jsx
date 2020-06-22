@@ -5,8 +5,6 @@ import MarginTextField from "components/utils/MarginTextField";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import { UserContext, ProjectContext } from "App";
 import axios from "axios";
-import DateFnsUtils from "@date-io/date-fns";
-import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers";
 import SubmitButton from "components/utils/SubmitButton";
 import MenuItem from "@material-ui/core/MenuItem";
 import {
@@ -18,12 +16,14 @@ import {
 import { InputAdornment } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import Swal from "sweetalert2";
+import { PROGRESS } from "Constants";
 
 const baseTask = {
   id: null,
   title: "",
   assignee: "",
   description: "",
+  progress: PROGRESS.planned.value,
 };
 
 const submitTask = (

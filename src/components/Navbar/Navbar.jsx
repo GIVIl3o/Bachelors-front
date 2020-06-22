@@ -39,6 +39,7 @@ const Navbar = ({ match }) => {
   const tabs = [
     { path: prefix + "/epics", label: text.tab_epics },
     { path: prefix + "/sprints", label: text.tab_sprints },
+    { path: prefix + "/active", label: text.tab_active },
     { path: prefix + "/backlog", label: text.tab_backlog },
     { path: prefix + "/about", label: text.tab_settings },
   ];

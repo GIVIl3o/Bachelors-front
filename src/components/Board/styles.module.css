@@ -1,0 +1,10 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, min-content);
+  height: 100%;
+  column-gap: 1rem;
+}
+
+.columnWrapper {
+  width: 100%;
+}
