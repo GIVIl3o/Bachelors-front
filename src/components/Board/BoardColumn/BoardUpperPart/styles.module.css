@@ -1,0 +1,57 @@
+.wrapper {
+  width: 300px;
+}
+
+.columnText {
+  color: white;
+
+  text-transform: capitalize;
+}
+
+.headerWrapper {
+  display: grid;
+  align-items: center;
+  grid-template-columns: min-content 1fr min-content;
+
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 0.75rem;
+}
+
+.collapseIcon {
+  cursor: pointer;
+}
+
+.collapsedWrapper {
+  height: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 0.75rem;
+  display: grid;
+  grid-template-rows: min-content min-content;
+  width: min-content;
+}
+
+.collapsedTextWrapper {
+  color: white;
+  text-transform: capitalize;
+}
+
+.expandIcon {
+  justify-self: center;
+  cursor: pointer;
+}
+
+.collapseTextWrapperDiv {
+  transform: rotate(90deg);
+  margin-top: 1rem;
+  width: 40px;
+}
+
+.addIconClass {
+  cursor: pointer;
+}
