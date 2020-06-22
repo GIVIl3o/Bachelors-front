@@ -74,7 +74,6 @@ const App = ({ width, imageBase }) => {
     { path: "/projects/:id/backlog", component: Backlog },
     { path: "/projects/:id/about", component: Settings },
   ];
-  sprint_name
   return (
     <StylesProvider injectFirst>
       <UserContext.Provider
