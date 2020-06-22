@@ -70,11 +70,16 @@ const App = ({ width, imageBase }) => {
     ? [
         { path: "/", component: Homepage },
         { path: "/projects/:id", component: Epics },
+<<<<<<< HEAD
         { path: "/epics/:id", component: Sprints},        
       ]
 =======
     ? [{ path: "/", component: Homepage }]
 >>>>>>> 52e8b0d... Added navigation + project setting page started
+=======
+        // { path: "/epics/:id", component: Sprints},
+    ]        
+>>>>>>> 24d577a... Fixed random bugs
     : [
         { path: "/", component: Homepage },
         { path: "/login", component: LoginPage },
@@ -87,7 +92,6 @@ const App = ({ width, imageBase }) => {
     { path: "/projects/:id/backlog", component: Backlog },
     { path: "/projects/:id/about", component: Settings },
   ];
-  sprint_name
   return (
     <StylesProvider injectFirst>
       <UserContext.Provider
