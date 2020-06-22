@@ -22,7 +22,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
     "react-swipeable-routes": "^0.6.0",
-    "sweetalert2": "^9.15.0"
+    "sweetalert2": "^9.15.1"
   },
   "scripts": {
     "start": "react-scripts start",
