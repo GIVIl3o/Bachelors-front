@@ -14,6 +14,7 @@ import Epics from "./pages/Epics";
 import SwipeableRoutes from "react-swipeable-routes";
 import Settings from "pages/Settings";
 import Sprints from "pages/Sprints";
+import Backlog from "pages/Backlog";
 
 let user = "";
 let savedLanguage = "";
@@ -68,6 +69,7 @@ const App = ({ width, imageBase }) => {
   const projectRoutes = [
     { path: "/projects/:id/epics", component: Epics },
     { path: "/projects/:id/sprints", component: Sprints },
+    { path: "/projects/:id/backlog", component: Backlog },
     { path: "/projects/:id/about", component: Settings },
   ];
   sprint_name

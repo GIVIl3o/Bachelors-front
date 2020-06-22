@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { UserContext, ProjectContext } from "App";
 import InputLabel from "@material-ui/core/InputLabel";
 
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 import axios from "axios";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 
@@ -33,18 +33,26 @@ const deleteProject = (
   setMessage,
   setDeleteLoading
 ) => {
-  swal({
+  Swal.fire({
     title: text.settings_delete_swal_title,
     text: text.settings_delete_swal_description,
     icon: "warning",
-    buttons: [text.sweet_alert_cancel, text.swee_alert_confirm],
-    dangerMode: true,
-  }).then((willDelete) => {
+    showCancelButton: true,
+    cancelButtonText: text.sweet_alert_cancel,
+    reverseButtons: true,
+    confirmButtonText: text.swee_alert_confirm,
+    focusCancel: true,
+  }).then(({ value: willDelete }) => {
     willDelete && setDeleteLoading(true);
     willDelete &&
       axios.delete(`/projects/${project.id}`).then(() => {
         setProject(undefined);
-        setMessage(textLang.settings_project_deleted, MessageTypes.success);
+        Swal.fire({
+          title: text.settings_project_deleted,
+          icon: "success",
+          reverseButtons: true,
+          confirmButtonText: text.swee_alert_confirm,
+        });
         history.push("/");
       });
   });
@@ -53,12 +61,50 @@ const deleteProject = (
 const changeOwner = (
   project,
   setProject,
+  newOwner,
   text,
   textLang,
   setMessage,
   setChangeOwnerLoading
 ) => {
-  console.log("asd");
+  Swal.fire({
+    title: text.settings_change_swal_title,
+    text: text.settings_change_swal_description,
+    icon: "warning",
+    showCancelButton: true,
+    cancelButtonText: text.sweet_alert_cancel,
+    reverseButtons: true,
+    confirmButtonText: text.swee_alert_confirm,
+    dangerMode: true,
+    focusCancel: true,
+  }).then(({ value: willChange }) => {
+    willChange && setChangeOwnerLoading(true);
+
+    willChange &&
+      axios
+        .post(`/projects/${project.id}/change_owner/${newOwner}`)
+        .then(() => {
+          const owner = project.members.filter(
+            (m) => m.permission === "OWNER"
+          )[0];
+          const filteredMembers = project.members.filter(
+            (m) => m.permission !== "OWNER" && m.username !== newOwner
+          );
+          const members = [
+            ...filteredMembers,
+            { username: newOwner, permission: "OWNER" },
+            { username: owner.username, permission: "ADMIN" },
+          ];
+          setProject({ ...project, members });
+          Swal.fire({
+            title: text.settings_project_changed,
+            icon: "success",
+            reverseButtons: true,
+            confirmButtonText: text.swee_alert_confirm,
+          });
+          setChangeOwnerLoading(false);
+        });
+  });
 };
 
 const DangerZone = () => {
@@ -80,8 +126,6 @@ const DangerZone = () => {
     project.members
       .filter((m) => m.permission === "ADMIN")
       .map((m) => m.username);
-
-  console.log(ownershipCandidates);
 
   return (
     <div className={dangerTextWrapper}>
@@ -130,6 +174,7 @@ const DangerZone = () => {
                   changeOwner(
                     project,
                     setProject,
+                    newOwner,
                     text,
                     textLang,
                     setMessage,
@@ -137,6 +182,7 @@ const DangerZone = () => {
                   )
                 }
                 loading={changeOwnerLoading}
+                disabled={newOwner === ""}
               >
                 {text.settings_transfer_ownership_button}
               </SubmitButton>
