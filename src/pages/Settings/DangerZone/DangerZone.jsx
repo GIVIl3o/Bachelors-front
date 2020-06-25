@@ -150,7 +150,7 @@ const DangerZone = () => {
                 className={ownershipClass}
               >
                 <InputLabel id="newOwner">
-                  {text.settings_transfer_owner_label}
+                  {text.new_sprint_epic_label}
                 </InputLabel>
                 <Select
                   value={newOwner}

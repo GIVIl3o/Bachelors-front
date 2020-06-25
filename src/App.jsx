@@ -116,7 +116,7 @@ const App = ({ width, imageBase }) => {
                             component={route.component}
                             exact
                             key={route.path}
-                            defaultParams={{ id: "5" }}
+                            defaultParams={{ id: "5", asd: "3" }}
                           />
                         ))}
                       </SwipeableRoutes>

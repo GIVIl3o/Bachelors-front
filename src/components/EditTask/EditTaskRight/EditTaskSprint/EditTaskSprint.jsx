@@ -13,10 +13,12 @@ const EditTaskSprint = ({ task }) => {
 
   const { project, setProject } = useContext(ProjectContext);
 
-  const changeSprint = (selectedSprint) => {
-    const sprint = selectedSprint === " " ? null : selectedSprint;
+  console.log(task);
 
-    const newTask = { ...task, sprint };
+  const changeSprint = (selectedSprint) => {
+    const sprintId = selectedSprint === "T" ? null : selectedSprint;
+
+    const newTask = { ...task, sprintId };
 
     axios
       .post(`/tasks/${task.id}?projectId=${project.id}`, newTask)
@@ -32,13 +34,18 @@ const EditTaskSprint = ({ task }) => {
         <InputLabel id="taskSprint">{text.task_sprint}</InputLabel>
         <Select
           labelId="taskSprint"
-          value={" "}
+          value={task.sprintId || "T"}
           onChange={(e) => changeSprint(e.target.value)}
           label={text.task_sprint}
         >
-          <MenuItem value={" "}>
+          <MenuItem value={"T"}>
             <em>{text.task_no_sprint}</em>
           </MenuItem>
+          {project.sprints.map((sprint) => (
+            <MenuItem value={sprint.id} key={sprint.id}>
+              {sprint.title}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </div>
