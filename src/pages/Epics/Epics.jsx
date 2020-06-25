@@ -4,7 +4,6 @@ import { MessageContext, MessageTypes } from "components/utils/Messages";
 import PageLoading from "components/utils/PageLoading";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Tooltip from "@material-ui/core/Tooltip";
-import data from "../Sprints/test_sprint.json";
 
 import axios from "axios";
 
@@ -83,7 +82,16 @@ const Epics = ({ match }) => {
 
   const deleteEpic = (id) => {
     const filteredEpics = project.epics.filter((e) => e.id !== id);
-    setProject({ ...project, epics: filteredEpics });
+
+    const removeEpicIdFromSprints = (sprint) =>
+      sprint.epicId === id ? null : sprint.epicId;
+
+    const unconnectSprints = project.sprints.map((sprint) => ({
+      ...sprint,
+      epicId: removeEpicIdFromSprints(sprint),
+    }));
+
+    setProject({ ...project, epics: filteredEpics, sprints: unconnectSprints });
 
     if (id === openedEpic.id) {
       onEpicOpenChange(false);

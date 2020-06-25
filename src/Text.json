@@ -201,9 +201,13 @@
     "EN": "Are you sure?",
     "GE": "დარწმუნებული ხართ?"
   },
-  "sweet_alert_description": {
+  "swal_epic_delete_title": {
     "EN": "Given Epic will be pernamently deleted",
     "GE": "მოცემული ეპიკი სამუდამოდ წაიშლება"
+  },
+  "swal_epic_delete_description": {
+    "EN": "Related sprints will be unconnected",
+    "GE": "დამოკიდებული სპრინტები არ წაიშლებიან"
   },
   "sweet_alert_cancel": {
     "EN": "CANCEL",
@@ -500,5 +504,57 @@
   "board_task_title_must_be_4_characters": {
     "EN": "title must be at least 4 characters",
     "GE": "სახელი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
+  },
+  "new_sprint_epic_label": {
+    "EN": "Epic Name",
+    "GE": "ეპიკის სახელი"
+  },
+  "new_sprint_no_epic": {
+    "EN": "Without Epic",
+    "GE": "ეპიკის გარეშე"
+  },
+  "new_sprint_name": {
+    "EN": "Sprint Name",
+    "GE": "სპრინტის სახელი"
+  },
+  "sprint_title_length": {
+    "EN": "title must be at least 4 characters",
+    "GE": "სახელი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
+  },
+  "sprints_project_sprints": {
+    "EN": "Project Sprints",
+    "GE": "პროექტის სპრინტები"
+  },
+  "sprints_no_sprints": {
+    "EN": "Project has no sprints",
+    "GE": "პროექტს არ აქვს სპრინტები"
+  },
+  "sprint_delete_swal_title": {
+    "EN": "Sprint will be deleted pernamently",
+    "GE": "სპრინტი სამუდამოდ წაიშლება"
+  },
+  "sprint_delete_swal_description": {
+    "EN": "Related tasks will be moved to backlog",
+    "GE": "დამოკიდებული დავალებები ბექლოგში გადაინაცვლებენ"
+  },
+  "sprint_deleted_succesfully_swal": {
+    "EN": "Sprint deleted successfully",
+    "GE": "სპრინტი წარმატებით წაიშალა"
+  },
+  "sprint_activate": {
+    "EN": "Activate",
+    "GE": "გააქტიურება"
+  },
+  "sprint_deactivate": {
+    "EN": "Deactivate",
+    "GE": "დეაქტივაცია"
+  },
+  "swal_already_active_sprint_title": {
+    "EN": "Active sprint detected",
+    "GE": "აქტიური სპრინტი უკვე არსებობს"
+  },
+  "swal_already_active_sprint_description": {
+    "EN": "Do you want to disable it?",
+    "GE": "გსურთ ძველი სპრინტის დეაქტივაცია?"
   }
 }

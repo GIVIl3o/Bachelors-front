@@ -17,7 +17,6 @@ import {
   textWrapper,
   selectedEpic,
   deleteEpicClass,
-  noSprints,
 } from "./styles.module.css";
 
 const dateFormat = "dd.MM.yyyy";
@@ -34,8 +33,8 @@ const Epic = ({ epic, onOpen, selected, deleteEpic, projectId }) => {
     e.stopPropagation();
 
     Swal.fire({
-      title: text.sweet_alert_sure,
-      text: text.sweet_alert_description,
+      title: text.swal_epic_delete_title,
+      text: text.swal_epic_delete_description,
       icon: "warning",
       showCancelButton: true,
       cancelButtonText: text.sweet_alert_cancel,
@@ -87,7 +86,7 @@ const Epic = ({ epic, onOpen, selected, deleteEpic, projectId }) => {
         </div>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
-      {/* if epic has no sprints, show no sprints text */}
+        {/* if epic has no sprints, show no sprints text */}
 
         <span>TODO: add sprints here</span>
       </ExpansionPanelDetails>
