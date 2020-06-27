@@ -9,12 +9,14 @@ import { PROGRESS } from "Constants";
 import { wrapper, columnWrapper } from "./styles.module.css";
 import BoardColumn from "./BoardColumn";
 import EditTask from "components/EditTask";
+import { DragDropContext } from "react-beautiful-dnd";
 
 const classes = {};
 
-const Board = ({ tasks, progressTask = () => {} }) => {
+const Board = ({ tasks }) => {
   //const { userName } = useContext(UserContext);
-  const userName = "levan";
+
+  console.log(tasks);
 
   const { text, textLang } = useContext(UserContext);
   const { project, setProject } = useContext(ProjectContext);
@@ -24,25 +26,27 @@ const Board = ({ tasks, progressTask = () => {} }) => {
   const [openDetailedTask, setOpenDetailedTask] = useState(undefined);
 
   return (
-    <div className={wrapper}>
-      {Object.keys(PROGRESS).map((progressColumnName) => {
-        const relatedTasks = project.tasks.filter(
-          (task) => task.progress === PROGRESS[progressColumnName].value
-        );
+    <DragDropContext onDragEnd={() => console.log("ay ay ay :D ")}>
+      <div className={wrapper}>
+        {Object.keys(PROGRESS).map((progressColumnName) => {
+          const relatedTasks = tasks.filter(
+            (task) => task.progress === PROGRESS[progressColumnName].value
+          );
 
-        return (
-          <BoardColumn
-            tasks={relatedTasks}
-            progressColumnName={progressColumnName}
-            setOpenDetailedTask={setOpenDetailedTask}
-            key={progressColumnName}
-            setDragging={setDragging}
-            dragging={dragging}
-          />
-        );
-      })}
-      <EditTask taskId={openDetailedTask} setTaskId={setOpenDetailedTask} />
-    </div>
+          return (
+            <BoardColumn
+              tasks={relatedTasks}
+              progressColumnName={progressColumnName}
+              setOpenDetailedTask={setOpenDetailedTask}
+              key={progressColumnName}
+              setDragging={setDragging}
+              dragging={dragging}
+            />
+          );
+        })}
+        <EditTask taskId={openDetailedTask} setTaskId={setOpenDetailedTask} />
+      </div>
+    </DragDropContext>
   );
 };
 

@@ -19,6 +19,7 @@ import {
 import Epic from "./Epic/Epic";
 import PutEpic from "./PutEpic";
 import { addDays, parseISO, compareAsc } from "date-fns";
+import { useParams } from "react-router";
 
 const minDateDistanceDays = 7;
 
@@ -29,40 +30,16 @@ const newEpic = {
   toDate: addDays(new Date(), minDateDistanceDays),
 };
 
-const Epics = ({ match }) => {
-  const { text, textLang } = useContext(UserContext);
-
-  const setMessage = useContext(MessageContext);
+const Epics = () => {
+  const { text } = useContext(UserContext);
 
   const { project, setProject } = useContext(ProjectContext);
-
-  const projectId = match.params.id;
 
   const [openEpicEdit, setOpenEpic] = useState(false);
   const [displayAddEpic, setAddEpic] = useState(true);
   const [openedEpic, setOpenedEpic] = useState(newEpic);
 
-  useEffect(() => {
-    axios
-      .get(`/projects/${projectId}`)
-      .then((response) => {
-        const project = response.data;
-
-        document.title = `Scrumhub | ${project.title}`;
-        const epics = project.epics.map((epic) => ({
-          ...epic,
-          fromDate: parseISO(epic.fromDate),
-          toDate: parseISO(epic.toDate),
-        }));
-
-        setProject({ ...project, epics });
-      })
-      .catch(() => {
-        setMessage(textLang.project_not_found, MessageTypes.error);
-      });
-  }, [projectId]);
-
-  if (!project || projectId != project.id) return <PageLoading />;
+  if (!project) return <PageLoading />;
 
   const epicComparator = (e1, e2) => compareAsc(e1.fromDate, e2.fromDate);
 
