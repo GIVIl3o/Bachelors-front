@@ -1,52 +1,24 @@
-import React, { useEffect, useContext, useState, Fragment } from "react";
-import { UserContext, ProjectContext } from "App";
-import { MessageContext, MessageTypes } from "components/utils/Messages";
+import React, { useContext } from "react";
+import { ProjectContext } from "App";
 import PageLoading from "components/utils/PageLoading";
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-import Tooltip from "@material-ui/core/Tooltip";
 
-import axios from "axios";
-
-import { parseISO } from "date-fns";
 import Board from "components/Board/Board";
 
-const ActiveSprint = ({ match }) => {
-  const { text, textLang } = useContext(UserContext);
+const ActiveSprint = () => {
+  const { project } = useContext(ProjectContext);
 
-  const setMessage = useContext(MessageContext);
+  if (!project) return <PageLoading />;
 
-  const { project, setProject } = useContext(ProjectContext);
+  const activeSprint = project.sprints.find((sprint) => sprint.active);
 
-  const projectId = match.params.id;
+  if (activeSprint === undefined)
+    return <h1>No active sprint found. Fuck. No idea what to present here</h1>;
 
-  const [openAddTask, setOpenAddTask] = useState(false);
-  const [displayAddTask, setAddTask] = useState(true);
+  const tasks = project.tasks.filter(
+    (task) => task.sprintId === activeSprint.id
+  );
 
-  const [openDetailedTask, setOpenDetailedTask] = useState(undefined);
-
-  useEffect(() => {
-    axios
-      .get(`/projects/${projectId}`)
-      .then((response) => {
-        const project = response.data;
-
-        document.title = `Scrumhub | ${project.title}`;
-        const epics = project.epics.map((epic) => ({
-          ...epic,
-          fromDate: parseISO(epic.fromDate),
-          toDate: parseISO(epic.toDate),
-        }));
-
-        setProject({ ...project, epics });
-      })
-      .catch(() => {
-        setMessage(textLang.project_not_found, MessageTypes.error);
-      });
-  }, [projectId]);
-
-  if (!project || projectId != project.id) return <PageLoading />;
-
-  return <Board tasks={[]} />;
+  return <Board tasks={tasks} />;
 };
 
 export default ActiveSprint;

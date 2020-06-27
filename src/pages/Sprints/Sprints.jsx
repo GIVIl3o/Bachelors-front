@@ -29,40 +29,18 @@ const newSprint = {
   active: false,
 };
 
-const Sprints = ({ match }) => {
+const Sprints = () => {
   const { text, textLang } = useContext(UserContext);
 
   const setMessage = useContext(MessageContext);
 
   const { project, setProject } = useContext(ProjectContext);
 
-  const projectId = match.params.id;
-
   const [openSprintEdit, setOpenSprint] = useState(false);
   const [displayAddSprint, setAddSprint] = useState(true);
   const [openedSprint, setOpenedSprint] = useState(newSprint);
 
-  useEffect(() => {
-    axios
-      .get(`/projects/${projectId}`)
-      .then((response) => {
-        const project = response.data;
-
-        document.title = `Scrumhub | ${project.title}`;
-        const epics = project.epics.map((epic) => ({
-          ...epic,
-          fromDate: parseISO(epic.fromDate),
-          toDate: parseISO(epic.toDate),
-        }));
-
-        setProject({ ...project, epics });
-      })
-      .catch(() => {
-        setMessage(textLang.project_not_found, MessageTypes.error);
-      });
-  }, [projectId]);
-
-  if (!project || projectId != project.id) return <PageLoading />;
+  if (!project) return <PageLoading />;
 
   const onSprintOpenChange = (openDialog) => {
     if (openDialog) {

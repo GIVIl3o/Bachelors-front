@@ -1,5 +1,5 @@
-import React, { useState, createContext, Fragment } from "react";
-import { Route, BrowserRouter, Redirect, Switch } from "react-router-dom";
+import React, { useState, createContext } from "react";
+import { Route, BrowserRouter } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
@@ -11,11 +11,11 @@ import Text from "Text.json";
 import withWidth, { isWidthUp, isWidthDown } from "@material-ui/core/withWidth";
 import Footer from "./components/Footer";
 import Epics from "./pages/Epics";
-import SwipeableRoutes from "react-swipeable-routes";
 import Settings from "pages/Settings";
 import Sprints from "pages/Sprints";
 import Backlog from "pages/Backlog";
 import ActiveSprint from "pages/ActiveSprint";
+import ProjectTransitionWrapper from "./pages/ProjectTransitionWrapper";
 
 let user = "";
 let savedLanguage = "";
@@ -67,12 +67,13 @@ const App = ({ width, imageBase }) => {
       ];
 
   const projectRoutes = [
-    { path: "/projects/:id/epics", component: Epics },
-    { path: "/projects/:id/sprints", component: Sprints },
-    { path: "/projects/:id/active", component: ActiveSprint },
-    { path: "/projects/:id/backlog", component: Backlog },
-    { path: "/projects/:id/about", component: Settings },
+    { path: "/projects/:id/epics", Component: Epics },
+    { path: "/projects/:id/sprints", Component: Sprints },
+    { path: "/projects/:id/active", Component: ActiveSprint },
+    { path: "/projects/:id/backlog", Component: Backlog },
+    { path: "/projects/:id/about", Component: Settings },
   ];
+
   return (
     <StylesProvider injectFirst>
       <UserContext.Provider
@@ -98,33 +99,29 @@ const App = ({ width, imageBase }) => {
                 }}
               >
                 <Navbar />
-                <Switch>
-                  {routes.map((route) => (
-                    <Route
-                      path={route.path}
-                      component={route.component}
-                      exact
-                      key={route.path}
-                    />
-                  ))}
-                  {username && (
-                    <Fragment>
-                      <SwipeableRoutes containerStyle={{ height: "100%" }}>
-                        {projectRoutes.map((route) => (
-                          <Route
-                            path={route.path}
-                            component={route.component}
-                            exact
-                            key={route.path}
-                            defaultParams={{ id: "5", asd: "3" }}
+                {routes.map((route) => (
+                  <Route
+                    path={route.path}
+                    component={route.component}
+                    exact
+                    key={route.path}
+                  />
+                ))}
+                {username && (
+                  <div style={{ position: "relative", height: "100%" }}>
+                    {projectRoutes.map(({ path, Component }) => (
+                      <Route key={path} exact path={path}>
+                        {(props) => (
+                          <ProjectTransitionWrapper
+                            Component={Component}
+                            {...props}
                           />
-                        ))}
-                      </SwipeableRoutes>
-                    </Fragment>
-                  )}
+                        )}
+                      </Route>
+                    ))}
+                  </div>
+                )}
 
-                  <Route render={() => <Redirect to="/" />} />
-                </Switch>
                 <Footer />
               </div>
             </BrowserRouter>

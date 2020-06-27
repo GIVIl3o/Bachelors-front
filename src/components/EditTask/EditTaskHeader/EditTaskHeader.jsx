@@ -23,13 +23,13 @@ import axios from "axios";
 const dateFormat = "dd.MM.yyyy";
 
 const EditTaskHeader = ({ task, onClose }) => {
-  const { text, textLang } = useContext(UserContext);
+  const { text } = useContext(UserContext);
 
   const { project, setProject } = useContext(ProjectContext);
 
   const sprint =
     project.sprints && project.sprints.find((s) => s.id === task.sprintId);
-  const epic = project.epics.find((e) => e.id === 108);
+  const epic = project.epics.find((e) => e.id === sprint.id);
 
   const [editTitle, setEditTitle] = useState(false);
   const [title, setTitle] = useState(task.title);

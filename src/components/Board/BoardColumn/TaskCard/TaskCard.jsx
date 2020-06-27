@@ -20,6 +20,7 @@ import {
   draggedOverThisCard,
 } from "./styles.module.css";
 import { getLabelValue } from "Constants";
+import { Draggable } from "react-beautiful-dnd";
 
 const TaskCard = ({ task, setDragging, setOpenDetailedTask, dragging }) => {
   const setMessage = useContext(MessageContext);
@@ -32,11 +33,7 @@ const TaskCard = ({ task, setDragging, setOpenDetailedTask, dragging }) => {
     task.assignee === null ? <Fragment /> : <MemberAvatar id={task.assignee} />;
 
   const ref = useRef(null);
-  useEffect(() => {
-    ref.current.addEventListener("dragend", () => {
-      setDragging(null);
-    });
-  }, [ref]);
+  useEffect(() => {}, [ref]);
 
   const wrapperDivClasses =
     wrapper + (isDraggedOver ? ` ${draggedOverThisCard}` : "");
@@ -44,28 +41,12 @@ const TaskCard = ({ task, setDragging, setOpenDetailedTask, dragging }) => {
   //console.log(wrapperDivClasses);
 
   return (
-    <div
-      onDragLeave={() => {
-        console.log("end:" + task.title);
-        setIsDraggedOver(false);
-      }}
-      onDragOver={() => {
-        console.log("start:" + task.title);
-        setDragging(task);
-      }}
-    >
+    <div>
       <div
         className={wrapperDivClasses}
-        draggable={true}
-        ref={ref}
         onClick={() => setOpenDetailedTask(task.id)}
-        onDragOver={() => {
-          console.log("start:" + task.title);
-          setIsDraggedOver(true);
-        }}
       >
         <span className={titleWrapper}>{task.title}</span>
-        {}
         <div className={bottomWrapper}>
           <span className={taskIdClass}>#{task.id}</span>
           {task.label && (

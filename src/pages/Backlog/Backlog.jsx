@@ -1,11 +1,8 @@
-import React, { useEffect, useContext, useState, Fragment } from "react";
+import React, { useContext, useState, Fragment } from "react";
 import { UserContext, ProjectContext } from "App";
-import { MessageContext, MessageTypes } from "components/utils/Messages";
 import PageLoading from "components/utils/PageLoading";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Tooltip from "@material-ui/core/Tooltip";
-
-import axios from "axios";
 
 import {
   layout,
@@ -16,46 +13,21 @@ import {
   addIconWrapper,
   taskWrapper,
 } from "./styles.module.css";
-import { parseISO } from "date-fns";
 import AddTask from "./AddTask";
 import Task from "./Task";
 import EditTask from "components/EditTask";
 
-const Backlog = ({ match }) => {
-  const { text, textLang } = useContext(UserContext);
+const Backlog = () => {
+  const { text } = useContext(UserContext);
 
-  const setMessage = useContext(MessageContext);
-
-  const { project, setProject } = useContext(ProjectContext);
-
-  const projectId = match.params.id;
+  const { project } = useContext(ProjectContext);
 
   const [openAddTask, setOpenAddTask] = useState(false);
   const [displayAddTask, setAddTask] = useState(true);
 
   const [openDetailedTask, setOpenDetailedTask] = useState(undefined);
 
-  useEffect(() => {
-    axios
-      .get(`/projects/${projectId}`)
-      .then((response) => {
-        const project = response.data;
-
-        document.title = `Scrumhub | ${project.title}`;
-        const epics = project.epics.map((epic) => ({
-          ...epic,
-          fromDate: parseISO(epic.fromDate),
-          toDate: parseISO(epic.toDate),
-        }));
-
-        setProject({ ...project, epics });
-      })
-      .catch(() => {
-        setMessage(textLang.project_not_found, MessageTypes.error);
-      });
-  }, [projectId]);
-
-  if (!project || projectId != project.id) return <PageLoading />;
+  if (!project) return <PageLoading />;
 
   const onEpicOpenChange = (openDialog) => {
     if (openDialog) {
@@ -95,13 +67,15 @@ const Backlog = ({ match }) => {
               <span className={noBacklog}>{text.backlog_empty_backlog}</span>
             ) : (
               <Fragment>
-                {project.tasks.map((task) => (
-                  <Task
-                    key={task.id}
-                    task={task}
-                    onOpen={setOpenDetailedTask}
-                  />
-                ))}
+                {project.tasks
+                  .filter((task) => !task.sprintId)
+                  .map((task) => (
+                    <Task
+                      key={task.id}
+                      task={task}
+                      onOpen={setOpenDetailedTask}
+                    />
+                  ))}
               </Fragment>
             )}
           </div>
