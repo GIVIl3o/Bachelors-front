@@ -27,9 +27,10 @@ const EditTaskHeader = ({ task, onClose }) => {
 
   const { project, setProject } = useContext(ProjectContext);
 
+  console.log(project.sprints);
   const sprint =
     project.sprints && project.sprints.find((s) => s.id === task.sprintId);
-  const epic = project.epics.find((e) => e.id === sprint.id);
+  const epic = sprint && project.epics.find((e) => e.id === sprint.epicId);
 
   const [editTitle, setEditTitle] = useState(false);
   const [title, setTitle] = useState(task.title);
@@ -92,7 +93,7 @@ const EditTaskHeader = ({ task, onClose }) => {
   );
 
   return (
-    <Fragment>
+    <div>
       <div className={wrapper}>
         <div>
           {titleElement}
@@ -106,7 +107,7 @@ const EditTaskHeader = ({ task, onClose }) => {
         />
       </div>
       <hr style={{ marginBottom: "0px" }} />
-    </Fragment>
+    </div>
   );
 };
 export default EditTaskHeader;

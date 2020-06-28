@@ -76,7 +76,7 @@ const sendCreateProject = (
 };
 
 const CreateProject = ({ open, setOpen }) => {
-  const { imageBase, username, text, textLang } = useContext(UserContext);
+  const { username, text, textLang } = useContext(UserContext);
   const { setProject } = useContext(ProjectContext);
 
   const history = useHistory();

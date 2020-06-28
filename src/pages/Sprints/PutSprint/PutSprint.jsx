@@ -8,10 +8,7 @@ import axios from "axios";
 import SubmitButton from "components/utils/SubmitButton";
 
 import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
 import { wrapper, input, submitWrapper, epicSelect } from "./styles.module.css";
-import InputLabel from "@material-ui/core/InputLabel";
 
 const sendPutSprint = (
   state,

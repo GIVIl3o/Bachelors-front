@@ -7,15 +7,15 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 
 import { wrapper } from "./styles.module.css";
-import { PROGRESS } from "Constants";
+import { TASK_TYPE } from "Constants";
 
-const EditTaskProgress = ({ task }) => {
+const EditTaskType = ({ task }) => {
   const { text } = useContext(UserContext);
 
   const { project, setProject } = useContext(ProjectContext);
 
-  const changeProgress = (progress) => {
-    const newTask = { ...task, progress };
+  const changeType = (type) => {
+    const newTask = { ...task, type };
 
     axios
       .post(`/tasks/${task.id}?projectId=${project.id}`, newTask)
@@ -28,16 +28,16 @@ const EditTaskProgress = ({ task }) => {
   return (
     <div className={wrapper}>
       <FormControl variant="outlined">
-        <InputLabel id="taskProgress">{text.task_progress}</InputLabel>
+        <InputLabel id="taskType">{text.task_details_type_label}</InputLabel>
         <Select
-          labelId="taskProgress"
-          value={task.progress}
-          onChange={(e) => changeProgress(e.target.value)}
-          label={text.task_progress}
+          labelId="taskType"
+          value={task.type}
+          onChange={(e) => changeType(e.target.value)}
+          label={text.task_details_type_label}
         >
-          {Object.keys(PROGRESS).map((progress) => (
-            <MenuItem value={PROGRESS[progress].value} key={progress}>
-              {text[PROGRESS[progress].text]}
+          {Object.keys(TASK_TYPE).map((type) => (
+            <MenuItem value={TASK_TYPE[type].value} key={type}>
+              {text[TASK_TYPE[type].text]}
             </MenuItem>
           ))}
         </Select>
@@ -46,4 +46,4 @@ const EditTaskProgress = ({ task }) => {
   );
 };
 
-export default EditTaskProgress;
+export default EditTaskType;

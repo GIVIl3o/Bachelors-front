@@ -1,4 +1,4 @@
-import React, { useContext, Fragment, useState } from "react";
+import React, { useContext, Fragment } from "react";
 import { UserContext } from "App";
 
 import { PROGRESS } from "Constants";

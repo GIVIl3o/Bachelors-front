@@ -1,6 +1,6 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  grid-template-columns: auto 1fr auto auto auto;
   margin-top: 1rem;
   border-style: groove;
   border-color: #9a9a9a66;
@@ -36,4 +36,11 @@
 .deleteButton {
   color: #f50057;
   margin-right: 0.5rem;
+}
+
+.assignmentWrapper {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  align-items: center;
+  margin-left: 1rem;
 }

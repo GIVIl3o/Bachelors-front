@@ -23,15 +23,32 @@ const DeleteTask = ({ task, onClose }) => {
       confirmButtonText: text.swee_alert_confirm,
       focusCancel: true,
     }).then(({ value: willDelete }) => {
+      const queryObject = {
+        previousLeft: task.leftId,
+        previousRight: task.rightId,
+        projectId: task.projectId,
+      };
+
+      let queryParams = "";
+      for (const q in queryObject) {
+        queryParams += queryObject[q] ? `${q}=${queryObject[q]}&` : "";
+      }
+      queryParams = queryParams.substring(0, queryParams.length - 1);
+
       willDelete &&
-        axios
-          .delete(`/tasks/${task.id}?projectId=${task.projectId}`)
-          .then(() => {
-            onClose(() => {
-              const tasks = project.tasks.filter((t) => t.id !== task.id);
-              setProject({ ...project, tasks: [...tasks] });
-            });
+        axios.delete(`/tasks/${task.id}?${queryParams}`).then(() => {
+          onClose(() => {
+            const tasks = project.tasks.filter((t) => t.id !== task.id);
+
+            if (task.leftId)
+              tasks.find((t) => t.id === task.leftId).rightId = task.rightId;
+            if (task.rightId)
+              tasks.find((t) => t.id === task.rightId).leftId = task.leftId;
+            console.log(tasks);
+
+            setProject({ ...project, tasks: [...tasks] });
           });
+        });
     });
   };
 

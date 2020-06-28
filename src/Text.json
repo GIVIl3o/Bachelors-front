@@ -326,8 +326,8 @@
     "GE": "დაამატე საქმე"
   },
   "backlog_empty_backlog": {
-    "EN": "All tasks are already sorted",
-    "GE": "ყველა საქმე მიმაგრებულია სპრინტზე"
+    "EN": "No related tasks found",
+    "GE": "დავალებები ვერ მოიძებნა"
   },
   "backlog_new_title": {
     "EN": "Task Title",
@@ -526,8 +526,8 @@
     "GE": "პროექტის სპრინტები"
   },
   "sprints_no_sprints": {
-    "EN": "Project has no sprints",
-    "GE": "პროექტს არ აქვს სპრინტები"
+    "EN": "There are no sprints here",
+    "GE": "სპრინტები ვერ მოიძებნა"
   },
   "sprint_delete_swal_title": {
     "EN": "Sprint will be deleted pernamently",
@@ -556,5 +556,37 @@
   "swal_already_active_sprint_description": {
     "EN": "Do you want to disable it?",
     "GE": "გსურთ ძველი სპრინტის დეაქტივაცია?"
+  },
+  "board_go_back_to_sprints": {
+    "EN": "Go back to sprints",
+    "GE": "სპრინტებზე დაბრუნება"
+  },
+  "sprints_filter_by_epic": {
+    "EN": "All sprints",
+    "GE": "ყველა სპრინტი"
+  },
+  "sprints_filter_label": {
+    "EN": "Epic",
+    "GE": "ეპიკი"
+  },
+  "backlog_search_query": {
+    "EN": "Search",
+    "GE": "ძებნა"
+  },
+  "sprint_number_of_tasks": {
+    "EN": "Number of tasks in this sprint",
+    "GE": "ამ სპრინტსში არსებული დავალებების რაოდენობა"
+  },
+  "task_card_story": {
+    "EN": "Story",
+    "GE": "ისტორია"
+  },
+  "task_card_bug": {
+    "EN": "Bug",
+    "GE": "შეცდომა"
+  },
+  "task_details_type_label": {
+    "EN": "Type",
+    "GE": "ტიპი"
   }
 }

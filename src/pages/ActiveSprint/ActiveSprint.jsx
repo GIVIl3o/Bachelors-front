@@ -18,7 +18,7 @@ const ActiveSprint = () => {
     (task) => task.sprintId === activeSprint.id
   );
 
-  return <Board tasks={tasks} />;
+  return <Board tasks={tasks} sprintId={activeSprint.id} />;
 };
 
 export default ActiveSprint;

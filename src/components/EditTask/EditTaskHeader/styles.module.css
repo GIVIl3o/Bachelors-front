@@ -1,7 +1,6 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr min-content;
-  height: 3rem;
 }
 
 .titleClass {
@@ -23,7 +22,7 @@
 }
 
 .marginTop {
-  margin-top: 1rem;
+  margin-top: 0.3rem;
 }
 
 .editIcon {

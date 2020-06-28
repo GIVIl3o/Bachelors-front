@@ -6,18 +6,23 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import ActiveSprintButton from "./ActiveSprintButton";
-
+import AssignmentIcon from "@material-ui/icons/Assignment";
 import {
   wrapper,
   titleWrapper,
   titleClass,
   deleteButton,
   selectedSprint,
+  assignmentWrapper,
 } from "./styles.module.css";
+import { useHistory } from "react-router";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const Sprint = ({ sprint, onOpen, selected }) => {
   const { project, setProject } = useContext(ProjectContext);
   const { text } = useContext(UserContext);
+
+  const history = useHistory();
 
   const deleteSprint = (e) => {
     e.stopPropagation();
@@ -59,10 +64,37 @@ const Sprint = ({ sprint, onOpen, selected }) => {
 
   const wrapperSelectedClasses = `${wrapper} ${selected ? selectedSprint : ""}`;
 
+  const numberOfTasks = project.tasks.filter(
+    (task) => task.sprintId === sprint.id
+  ).length;
+
   return (
-    <div className={wrapperSelectedClasses} onClick={() => onOpen(sprint)}>
+    <div
+      className={wrapperSelectedClasses}
+      onClick={() =>
+        sprint.active
+          ? history.push({
+              pathname: `/projects/${project.id}/active`,
+            })
+          : history.push({
+              pathname: `/projects/${project.id}/sprints`,
+              search: `sprintId=${sprint.id}`,
+            })
+      }
+    >
       <div className={titleWrapper}>
         <span className={titleClass}>{sprint.title}</span>
+      </div>
+
+      <div className={assignmentWrapper}>
+        <Tooltip title={text.sprint_number_of_tasks} placement="top">
+          <div className={assignmentWrapper}>
+            <span>{numberOfTasks}</span>
+            <div>
+              <AssignmentIcon />
+            </div>
+          </div>
+        </Tooltip>
       </div>
 
       <ActiveSprintButton sprint={sprint} />
