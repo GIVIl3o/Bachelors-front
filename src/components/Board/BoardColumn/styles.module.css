@@ -8,4 +8,14 @@
   padding-bottom: 0.75rem;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.dropPlaceholder {
+  border: 1px solid #99a5ff;
+  height: 5rem;
+  border-style: groove;
+  margin-top: 5px;
+  border-radius: 0.5rem;
 }

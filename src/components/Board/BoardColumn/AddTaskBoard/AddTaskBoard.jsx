@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, Fragment } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext, ProjectContext } from "App";
 
 import {
@@ -10,7 +10,7 @@ import {
 import SubmitButton from "components/utils/SubmitButton/SubmitButton";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import axios from "axios";
-import { PROGRESS } from "Constants";
+import { PROGRESS, TASK_TYPE } from "Constants";
 
 const submitTask = (
   taskName,
@@ -20,7 +20,9 @@ const submitTask = (
   progressColumnName,
   project,
   setProject,
-  setLoading
+  setLoading,
+  firstTask,
+  sprintId
 ) => {
   if (taskName.length < 4) {
     setMessage(
@@ -34,18 +36,31 @@ const submitTask = (
   const task = {
     id: null,
     title: taskName,
+    sprintId,
     assignee: null,
     description: "",
     progress: PROGRESS[progressColumnName].value,
+    type: TASK_TYPE.story.value,
+    leftId: null,
+    rightId: firstTask ? firstTask.id : null,
   };
 
   axios.post(`/tasks?projectId=${project.id}`, task).then(({ data: task }) => {
-    setProject({ ...project, tasks: [...project.tasks, task] });
+    if (firstTask) firstTask.leftId = task.id;
+
+    setProject({ ...project, tasks: [task, ...project.tasks] });
     setAddTask(false);
   });
 };
 
-const AddTaskBoard = ({ setAddTask, progressColumnName }) => {
+const AddTaskBoard = ({
+  setAddTask,
+  progressColumnName,
+  firstTask,
+  sprintId,
+}) => {
+  // firstTaskId - id of the task before which we will insert new task
+
   const { text, textLang } = useContext(UserContext);
 
   const [taskName, setTaskName] = useState("");
@@ -80,7 +95,9 @@ const AddTaskBoard = ({ setAddTask, progressColumnName }) => {
                 progressColumnName,
                 project,
                 setProject,
-                setLoading
+                setLoading,
+                firstTask,
+                sprintId
               )
             }
             loading={loading}

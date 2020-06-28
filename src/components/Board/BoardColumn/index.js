@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import BoardUpperPart from "./BoardUpperPart";
 import BoardColumn from "./BoardColumn";
 
@@ -15,7 +15,6 @@ const BoardColumnWrapper = ({ progressColumnName, ...props }) => {
   const [collapsedUpperPart, setCollapsedUpperPart] = useState(
     getCollapsed(progressColumnName)
   );
-  const [draggedOver, setDraggedOver] = useState(false);
 
   const [addTask, setAddTask] = useState(false);
 
@@ -25,30 +24,22 @@ const BoardColumnWrapper = ({ progressColumnName, ...props }) => {
     setCollapsedUpperPart(collapse);
   };
 
-  const collapsed = draggedOver ? false : collapsedUpperPart;
-
-  const divWrapperStyle = collapsed
-    ? {}
-    : { display: "grid", gridTemplateRows: "min-content 1fr" };
+  const divWrapperStyle = collapsedUpperPart
+    ? { height: "100%" }
+    : { display: "grid", gridTemplateRows: "min-content 1fr", height: "100%" };
 
   return (
-    <div
-      style={divWrapperStyle}
-      onDragOver={() => {
-        setDraggedOver(true);
-      }}
-      onDragLeave={() => setDraggedOver(false)}
-    >
+    <div style={divWrapperStyle}>
       <span>
         <BoardUpperPart
           progressColumnName={progressColumnName}
           {...props}
-          collapsedUpperPart={collapsed}
+          collapsedUpperPart={collapsedUpperPart}
           setCollapsedUpperPart={setCollapsed}
           setAddTask={setAddTask}
         />
       </span>
-      {collapsed || (
+      {collapsedUpperPart || (
         <BoardColumn
           progressColumnName={progressColumnName}
           {...props}

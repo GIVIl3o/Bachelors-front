@@ -6,6 +6,9 @@
   box-shadow: none;
   border-radius: 0px;
   background-color: inherit;
+  padding: 0.7rem;
+  cursor: pointer;
+  padding-right: 1.5rem;
 }
 
 .wrapper:hover {

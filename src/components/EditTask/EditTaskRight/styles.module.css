@@ -4,5 +4,5 @@
   height: 100%;
   display: grid;
   padding-left: 1rem;
-  grid-template-rows: min-content min-content min-content min-content;
+  grid-template-rows: min-content min-content min-content;
 }

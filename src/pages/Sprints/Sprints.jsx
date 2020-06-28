@@ -1,13 +1,9 @@
-import React, { useEffect, useContext, useState, Fragment } from "react";
-import { MessageContext, MessageTypes } from "components/utils/Messages";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import PageLoading from "components/utils/PageLoading";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Tooltip from "@material-ui/core/Tooltip";
 import { UserContext, ProjectContext } from "App";
-import { addDays, parseISO, compareAsc } from "date-fns";
-
-import axios from "axios";
 
 import {
   addIcon,
@@ -21,6 +17,8 @@ import {
 
 import Sprint from "./Sprint";
 import PutSprint from "./PutSprint";
+import MarginTextField from "components/utils/MarginTextField/MarginTextField";
+import { MenuItem } from "@material-ui/core";
 
 const newSprint = {
   id: null,
@@ -29,12 +27,11 @@ const newSprint = {
   active: false,
 };
 
-const Sprints = () => {
-  const { text, textLang } = useContext(UserContext);
-
-  const setMessage = useContext(MessageContext);
-
+const Sprints = ({ epicId: filterEpicId }) => {
+  const { text } = useContext(UserContext);
   const { project, setProject } = useContext(ProjectContext);
+
+  const history = useHistory();
 
   const [openSprintEdit, setOpenSprint] = useState(false);
   const [displayAddSprint, setAddSprint] = useState(true);
@@ -54,6 +51,10 @@ const Sprints = () => {
     }
   };
   const setSprints = (sprints) => setProject({ ...project, sprints });
+
+  const sprints = project.sprints.filter(
+    (sprint) => !filterEpicId || sprint.epicId === filterEpicId
+  );
 
   return (
     <div style={{ height: "100%" }}>
@@ -75,14 +76,45 @@ const Sprints = () => {
       <div className={layout}>
         <div>
           <div className={textAddWrapper} style={{ display: "absolute" }}>
-            <span className={sprintText}>{text.sprints_project_sprints}</span>
+            <div>
+              <span className={sprintText}>{text.sprints_project_sprints}</span>
+            </div>
+            <div>
+              <MarginTextField
+                select
+                color="secondary"
+                variant="outlined"
+                value={filterEpicId || "T"}
+                label={text.sprints_filter_label}
+                onChange={(e) => {
+                  const currentEpicId =
+                    e.target.value === "T" ? undefined : e.target.value;
+
+                  if (currentEpicId)
+                    history.push(
+                      `/projects/${project.id}/sprints?epicId=${currentEpicId}`
+                    );
+                  else history.push(`/projects/${project.id}/sprints`);
+                }}
+                style={displayAddSprint ? { marginRight: "4rem" } : {}}
+              >
+                <MenuItem value={"T"}>
+                  <em>{text.sprints_filter_by_epic}</em>
+                </MenuItem>
+                {project.epics.map((epic) => (
+                  <MenuItem value={epic.id} key={epic.id}>
+                    {epic.title}
+                  </MenuItem>
+                ))}
+              </MarginTextField>
+            </div>
           </div>
 
           <div className={sprintsWrapper}>
-            {project.sprints.length === 0 ? (
+            {sprints.length === 0 ? (
               <span className={noSprints}>{text.sprints_no_sprints}</span>
             ) : (
-              project.sprints.map((sprint) => (
+              sprints.map((sprint) => (
                 <Sprint
                   sprint={sprint}
                   key={sprint.id}

@@ -3,7 +3,7 @@ import { CSSTransition } from "react-transition-group";
 import axios from "axios";
 import { parseISO } from "date-fns";
 import { ProjectContext } from "App";
-
+import { PROGRESS } from "Constants";
 import {
   pageEnter,
   pageEnterActive,
@@ -11,6 +11,51 @@ import {
   pageExitActive,
 } from "./styles.module.css";
 import { useParams } from "react-router";
+
+const sortTaskArray = (sprintColumnTasks) => {
+  const sortedTasks = [];
+
+  while (sortedTasks.length !== sprintColumnTasks.length) {
+    if (sortedTasks.length === 0) {
+      sortedTasks.push(sprintColumnTasks.find((task) => task.leftId === null));
+      continue;
+    }
+
+    const searchingForLeft = sortedTasks[sortedTasks.length - 1].id;
+
+    const result = sprintColumnTasks.find(
+      (task) => task.leftId === searchingForLeft
+    );
+
+    if (!result) console.error("Cannot sort tasks");
+
+    sortedTasks.push(result);
+  }
+
+  return sortedTasks;
+};
+
+const sortTasks = (sprints, tasks) => {
+  const sortedTasks = [];
+
+  for (let i = 0; i < sprints.length; i++) {
+    const sprintTasks = tasks.filter((task) => task.sprintId === sprints[i].id);
+
+    for (const column in PROGRESS) {
+      const sprintColumnTasks = sprintTasks.filter(
+        (task) => task.progress === PROGRESS[column].value
+      );
+
+      sortedTasks.push(...sortTaskArray(sprintColumnTasks));
+    }
+  }
+
+  const backlogTasks = tasks.filter((task) => !task.sprintId);
+
+  sortedTasks.push(...backlogTasks);
+
+  return sortedTasks;
+};
 
 const refreshProject = (projectId, setProject) => {
   axios.get(`/projects/${projectId}`).then((response) => {
@@ -24,7 +69,9 @@ const refreshProject = (projectId, setProject) => {
       toDate: parseISO(epic.toDate),
     }));
 
-    setProject({ ...project, epics });
+    const tasks = sortTasks(project.sprints, project.tasks);
+
+    setProject({ ...project, epics, tasks });
   });
 };
 

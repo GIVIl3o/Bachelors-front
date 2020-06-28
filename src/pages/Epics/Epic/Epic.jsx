@@ -1,8 +1,4 @@
 import React, { useContext } from "react";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { format } from "date-fns";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
@@ -18,6 +14,7 @@ import {
   selectedEpic,
   deleteEpicClass,
 } from "./styles.module.css";
+import { useHistory } from "react-router";
 
 const dateFormat = "dd.MM.yyyy";
 
@@ -26,6 +23,8 @@ const Epic = ({ epic, onOpen, selected, deleteEpic, projectId }) => {
   const to = format(new Date(epic.toDate), dateFormat);
 
   const { text } = useContext(UserContext);
+
+  const history = useHistory();
 
   const wrapperSelectedClasses = `${wrapper} ${selected ? selectedEpic : ""}`;
 
@@ -56,41 +55,35 @@ const Epic = ({ epic, onOpen, selected, deleteEpic, projectId }) => {
   };
 
   return (
-    <ExpansionPanel className={wrapperSelectedClasses}>
-      <ExpansionPanelSummary
-        expandIcon={
-          <ArrowDropDownIcon fontSize="large" style={{ color: "black" }} />
-        }
-      >
-        <div className={headerWrapper}>
-          <div className={textWrapper}>
-            <span className={fontWeight}>{epic.title}</span>
+    <div
+      className={wrapperSelectedClasses}
+      onClick={() =>
+        history.push(`/projects/${projectId}/sprints?epicId=${epic.id}`)
+      }
+    >
+      <div className={headerWrapper}>
+        <div className={textWrapper}>
+          <span className={fontWeight}>{epic.title}</span>
 
-            <span style={{ marginLeft: "0.8rem" }}>{`(${from} - `}</span>
+          <span style={{ marginLeft: "0.8rem" }}>{`(${from} - `}</span>
 
-            <span className={fontWeight}>{`${to}`}</span>
-            <span>)</span>
-          </div>
-          <div className={deleteEpicClass}>
-            <DeleteForeverIcon fontSize="large" onClick={onDeleteEpic} />
-          </div>
-          <div style={selected ? { visibility: "hidden" } : {}}>
-            <MoreHorizIcon
-              fontSize="large"
-              onClick={(e) => {
-                e.stopPropagation();
-                onOpen(epic);
-              }}
-            />
-          </div>
+          <span className={fontWeight}>{`${to}`}</span>
+          <span>)</span>
         </div>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        {/* if epic has no sprints, show no sprints text */}
-
-        <span>TODO: add sprints here</span>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+        <div className={deleteEpicClass}>
+          <DeleteForeverIcon fontSize="large" onClick={onDeleteEpic} />
+        </div>
+        <div style={selected ? { visibility: "hidden" } : {}}>
+          <MoreHorizIcon
+            fontSize="large"
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpen(epic);
+            }}
+          />
+        </div>
+      </div>
+    </div>
   );
 };
 

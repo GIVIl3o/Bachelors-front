@@ -1,11 +1,8 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext, ProjectContext } from "App";
-import { MessageContext, MessageTypes } from "components/utils/Messages";
 import PageLoading from "components/utils/PageLoading";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Tooltip from "@material-ui/core/Tooltip";
-
-import axios from "axios";
 
 import {
   layout,
@@ -18,8 +15,7 @@ import {
 } from "./styles.module.css";
 import Epic from "./Epic/Epic";
 import PutEpic from "./PutEpic";
-import { addDays, parseISO, compareAsc } from "date-fns";
-import { useParams } from "react-router";
+import { addDays, compareAsc } from "date-fns";
 
 const minDateDistanceDays = 7;
 
