@@ -1,0 +1,31 @@
+.addAttachmentClass {
+  display: grid;
+  border-style: groove;
+  cursor: pointer;
+  width: 200px;
+  height: 130px;
+}
+
+.addAttachmentClass:hover {
+  border-color: cornflowerblue;
+  color: #6141ff;
+}
+
+.addAttachmentClass:active {
+  border-color: #1b00ff;
+}
+
+.addAttachmentText:active {
+  color: #341bff !important;
+}
+
+.addAttachmentText {
+  font-size: 100px;
+  color: #555555;
+  user-select: none;
+  text-align: center;
+}
+
+.addAttachmentText:hover {
+  color: inherit;
+}

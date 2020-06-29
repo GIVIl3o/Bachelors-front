@@ -133,7 +133,27 @@
     "EN": "Epic Title",
     "GE": "ეპიკის სახელი"
   },
+<<<<<<< HEAD
     "epic_from_date": {
+=======
+  "add_sprint": {
+    "EN": "Add Sprint",
+    "GE": "სპრინტის დამატება"
+  },
+  "project_no_sprints": {
+    "EN": "This project has no sprints",
+    "GE": "ამ პროექტს არ გააჩნია სპრინტები"
+  },
+  "create_sprint": {
+    "EN": "Create sprint",
+    "GE": "სპრინტის შექმნა"
+  },
+  "sprint_name": {
+    "EN": "Sprint Name",
+    "GE": "სპრინტის სახელი"
+  },
+  "epic_from_date": {
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
     "EN": "Start Date",
     "GE": "საწყისი თარიღი"
   },
@@ -185,10 +205,21 @@
     "EN": "Are you sure?",
     "GE": "დარწმუნებული ხართ?"
   },
+<<<<<<< HEAD
   "sweet_alert_description": {
     "EN": "Given Epic will be pernamently deleted",
     "GE": "მოცემული ეპიკი სამუდამოდ წაიშლება"
   },
+=======
+  "swal_epic_delete_title": {
+    "EN": "Given Epic will be pernamently deleted",
+    "GE": "მოცემული ეპიკი სამუდამოდ წაიშლება"
+  },
+  "swal_epic_delete_description": {
+    "EN": "Related sprints will be unconnected",
+    "GE": "დამოკიდებული სპრინტები არ წაიშლებიან"
+  },
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   "sweet_alert_cancel": {
     "EN": "CANCEL",
     "GE": "გაუქმება"
@@ -306,8 +337,13 @@
     "GE": "დაამატე საქმე"
   },
   "backlog_empty_backlog": {
+<<<<<<< HEAD
     "EN": "All tasks are already sorted",
     "GE": "ყველა საქმე მიმაგრებულია სპრინტზე"
+=======
+    "EN": "No related tasks found",
+    "GE": "დავალებები ვერ მოიძებნა"
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   },
   "backlog_new_title": {
     "EN": "Task Title",
@@ -317,8 +353,12 @@
     "EN": "Task Description",
     "GE": "დავალების აღწერა"
   },
+<<<<<<< HEAD
   "backlog_new_assignee": {  
 
+=======
+  "backlog_new_assignee": {
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
     "EN": "Assigneee",
     "GE": "შემსრულებელი"
   },
@@ -486,6 +526,7 @@
     "EN": "title must be at least 4 characters",
     "GE": "სახელი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
   },
+<<<<<<< HEAD
   "add_sprint": {
     "EN": "Add Sprint",
     "GE": "სპრინტის დამატება"
@@ -501,5 +542,90 @@
   "sprint_name": {
     "EN": "Sprint Name",
     "GE": "სპრინტის სახელი"
+=======
+  "new_sprint_epic_label": {
+    "EN": "Epic Name",
+    "GE": "ეპიკის სახელი"
+  },
+  "new_sprint_no_epic": {
+    "EN": "Without Epic",
+    "GE": "ეპიკის გარეშე"
+  },
+  "new_sprint_name": {
+    "EN": "Sprint Name",
+    "GE": "სპრინტის სახელი"
+  },
+  "sprint_title_length": {
+    "EN": "title must be at least 4 characters",
+    "GE": "სახელი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
+  },
+  "sprints_project_sprints": {
+    "EN": "Project Sprints",
+    "GE": "პროექტის სპრინტები"
+  },
+  "sprints_no_sprints": {
+    "EN": "There are no sprints here",
+    "GE": "სპრინტები ვერ მოიძებნა"
+  },
+  "sprint_delete_swal_title": {
+    "EN": "Sprint will be deleted pernamently",
+    "GE": "სპრინტი სამუდამოდ წაიშლება"
+  },
+  "sprint_delete_swal_description": {
+    "EN": "Related tasks will be moved to backlog",
+    "GE": "დამოკიდებული დავალებები ბექლოგში გადაინაცვლებენ"
+  },
+  "sprint_deleted_succesfully_swal": {
+    "EN": "Sprint deleted successfully",
+    "GE": "სპრინტი წარმატებით წაიშალა"
+  },
+  "sprint_activate": {
+    "EN": "Activate",
+    "GE": "გააქტიურება"
+  },
+  "sprint_deactivate": {
+    "EN": "Deactivate",
+    "GE": "დეაქტივაცია"
+  },
+  "swal_already_active_sprint_title": {
+    "EN": "Active sprint detected",
+    "GE": "აქტიური სპრინტი უკვე არსებობს"
+  },
+  "swal_already_active_sprint_description": {
+    "EN": "Do you want to disable it?",
+    "GE": "გსურთ ძველი სპრინტის დეაქტივაცია?"
+  },
+  "board_go_back_to_sprints": {
+    "EN": "Go back to sprints",
+    "GE": "სპრინტებზე დაბრუნება"
+  },
+  "sprints_filter_by_epic": {
+    "EN": "All sprints",
+    "GE": "ყველა სპრინტი"
+  },
+  "sprints_filter_label": {
+    "EN": "Epic",
+    "GE": "ეპიკი"
+  },
+  "backlog_search_query": {
+    "EN": "Search",
+    "GE": "ძებნა"
+  },
+  "sprint_number_of_tasks": {
+    "EN": "Number of tasks in this sprint",
+    "GE": "ამ სპრინტსში არსებული დავალებების რაოდენობა"
+  },
+  "task_card_story": {
+    "EN": "Story",
+    "GE": "ისტორია"
+  },
+  "task_card_bug": {
+    "EN": "Bug",
+    "GE": "შეცდომა"
+  },
+  "task_details_type_label": {
+    "EN": "Type",
+    "GE": "ტიპი"
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   }
 }

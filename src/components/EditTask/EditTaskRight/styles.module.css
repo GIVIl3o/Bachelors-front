@@ -4,5 +4,9 @@
   height: 100%;
   display: grid;
   padding-left: 1rem;
+<<<<<<< HEAD
   grid-template-rows: min-content min-content min-content min-content;
+=======
+  grid-template-rows: min-content min-content min-content;
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 }

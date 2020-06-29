@@ -1,4 +1,5 @@
 .sprintText {
+<<<<<<< HEAD
     font-size: 2.25rem;
     margin-top: 2rem;
     color: #313131;
@@ -26,3 +27,46 @@
     display: grid;
   }
   
+=======
+  font-size: 2.25rem;
+  margin-top: 2rem;
+  color: #313131;
+  flex: 1 1 auto;
+}
+
+.textAddWrapper {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.addIcon {
+  font-size: 3rem;
+  margin-top: 2rem;
+  align-self: center;
+  cursor: pointer;
+}
+
+.addIconWrapper {
+  position: relative;
+  height: 0px;
+  text-align: right;
+}
+
+.noSprints {
+  display: block;
+  margin-top: 3rem;
+  font-size: 2rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  height: 100%;
+}
+
+.sprintsWrapper {
+  margin-top: 2rem;
+}
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba

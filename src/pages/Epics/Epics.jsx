@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useContext, useState } from "react";
 import { UserContext, ProjectContext } from "App";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
@@ -7,6 +8,13 @@ import Tooltip from "@material-ui/core/Tooltip";
 import data from "../Sprints/test_sprint.json"
 
 import axios from "axios";
+=======
+import React, { useContext, useState } from "react";
+import { UserContext, ProjectContext } from "App";
+import PageLoading from "components/utils/PageLoading";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import Tooltip from "@material-ui/core/Tooltip";
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 
 import {
   layout,
@@ -19,7 +27,11 @@ import {
 } from "./styles.module.css";
 import Epic from "./Epic/Epic";
 import PutEpic from "./PutEpic";
+<<<<<<< HEAD
 import { addDays, parseISO, compareAsc } from "date-fns";
+=======
+import { addDays, compareAsc } from "date-fns";
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 
 const minDateDistanceDays = 7;
 
@@ -30,6 +42,7 @@ const newEpic = {
   toDate: addDays(new Date(), minDateDistanceDays),
 };
 
+<<<<<<< HEAD
 const Epics = ({ match }) => {
   const { text, textLang } = useContext(UserContext);
 
@@ -39,10 +52,18 @@ const Epics = ({ match }) => {
 
   const projectId = match.params.id;
 
+=======
+const Epics = () => {
+  const { text } = useContext(UserContext);
+
+  const { project, setProject } = useContext(ProjectContext);
+
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   const [openEpicEdit, setOpenEpic] = useState(false);
   const [displayAddEpic, setAddEpic] = useState(true);
   const [openedEpic, setOpenedEpic] = useState(newEpic);
 
+<<<<<<< HEAD
   useEffect(() => {
     axios
       .get(`/projects/${projectId}`)
@@ -64,6 +85,9 @@ const Epics = ({ match }) => {
   }, [projectId]);
 
   if (!project || projectId != project.id) return <PageLoading />;
+=======
+  if (!project) return <PageLoading />;
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 
   const epicComparator = (e1, e2) => compareAsc(e1.fromDate, e2.fromDate);
 
@@ -83,7 +107,20 @@ const Epics = ({ match }) => {
 
   const deleteEpic = (id) => {
     const filteredEpics = project.epics.filter((e) => e.id !== id);
+<<<<<<< HEAD
     setProject({ ...project, epics: filteredEpics });
+=======
+
+    const removeEpicIdFromSprints = (sprint) =>
+      sprint.epicId === id ? null : sprint.epicId;
+
+    const unconnectSprints = project.sprints.map((sprint) => ({
+      ...sprint,
+      epicId: removeEpicIdFromSprints(sprint),
+    }));
+
+    setProject({ ...project, epics: filteredEpics, sprints: unconnectSprints });
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 
     if (id === openedEpic.id) {
       onEpicOpenChange(false);
@@ -143,7 +180,10 @@ const Epics = ({ match }) => {
           setEpics={setEpics}
         />
       </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
     </div>
   );
 };

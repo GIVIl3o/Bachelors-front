@@ -7,6 +7,10 @@
   display: grid;
   height: min-content;
   grid-gap: 12rem;
+<<<<<<< HEAD
+=======
+  margin-bottom: 2rem;
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 }
 
 .textClass {
