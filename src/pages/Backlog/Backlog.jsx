@@ -65,9 +65,9 @@ const Backlog = () => {
     }
   };
 
-  const tasks = project.tasks.filter(
-    (task) => !task.sprintId && task.title.includes(query)
-  );
+  const tasks = project.tasks
+    .filter((task) => !task.sprintId && task.title.includes(query))
+    .sort((t1, t2) => t1.id - t2.id);
 
   return (
     <div style={{ height: "100%" }}>

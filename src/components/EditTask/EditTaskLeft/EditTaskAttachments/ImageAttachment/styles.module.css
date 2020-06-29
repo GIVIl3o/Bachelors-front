@@ -1,0 +1,26 @@
+.wrapper {
+  display: grid;
+  border-style: groove;
+  cursor: pointer;
+  width: 200px;
+  height: 130px;
+}
+
+.wrapper:hover {
+  border-color: cornflowerblue;
+  color: #6141ff;
+}
+
+.wrapper:active {
+  border-color: #1b00ff;
+}
+
+.imgWrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.linkWrapper {
+  width: 100%;
+  height: 100%;
+}

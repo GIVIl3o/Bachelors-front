@@ -35,7 +35,8 @@ const ActiveSprintButton = ({ sprint }) => {
           const filteredSprints = project.sprints.filter(
             (e) => e.id !== sprint.id
           );
-          const sprints = [...filteredSprints, { ...sprint, active: false }];
+          const sprints = [...project.sprints];
+          sprints.find((t) => t.id === sprint.id).active = false;
           setProject({ ...project, sprints });
         });
       }}
@@ -70,23 +71,17 @@ const ActiveSprintButton = ({ sprint }) => {
               await setActive(previouslyActive.id, false);
               await setActive(sprint.id, true);
 
-              const filteredSprints = project.sprints.filter(
-                (e) => e.id !== sprint.id && e.id !== previouslyActive.id
-              );
-              const sprints = [
-                ...filteredSprints,
-                { ...sprint, active: true },
-                { ...previouslyActive, active: false },
-              ];
+              const sprints = [...project.sprints];
+              sprints.find((t) => t.active).active = false;
+              sprints.find((t) => t.id === sprint.id).active = true;
+
               setProject({ ...project, sprints });
             }
           });
         } else {
           setActive(sprint.id, true).then(() => {
-            const filteredSprints = project.sprints.filter(
-              (e) => e.id !== sprint.id
-            );
-            const sprints = [...filteredSprints, { ...sprint, active: true }];
+            const sprints = [...project.sprints];
+            sprints.find((t) => t.id === sprint.id).active = true;
             setProject({ ...project, sprints });
           });
         }

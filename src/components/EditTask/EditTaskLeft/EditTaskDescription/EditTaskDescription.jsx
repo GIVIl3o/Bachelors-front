@@ -38,9 +38,10 @@ const EditTaskDescription = ({ task }) => {
     axios
       .post(`/tasks/${task.id}?projectId=${project.id}`, newTask)
       .then(() => {
-        const tasks = project.tasks.filter((t) => t.id !== task.id);
+        const tasks = [...project.tasks];
+        tasks.find((t) => t.id === task.id).description = description;
 
-        setProject({ ...project, tasks: [...tasks, newTask] });
+        setProject({ ...project, tasks });
       });
   };
 

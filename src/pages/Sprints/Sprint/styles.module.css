@@ -1,6 +1,6 @@
 .wrapper {
   display: grid;
-  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-columns: auto auto 1fr auto auto auto;
   margin-top: 1rem;
   border-style: groove;
   border-color: #9a9a9a66;
@@ -41,6 +41,12 @@
 .assignmentWrapper {
   display: grid;
   grid-template-columns: min-content min-content;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.epicNamWrapper {
+  display: grid;
   align-items: center;
   margin-left: 1rem;
 }
