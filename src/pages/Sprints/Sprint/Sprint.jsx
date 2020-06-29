@@ -14,6 +14,7 @@ import {
   deleteButton,
   selectedSprint,
   assignmentWrapper,
+  epicNamWrapper,
 } from "./styles.module.css";
 import { useHistory } from "react-router";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -68,6 +69,10 @@ const Sprint = ({ sprint, onOpen, selected }) => {
     (task) => task.sprintId === sprint.id
   ).length;
 
+  const epicName = sprint.epicId
+    ? project.epics.find((t) => t.id === sprint.epicId).title
+    : null;
+
   return (
     <div
       className={wrapperSelectedClasses}
@@ -95,6 +100,17 @@ const Sprint = ({ sprint, onOpen, selected }) => {
             </div>
           </div>
         </Tooltip>
+      </div>
+      <div className={epicNamWrapper}>
+        <div>
+          {epicName ? (
+            <Tooltip title={text.sprint_epicName} placement="top">
+              <span>{epicName}</span>
+            </Tooltip>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
 
       <ActiveSprintButton sprint={sprint} />
