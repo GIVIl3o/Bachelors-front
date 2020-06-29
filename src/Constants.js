@@ -57,10 +57,41 @@ const LABELS = {
   },
 };
 
+<<<<<<< HEAD
+=======
+const TASK_TYPE = {
+  bug: {
+    value: "BUG",
+    text: "task_card_bug",
+  },
+  story: {
+    value: "STORY",
+    text: "task_card_story",
+  },
+};
+
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 const getLabelValue = (value) => {
   return Object.keys(LABELS)
     .map((t) => LABELS[t])
     .filter((label) => label.value === value)[0];
 };
 
+<<<<<<< HEAD
 export { PERMISSIONS, PROGRESS, LABELS, getLabelValue };
+=======
+const getTaskTypeValue = (value) => {
+  return Object.keys(TASK_TYPE)
+    .map((t) => TASK_TYPE[t])
+    .filter((label) => label.value === value)[0];
+};
+
+export {
+  PERMISSIONS,
+  PROGRESS,
+  LABELS,
+  TASK_TYPE,
+  getLabelValue,
+  getTaskTypeValue,
+};
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba

@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 import React, { useEffect, useContext, useState, Fragment } from "react";
 import { UserContext, ProjectContext } from "App";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
+=======
+import React, { useContext, useState, Fragment } from "react";
+import { UserContext, ProjectContext } from "App";
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 import PageLoading from "components/utils/PageLoading";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Tooltip from "@material-ui/core/Tooltip";
 
+<<<<<<< HEAD
 import axios from "axios";
 
+=======
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 import {
   layout,
   backlogText,
@@ -16,6 +24,7 @@ import {
   addIconWrapper,
   taskWrapper,
 } from "./styles.module.css";
+<<<<<<< HEAD
 import { parseISO } from "date-fns";
 import AddTask from "./AddTask";
 import Task from "./Task";
@@ -56,6 +65,47 @@ const Backlog = ({ match }) => {
   }, [projectId]);
 
   if (!project || projectId != project.id) return <PageLoading />;
+=======
+import AddTask from "./AddTask";
+import Task from "./Task";
+import EditTask from "components/EditTask";
+import MarginTextField from "components/utils/MarginTextField/MarginTextField";
+import { MenuItem } from "@material-ui/core";
+import { useHistory, useLocation } from "react-router";
+
+const getQuery = (location) => {
+  const search = location.search;
+
+  const queries = search.substring(1);
+  const parsedQueries = queries.split("&");
+
+  const params = {};
+
+  for (const query of parsedQueries) {
+    const splitted = query.split("=");
+
+    params[splitted[0]] = decodeURIComponent(splitted[1]);
+  }
+
+  return params.query || "";
+};
+
+const Backlog = () => {
+  const { text } = useContext(UserContext);
+
+  const { project } = useContext(ProjectContext);
+
+  const location = useLocation();
+  const query = getQuery(location);
+  const history = useHistory();
+
+  const [openAddTask, setOpenAddTask] = useState(false);
+  const [displayAddTask, setAddTask] = useState(true);
+
+  const [openDetailedTask, setOpenDetailedTask] = useState(undefined);
+
+  if (!project) return <PageLoading />;
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 
   const onEpicOpenChange = (openDialog) => {
     if (openDialog) {
@@ -69,6 +119,13 @@ const Backlog = ({ match }) => {
     }
   };
 
+<<<<<<< HEAD
+=======
+  const tasks = project.tasks.filter(
+    (task) => !task.sprintId && task.title.includes(query)
+  );
+
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   return (
     <div style={{ height: "100%" }}>
       {displayAddTask && (
@@ -87,6 +144,7 @@ const Backlog = ({ match }) => {
       <div className={layout}>
         <div>
           <div className={textAddWrapper} style={{ display: "absolute" }}>
+<<<<<<< HEAD
             <span className={backlogText}>{text.backlog_title}</span>
           </div>
 
@@ -96,6 +154,45 @@ const Backlog = ({ match }) => {
             ) : (
               <Fragment>
                 {project.tasks.map((task) => (
+=======
+            <div>
+              <span className={backlogText}>{text.backlog_title}</span>
+            </div>
+            <div>
+              <MarginTextField
+                color="secondary"
+                variant="outlined"
+                value={query}
+                label={text.backlog_search_query}
+                onChange={(e) => {
+                  const value = encodeURIComponent(e.target.value);
+                  if (value.length > 0)
+                    history.push(
+                      `/projects/${project.id}/backlog?query=${value}`
+                    );
+                  else history.push(`/projects/${project.id}/backlog`);
+                }}
+                style={displayAddTask ? { marginRight: "4rem" } : {}}
+              >
+                <MenuItem value={"T"}>
+                  <em>{text.sprints_filter_by_epic}</em>
+                </MenuItem>
+                {project.epics.map((epic) => (
+                  <MenuItem value={epic.id} key={epic.id}>
+                    {epic.title}
+                  </MenuItem>
+                ))}
+              </MarginTextField>
+            </div>
+          </div>
+
+          <div className={taskWrapper}>
+            {tasks.length === 0 ? (
+              <span className={noBacklog}>{text.backlog_empty_backlog}</span>
+            ) : (
+              <Fragment>
+                {tasks.map((task) => (
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
                   <Task
                     key={task.id}
                     task={task}

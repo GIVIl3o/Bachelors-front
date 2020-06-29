@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useContext, useState, Fragment } from "react";
 import { UserContext, ProjectContext } from "App";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
@@ -47,6 +48,29 @@ const ActiveSprint = ({ match }) => {
   if (!project || projectId != project.id) return <PageLoading />;
 
   return <Board tasks={[]} />;
+=======
+import React, { useContext } from "react";
+import { ProjectContext } from "App";
+import PageLoading from "components/utils/PageLoading";
+
+import Board from "components/Board/Board";
+
+const ActiveSprint = () => {
+  const { project } = useContext(ProjectContext);
+
+  if (!project) return <PageLoading />;
+
+  const activeSprint = project.sprints.find((sprint) => sprint.active);
+
+  if (activeSprint === undefined)
+    return <h1>No active sprint found. Fuck. No idea what to present here</h1>;
+
+  const tasks = project.tasks.filter(
+    (task) => task.sprintId === activeSprint.id
+  );
+
+  return <Board tasks={tasks} sprintId={activeSprint.id} />;
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 };
 
 export default ActiveSprint;

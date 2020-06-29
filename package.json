@@ -8,6 +8,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.55",
     "@material-ui/pickers": "^3.2.10",
+<<<<<<< HEAD
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -17,11 +18,22 @@
     "moment": "^2.26.0",
     "react": "^16.13.1",
     "react-datepicker": "^2.16.0",
+=======
+    "axios": "^0.19.2",
+    "date-fns": "^2.14.0",
+    "jwt-decode": "^2.2.0",
+    "react": "^16.13.1",
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
+<<<<<<< HEAD
     "react-swipeable-routes": "^0.6.0",
+=======
+    "react-smooth-dnd": "^0.11.1",
+    "react-transition-group": "^4.4.1",
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
     "sweetalert2": "^9.15.1"
   },
   "scripts": {

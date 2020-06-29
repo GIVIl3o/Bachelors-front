@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useContext } from "react";
 import { UserContext, ProjectContext } from "App";
 import DangerZone from "./DangerZone";
@@ -41,6 +42,18 @@ const About = ({ match }) => {
   }, [projectId]);
 
   if (!project || projectId != project.id) return <PageLoading />;
+=======
+import React, { useContext } from "react";
+import { ProjectContext } from "App";
+import DangerZone from "./DangerZone";
+import PageLoading from "components/utils/PageLoading";
+import ChangeProject from "./ChangeProject";
+
+const About = () => {
+  const { project } = useContext(ProjectContext);
+
+  if (!project) return <PageLoading />;
+>>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 
   return (
     <div>

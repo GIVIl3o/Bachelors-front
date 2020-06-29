@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useContext, Fragment } from "react";
-=======
 import React, { useContext } from "react";
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 import { UserContext, ProjectContext } from "App";
 import axios from "axios";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -11,16 +7,15 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 
 import { wrapper } from "./styles.module.css";
-import { LABELS } from "Constants";
+import { TASK_TYPE } from "Constants";
 
-const EditTaskLabel = ({ task }) => {
+const EditTaskType = ({ task }) => {
   const { text } = useContext(UserContext);
 
   const { project, setProject } = useContext(ProjectContext);
 
-  const changeLabel = (selectedLabel) => {
-    const label = selectedLabel === " " ? null : selectedLabel;
-    const newTask = { ...task, label };
+  const changeType = (type) => {
+    const newTask = { ...task, type };
 
     axios
       .post(`/tasks/${task.id}?projectId=${project.id}`, newTask)
@@ -33,19 +28,16 @@ const EditTaskLabel = ({ task }) => {
   return (
     <div className={wrapper}>
       <FormControl variant="outlined">
-        <InputLabel id="taskLabel">{text.edit_task_label}</InputLabel>
+        <InputLabel id="taskType">{text.task_details_type_label}</InputLabel>
         <Select
-          labelId="taskLabel"
-          value={task.label || " "}
-          onChange={(e) => changeLabel(e.target.value)}
-          label={text.edit_task_label}
+          labelId="taskType"
+          value={task.type}
+          onChange={(e) => changeType(e.target.value)}
+          label={text.task_details_type_label}
         >
-          <MenuItem value={" "}>
-            <em>{text.task_no_label}</em>
-          </MenuItem>
-          {Object.keys(LABELS).map((label) => (
-            <MenuItem value={LABELS[label].value} key={label}>
-              {text[LABELS[label].text]}
+          {Object.keys(TASK_TYPE).map((type) => (
+            <MenuItem value={TASK_TYPE[type].value} key={type}>
+              {text[TASK_TYPE[type].text]}
             </MenuItem>
           ))}
         </Select>
@@ -54,4 +46,4 @@ const EditTaskLabel = ({ task }) => {
   );
 };
 
-export default EditTaskLabel;
+export default EditTaskType;
