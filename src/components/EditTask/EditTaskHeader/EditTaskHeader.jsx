@@ -23,15 +23,6 @@ import axios from "axios";
 const dateFormat = "dd.MM.yyyy";
 
 const EditTaskHeader = ({ task, onClose }) => {
-<<<<<<< HEAD
-  const { text, textLang } = useContext(UserContext);
-
-  const { project, setProject } = useContext(ProjectContext);
-
-  const sprint =
-    project.sprints && project.sprints.find((s) => s.id === task.sprintId);
-  const epic = project.epics.find((e) => e.id === 108);
-=======
   const { text } = useContext(UserContext);
 
   const { project, setProject } = useContext(ProjectContext);
@@ -40,7 +31,6 @@ const EditTaskHeader = ({ task, onClose }) => {
   const sprint =
     project.sprints && project.sprints.find((s) => s.id === task.sprintId);
   const epic = sprint && project.epics.find((e) => e.id === sprint.epicId);
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 
   const [editTitle, setEditTitle] = useState(false);
   const [title, setTitle] = useState(task.title);
@@ -103,11 +93,7 @@ const EditTaskHeader = ({ task, onClose }) => {
   );
 
   return (
-<<<<<<< HEAD
-    <Fragment>
-=======
     <div>
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
       <div className={wrapper}>
         <div>
           {titleElement}
@@ -121,11 +107,7 @@ const EditTaskHeader = ({ task, onClose }) => {
         />
       </div>
       <hr style={{ marginBottom: "0px" }} />
-<<<<<<< HEAD
-    </Fragment>
-=======
     </div>
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   );
 };
 export default EditTaskHeader;

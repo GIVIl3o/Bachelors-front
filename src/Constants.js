@@ -57,8 +57,6 @@ const LABELS = {
   },
 };
 
-<<<<<<< HEAD
-=======
 const TASK_TYPE = {
   bug: {
     value: "BUG",
@@ -70,16 +68,12 @@ const TASK_TYPE = {
   },
 };
 
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 const getLabelValue = (value) => {
   return Object.keys(LABELS)
     .map((t) => LABELS[t])
     .filter((label) => label.value === value)[0];
 };
 
-<<<<<<< HEAD
-export { PERMISSIONS, PROGRESS, LABELS, getLabelValue };
-=======
 const getTaskTypeValue = (value) => {
   return Object.keys(TASK_TYPE)
     .map((t) => TASK_TYPE[t])
@@ -94,4 +88,3 @@ export {
   getLabelValue,
   getTaskTypeValue,
 };
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba

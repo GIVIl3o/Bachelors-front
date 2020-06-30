@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-import React, { useContext, useEffect, useState, Fragment } from "react";
-import { Grid, Paper, Card, Typography } from "@material-ui/core";
-import { UserContext, ProjectContext } from "App";
-
-import TaskCard from "./TaskCard";
-import axios from "axios";
-import { PROGRESS } from "Constants";
-
-import {
-  wrapper,
-  columnText,
-  headerWrapper,
-  collapseIcon,
-} from "./styles.module.css";
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
-import Tooltip from "@material-ui/core/Tooltip";
-import AddTaskBoard from "./AddTaskBoard";
-
-const classes = {};
-=======
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import { ProjectContext } from "App";
@@ -29,7 +8,6 @@ import { PROGRESS } from "Constants";
 import { wrapper, dropPlaceholder } from "./styles.module.css";
 import AddTaskBoard from "./AddTaskBoard";
 import { Container, Draggable } from "react-smooth-dnd";
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 
 const BoardColumn = ({
   tasks,
@@ -37,15 +15,6 @@ const BoardColumn = ({
   addTask,
   setAddTask,
   setOpenDetailedTask,
-<<<<<<< HEAD
-  setDragging,
-  dragging,
-}) => {
-  const { text, textLang } = useContext(UserContext);
-
-  const [dragProgress, setDragProgress] = useState("");
-
-=======
   sprintId,
 }) => {
   const { project, setProject } = useContext(ProjectContext);
@@ -132,60 +101,12 @@ const BoardColumn = ({
       .then(() => setLoading(false));
   };
   console.log(addTask);
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   return (
     <div className={wrapper}>
       {addTask && (
         <AddTaskBoard
           setAddTask={setAddTask}
           progressColumnName={progressColumnName}
-<<<<<<< HEAD
-        />
-      )}
-
-      {tasks.map((task) =>
-        task.progress === PROGRESS[progressColumnName].value ? (
-          <TaskCard
-            task={task}
-            key={task.id}
-            setDragging={setDragging}
-            setOpenDetailedTask={setOpenDetailedTask}
-            dragging={dragging}
-          />
-        ) : (
-          <Card
-            key={task.id}
-            className={`${classes.invisibleCard} ${
-              dragging &&
-              task.id === dragging.id &&
-              (PROGRESS[progressColumnName].value === dragProgress
-                ? classes.onDragOver
-                : classes.onDrag)
-            }`}
-            onDragOver={(ev) => {
-              ev.preventDefault();
-              if (dragging && task.id === dragging.id)
-                setDragProgress(PROGRESS[progressColumnName].value);
-            }}
-            onDragLeave={() =>
-              dragging && task.id === dragging.id && setDragProgress("")
-            }
-            onDrop={() => {
-              if (dragging && task.id === dragging.id) {
-                task.progress = PROGRESS[progressColumnName].value;
-                axios
-                  .post(`/task/${task.id}`, {
-                    newProgress: PROGRESS[progressColumnName].value,
-                  })
-                  .then(() => {
-                    console.log("wtf did just happened :D ");
-                  });
-              }
-            }}
-          ></Card>
-        )
-      )}
-=======
           firstTask={firstTask}
           sprintId={sprintId}
         />
@@ -219,7 +140,6 @@ const BoardColumn = ({
             )
         )}
       </Container>
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
     </div>
   );
 };

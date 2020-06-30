@@ -8,8 +8,6 @@
   padding-bottom: 0.75rem;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-<<<<<<< HEAD
-=======
   display: grid;
   grid-template-rows: auto 1fr;
 }
@@ -20,5 +18,4 @@
   border-style: groove;
   margin-top: 5px;
   border-radius: 0.5rem;
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 }

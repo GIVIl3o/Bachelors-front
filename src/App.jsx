@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React, { useState, createContext, Fragment } from "react";
-import { Route, BrowserRouter, Redirect, Switch } from "react-router-dom";
-=======
 import React, { useState, createContext } from "react";
 import { Route, BrowserRouter } from "react-router-dom";
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 import { StylesProvider } from "@material-ui/core/styles";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
@@ -16,18 +11,11 @@ import Text from "Text.json";
 import withWidth, { isWidthUp, isWidthDown } from "@material-ui/core/withWidth";
 import Footer from "./components/Footer";
 import Epics from "./pages/Epics";
-<<<<<<< HEAD
-import SwipeableRoutes from "react-swipeable-routes";
-=======
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 import Settings from "pages/Settings";
 import Sprints from "pages/Sprints";
 import Backlog from "pages/Backlog";
 import ActiveSprint from "pages/ActiveSprint";
-<<<<<<< HEAD
-=======
 import ProjectTransitionWrapper from "./pages/ProjectTransitionWrapper";
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 
 let user = "";
 let savedLanguage = "";
@@ -68,33 +56,17 @@ const App = ({ width, imageBase }) => {
     : { marginLeft: "2rem", marginRight: "2rem" };
 
   const routes = username
-<<<<<<< HEAD
-
-=======
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
     ? [
         { path: "/", component: Homepage },
         { path: "/projects/:id", component: Epics },
         // { path: "/epics/:id", component: Sprints},
-<<<<<<< HEAD
-    ]        
-=======
       ]
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
     : [
         { path: "/", component: Homepage },
         { path: "/login", component: LoginPage },
       ];
 
   const projectRoutes = [
-<<<<<<< HEAD
-    { path: "/projects/:id/epics", component: Epics },
-    { path: "/projects/:id/sprints", component: Sprints },
-    { path: "/projects/:id/active", component: ActiveSprint },
-    { path: "/projects/:id/backlog", component: Backlog },
-    { path: "/projects/:id/about", component: Settings },
-  ];
-=======
     { path: "/projects/:id/epics", Component: Epics },
     { path: "/projects/:id/sprints", Component: Sprints },
     { path: "/projects/:id/active", Component: ActiveSprint },
@@ -102,7 +74,6 @@ const App = ({ width, imageBase }) => {
     { path: "/projects/:id/about", Component: Settings },
   ];
 
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   return (
     <StylesProvider injectFirst>
       <UserContext.Provider
@@ -128,35 +99,6 @@ const App = ({ width, imageBase }) => {
                 }}
               >
                 <Navbar />
-<<<<<<< HEAD
-                <Switch>
-                  {routes.map((route) => (
-                    <Route
-                      path={route.path}
-                      component={route.component}
-                      exact
-                      key={route.path}
-                    />
-                  ))}
-                  {username && (
-                    <Fragment>
-                      <SwipeableRoutes containerStyle={{ height: "100%" }}>
-                        {projectRoutes.map((route) => (
-                          <Route
-                            path={route.path}
-                            component={route.component}
-                            exact
-                            key={route.path}
-                            defaultParams={{ id: "5" }}
-                          />
-                        ))}
-                      </SwipeableRoutes>
-                    </Fragment>
-                  )}
-
-                  <Route render={() => <Redirect to="/" />} />
-                </Switch>
-=======
                 {routes.map((route) => (
                   <Route
                     path={route.path}
@@ -180,7 +122,6 @@ const App = ({ width, imageBase }) => {
                   </div>
                 )}
 
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
                 <Footer />
               </div>
             </BrowserRouter>

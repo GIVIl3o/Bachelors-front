@@ -6,12 +6,9 @@
   box-shadow: none;
   border-radius: 0px;
   background-color: inherit;
-<<<<<<< HEAD
-=======
   padding: 0.7rem;
   cursor: pointer;
   padding-right: 1.5rem;
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 }
 
 .wrapper:hover {

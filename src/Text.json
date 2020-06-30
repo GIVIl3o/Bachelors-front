@@ -133,9 +133,6 @@
     "EN": "Epic Title",
     "GE": "ეპიკის სახელი"
   },
-<<<<<<< HEAD
-    "epic_from_date": {
-=======
   "add_sprint": {
     "EN": "Add Sprint",
     "GE": "სპრინტის დამატება"
@@ -153,7 +150,6 @@
     "GE": "სპრინტის სახელი"
   },
   "epic_from_date": {
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
     "EN": "Start Date",
     "GE": "საწყისი თარიღი"
   },
@@ -205,12 +201,6 @@
     "EN": "Are you sure?",
     "GE": "დარწმუნებული ხართ?"
   },
-<<<<<<< HEAD
-  "sweet_alert_description": {
-    "EN": "Given Epic will be pernamently deleted",
-    "GE": "მოცემული ეპიკი სამუდამოდ წაიშლება"
-  },
-=======
   "swal_epic_delete_title": {
     "EN": "Given Epic will be pernamently deleted",
     "GE": "მოცემული ეპიკი სამუდამოდ წაიშლება"
@@ -219,7 +209,6 @@
     "EN": "Related sprints will be unconnected",
     "GE": "დამოკიდებული სპრინტები არ წაიშლებიან"
   },
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   "sweet_alert_cancel": {
     "EN": "CANCEL",
     "GE": "გაუქმება"
@@ -337,13 +326,8 @@
     "GE": "დაამატე საქმე"
   },
   "backlog_empty_backlog": {
-<<<<<<< HEAD
-    "EN": "All tasks are already sorted",
-    "GE": "ყველა საქმე მიმაგრებულია სპრინტზე"
-=======
     "EN": "No related tasks found",
     "GE": "დავალებები ვერ მოიძებნა"
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   },
   "backlog_new_title": {
     "EN": "Task Title",
@@ -353,12 +337,7 @@
     "EN": "Task Description",
     "GE": "დავალების აღწერა"
   },
-<<<<<<< HEAD
-  "backlog_new_assignee": {  
-
-=======
   "backlog_new_assignee": {
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
     "EN": "Assigneee",
     "GE": "შემსრულებელი"
   },
@@ -526,23 +505,6 @@
     "EN": "title must be at least 4 characters",
     "GE": "სახელი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
   },
-<<<<<<< HEAD
-  "add_sprint": {
-    "EN": "Add Sprint",
-    "GE": "სპრინტის დამატება"
-  },
-  "project_no_sprints": {
-    "EN": "This project has no sprints",
-    "GE": "ამ პროექტს არ გააჩნია სპრინტები"
-  },
-  "create_sprint": {
-    "EN": "Create sprint",
-    "GE": "სპრინტის შექმნა"
-  },
-  "sprint_name": {
-    "EN": "Sprint Name",
-    "GE": "სპრინტის სახელი"
-=======
   "new_sprint_epic_label": {
     "EN": "Epic Name",
     "GE": "ეპიკის სახელი"
@@ -626,6 +588,5 @@
   "task_details_type_label": {
     "EN": "Type",
     "GE": "ტიპი"
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   }
 }

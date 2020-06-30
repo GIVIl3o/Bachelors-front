@@ -16,11 +16,7 @@ import {
 import { InputAdornment } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import Swal from "sweetalert2";
-<<<<<<< HEAD
-import { PROGRESS } from "Constants";
-=======
 import { PROGRESS, TASK_TYPE } from "Constants";
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 
 const baseTask = {
   id: null,
@@ -28,12 +24,9 @@ const baseTask = {
   assignee: "",
   description: "",
   progress: PROGRESS.planned.value,
-<<<<<<< HEAD
-=======
   type: TASK_TYPE.story.value,
   leftId: null,
   rightId: null,
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 };
 
 const submitTask = (

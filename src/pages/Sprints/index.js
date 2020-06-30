@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React, { Fragment } from "react";
-
-import Sprints from "./Sprints";
-
-const toExport = ({ match, ...props }) => {
-  if (match.type === "none" || match.type === "outOfView") return <Fragment />;
-  return <Sprints match={match} {...props} />;
-};
-
-export default toExport;
-=======
 import React, { useContext } from "react";
 import Sprints from "./Sprints";
 import { useLocation, useHistory } from "react-router";
@@ -84,4 +72,3 @@ const SprintWrapper = (props) => {
 };
 
 export default SprintWrapper;
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba

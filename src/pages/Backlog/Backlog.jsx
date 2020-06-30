@@ -1,20 +1,9 @@
-<<<<<<< HEAD
-import React, { useEffect, useContext, useState, Fragment } from "react";
-import { UserContext, ProjectContext } from "App";
-import { MessageContext, MessageTypes } from "components/utils/Messages";
-=======
 import React, { useContext, useState, Fragment } from "react";
 import { UserContext, ProjectContext } from "App";
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 import PageLoading from "components/utils/PageLoading";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Tooltip from "@material-ui/core/Tooltip";
 
-<<<<<<< HEAD
-import axios from "axios";
-
-=======
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 import {
   layout,
   backlogText,
@@ -24,48 +13,6 @@ import {
   addIconWrapper,
   taskWrapper,
 } from "./styles.module.css";
-<<<<<<< HEAD
-import { parseISO } from "date-fns";
-import AddTask from "./AddTask";
-import Task from "./Task";
-import EditTask from "components/EditTask";
-
-const Backlog = ({ match }) => {
-  const { text, textLang } = useContext(UserContext);
-
-  const setMessage = useContext(MessageContext);
-
-  const { project, setProject } = useContext(ProjectContext);
-
-  const projectId = match.params.id;
-
-  const [openAddTask, setOpenAddTask] = useState(false);
-  const [displayAddTask, setAddTask] = useState(true);
-
-  const [openDetailedTask, setOpenDetailedTask] = useState(undefined);
-
-  useEffect(() => {
-    axios
-      .get(`/projects/${projectId}`)
-      .then((response) => {
-        const project = response.data;
-
-        document.title = `Scrumhub | ${project.title}`;
-        const epics = project.epics.map((epic) => ({
-          ...epic,
-          fromDate: parseISO(epic.fromDate),
-          toDate: parseISO(epic.toDate),
-        }));
-
-        setProject({ ...project, epics });
-      })
-      .catch(() => {
-        setMessage(textLang.project_not_found, MessageTypes.error);
-      });
-  }, [projectId]);
-
-  if (!project || projectId != project.id) return <PageLoading />;
-=======
 import AddTask from "./AddTask";
 import Task from "./Task";
 import EditTask from "components/EditTask";
@@ -105,7 +52,6 @@ const Backlog = () => {
   const [openDetailedTask, setOpenDetailedTask] = useState(undefined);
 
   if (!project) return <PageLoading />;
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 
   const onEpicOpenChange = (openDialog) => {
     if (openDialog) {
@@ -119,13 +65,10 @@ const Backlog = () => {
     }
   };
 
-<<<<<<< HEAD
-=======
   const tasks = project.tasks.filter(
     (task) => !task.sprintId && task.title.includes(query)
   );
 
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   return (
     <div style={{ height: "100%" }}>
       {displayAddTask && (
@@ -144,17 +87,6 @@ const Backlog = () => {
       <div className={layout}>
         <div>
           <div className={textAddWrapper} style={{ display: "absolute" }}>
-<<<<<<< HEAD
-            <span className={backlogText}>{text.backlog_title}</span>
-          </div>
-
-          <div className={taskWrapper}>
-            {project.tasks.length === 0 ? (
-              <span className={noBacklog}>{text.backlog_empty_backlog}</span>
-            ) : (
-              <Fragment>
-                {project.tasks.map((task) => (
-=======
             <div>
               <span className={backlogText}>{text.backlog_title}</span>
             </div>
@@ -192,7 +124,6 @@ const Backlog = () => {
             ) : (
               <Fragment>
                 {tasks.map((task) => (
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
                   <Task
                     key={task.id}
                     task={task}

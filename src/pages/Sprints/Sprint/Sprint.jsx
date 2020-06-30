@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-
-import {} from "./styles.module.css";
-
-const Sprint = () => {
-  return <h1>asd</h1>;
-};
-
-=======
 import React, { useContext } from "react";
 import { UserContext, ProjectContext } from "App";
 
@@ -125,5 +115,4 @@ const Sprint = ({ sprint, onOpen, selected }) => {
     </div>
   );
 };
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 export default Sprint;
