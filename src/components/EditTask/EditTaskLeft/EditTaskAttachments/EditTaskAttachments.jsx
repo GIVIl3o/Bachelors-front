@@ -54,7 +54,9 @@ const EditTaskAttachments = ({ task }) => {
             >
               <div className={linkWrapper}>
                 <div style={{ textAlign: "center" }}>
-                  <span>{getMiddleText(attachment.contentType)}</span>
+                  <span style={{ fontSize: "1.8rem" }}>
+                    {getMiddleText(attachment.contentType)}
+                  </span>
                 </div>
                 <span className={downloadLink}>{attachment.filename}</span>
               </div>
