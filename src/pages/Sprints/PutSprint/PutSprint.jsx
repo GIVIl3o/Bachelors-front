@@ -1,23 +1,5 @@
 import React, { useState, useContext } from "react";
 
-<<<<<<< HEAD
-const PutSprint = ({open, setOpen, title }) => {
-    
-    return (
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <Dialog>
-
-    
-            <DialogActions>
-
-            </DialogActions>
-          </Dialog>
-        </MuiPickersUtilsProvider>
-      );
-  };
-
-  export default PutSprint;
-=======
 import Slide from "@material-ui/core/Slide";
 import MarginTextField from "components/utils/MarginTextField";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
@@ -143,4 +125,3 @@ const PutSprint = ({
 };
 
 export default PutSprint;
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba

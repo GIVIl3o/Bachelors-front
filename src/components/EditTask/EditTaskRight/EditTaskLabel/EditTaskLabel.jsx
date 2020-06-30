@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useContext, Fragment } from "react";
-=======
 import React, { useContext } from "react";
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 import { UserContext, ProjectContext } from "App";
 import axios from "axios";
 import MenuItem from "@material-ui/core/MenuItem";

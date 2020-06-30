@@ -23,17 +23,6 @@ const DeleteTask = ({ task, onClose }) => {
       confirmButtonText: text.swee_alert_confirm,
       focusCancel: true,
     }).then(({ value: willDelete }) => {
-<<<<<<< HEAD
-      willDelete &&
-        axios
-          .delete(`/tasks/${task.id}?projectId=${task.projectId}`)
-          .then(() => {
-            onClose(() => {
-              const tasks = project.tasks.filter((t) => t.id !== task.id);
-              setProject({ ...project, tasks: [...tasks] });
-            });
-          });
-=======
       const queryObject = {
         previousLeft: task.leftId,
         previousRight: task.rightId,
@@ -60,7 +49,6 @@ const DeleteTask = ({ task, onClose }) => {
             setProject({ ...project, tasks: [...tasks] });
           });
         });
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
     });
   };
 

@@ -1,33 +1,4 @@
 .sprintText {
-<<<<<<< HEAD
-    font-size: 2.25rem;
-    margin-top: 2rem;
-    color: #313131;
-    flex: 1 1 auto;
-  }
-  
-  .textAddWrapper {
-    display: flex;
-  }
-  
-  .addIcon {
-    font-size: 3rem;
-    margin-top: 2rem;
-    align-self: center;
-    cursor: pointer;
-  }
-  
-  .noSprints {
-    display: block;
-    margin-top: 3rem;
-    font-size: 2rem;
-  }
-  
-  .layout {
-    display: grid;
-  }
-  
-=======
   font-size: 2.25rem;
   margin-top: 2rem;
   color: #313131;
@@ -69,4 +40,3 @@
 .sprintsWrapper {
   margin-top: 2rem;
 }
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba

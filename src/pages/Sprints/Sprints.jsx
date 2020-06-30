@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import React, { useEffect, useContext, useState } from "react";
-import { UserContext } from "App";
-import { MessageContext, MessageTypes } from "components/utils/Messages";
-
-const Sprints = () => {
-  return (
-    <span style={{ display: "block", backgroundColor: "blue" }}>Sprints</span>
-=======
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import PageLoading from "components/utils/PageLoading";
@@ -151,7 +142,6 @@ const Sprints = ({ epicId: filterEpicId }) => {
         />
       </div>
     </div>
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   );
 };
 

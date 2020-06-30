@@ -2,20 +2,12 @@
   font-size: 2.25rem;
   margin-top: 2rem;
   color: #313131;
-<<<<<<< HEAD
-  flex: 1 1 auto;
-}
-
-.textAddWrapper {
-  display: flex;
-=======
 }
 
 .textAddWrapper {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr auto;
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
 }
 
 .addIcon {

@@ -9,11 +9,7 @@
 .projectsWrapper {
   margin-top: 2rem;
   display: grid;
-<<<<<<< HEAD
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-=======
   grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
->>>>>>> d244be303c08d92b707807095df537e6a45d66ba
   grid-gap: 2rem;
 }
 
