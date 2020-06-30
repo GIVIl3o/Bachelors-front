@@ -52,9 +52,9 @@ const Sprints = ({ epicId: filterEpicId }) => {
   };
   const setSprints = (sprints) => setProject({ ...project, sprints });
 
-  const sprints = project.sprints.filter(
-    (sprint) => !filterEpicId || sprint.epicId === filterEpicId
-  );
+  const sprints = project.sprints
+    .filter((sprint) => !filterEpicId || sprint.epicId === filterEpicId)
+    .sort((t1, t2) => t1.id - t2.id);
 
   return (
     <div style={{ height: "100%" }}>

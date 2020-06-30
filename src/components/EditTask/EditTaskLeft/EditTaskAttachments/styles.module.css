@@ -8,6 +8,10 @@
 .downloadLink {
   font-size: 1rem;
   font-weight: bolder;
+  height: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .attachmentClass {
