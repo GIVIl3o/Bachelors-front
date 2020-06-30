@@ -40,3 +40,7 @@
   border-radius: 0.75rem;
   padding: 0.35rem;
 }
+
+.assigneePlaceholderClass {
+  width: 30px;
+}

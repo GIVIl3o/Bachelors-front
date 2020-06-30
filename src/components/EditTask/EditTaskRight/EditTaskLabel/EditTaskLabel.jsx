@@ -21,8 +21,9 @@ const EditTaskLabel = ({ task }) => {
     axios
       .post(`/tasks/${task.id}?projectId=${project.id}`, newTask)
       .then(() => {
-        const tasks = project.tasks.filter((t) => t.id !== task.id);
-        setProject({ ...project, tasks: [...tasks, newTask] });
+        const tasks = [...project.tasks];
+        tasks.find((t) => t.id === task.id).label = label;
+        setProject({ ...project, tasks });
       });
   };
 

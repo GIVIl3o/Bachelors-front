@@ -37,7 +37,7 @@ const Epics = () => {
 
   if (!project) return <PageLoading />;
 
-  const epicComparator = (e1, e2) => compareAsc(e1.fromDate, e2.fromDate);
+  const epicComparator = (t1, t2) => t1.id - t2.id;
 
   const onEpicOpenChange = (openDialog) => {
     if (openDialog) {

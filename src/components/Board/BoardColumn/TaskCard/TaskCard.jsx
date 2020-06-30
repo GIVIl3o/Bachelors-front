@@ -10,6 +10,7 @@ import {
   taskIdClass,
   avatarWrapper,
   labelWrapper,
+  assigneePlaceholderClass,
 } from "./styles.module.css";
 import { getLabelValue, getTaskTypeValue } from "Constants";
 
@@ -20,6 +21,12 @@ const TaskCard = ({ task, setOpenDetailedTask }) => {
 
   const ref = useRef(null);
   useEffect(() => {}, [ref]);
+
+  const assigneePlaceholder = task.assignee ? (
+    <MemberAvatar id={task.assignee} className={avatarWrapper} />
+  ) : (
+    <span className={assigneePlaceholderClass} />
+  );
 
   return (
     <div>
@@ -37,9 +44,7 @@ const TaskCard = ({ task, setOpenDetailedTask }) => {
               {text[getLabelValue(task.label).text]}
             </span>
           )}
-          {task.assignee && (
-            <MemberAvatar id={task.assignee} className={avatarWrapper} />
-          )}
+          {assigneePlaceholder}
         </div>
       </div>
     </div>

@@ -588,5 +588,9 @@
   "task_details_type_label": {
     "EN": "Type",
     "GE": "ტიპი"
+  },
+  "sprint_epicName": {
+    "EN": "Epic name",
+    "GE": "ეპიკის სახელი"
   }
 }
