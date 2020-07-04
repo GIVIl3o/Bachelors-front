@@ -15,8 +15,8 @@ import {
 } from "./styles.module.css";
 import Epic from "./Epic/Epic";
 import PutEpic from "./PutEpic";
-import { addDays, compareAsc } from "date-fns";
-
+import { addDays } from "date-fns";
+import { permissionIsAtLeast, PERMISSIONS } from "Constants";
 const minDateDistanceDays = 7;
 
 const newEpic = {
@@ -29,7 +29,7 @@ const newEpic = {
 const Epics = () => {
   const { text } = useContext(UserContext);
 
-  const { project, setProject } = useContext(ProjectContext);
+  const { project, permission, setProject } = useContext(ProjectContext);
 
   const [openEpicEdit, setOpenEpic] = useState(false);
   const [displayAddEpic, setAddEpic] = useState(true);
@@ -71,9 +71,14 @@ const Epics = () => {
     }
   };
 
+  const hasScrumMasterPermissions = permissionIsAtLeast(
+    permission,
+    PERMISSIONS.master.value
+  );
+
   return (
     <div style={{ height: "100%" }}>
-      {displayAddEpic && (
+      {displayAddEpic && hasScrumMasterPermissions && (
         <div className={addIconWrapper}>
           <Tooltip
             title={text.add_epic}
@@ -109,6 +114,7 @@ const Epics = () => {
                   selected={!displayAddEpic && epic.id === openedEpic.id}
                   deleteEpic={deleteEpic}
                   projectId={project.id}
+                  displayButtons={hasScrumMasterPermissions}
                 />
               ))
             )}

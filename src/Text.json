@@ -87,16 +87,7 @@
     "EN": "Add Members",
     "GE": "დაამატე წევრები"
   },
-  "permissions_member": {
-    "ENUM": "MEMBER",
-    "EN": "member",
-    "GE": "წევრი"
-  },
-  "permissions_administrator": {
-    "ENUM": "ADMIN",
-    "EN": "administrator",
-    "GE": "ადმინისტრატორი"
-  },
+
   "username_not_found": {
     "EN": "Cannot find user",
     "GE": "ასეთი მომხმარებელი ვერ მოიძებნა"
@@ -281,9 +272,9 @@
     "EN": "Transfer",
     "GE": "გადაცემა"
   },
-  "settings_transfer_owner_label": {
-    "EN": "New Owner",
-    "GE": "ახალი პატრონი"
+  "settings_transfer_admin_label": {
+    "EN": "New Admin",
+    "GE": "ახალი ადმინი"
   },
   "settings_change_swal_title": {
     "EN": "Change owner",
@@ -396,18 +387,6 @@
   "task_progress": {
     "EN": "progress",
     "GE": "სტატუსი"
-  },
-  "constants_permissions_member": {
-    "EN": "member",
-    "GE": "წევრი"
-  },
-  "constants_permissions_admin": {
-    "EN": "admin",
-    "GE": "ადმინი"
-  },
-  "constants_permissions_owner": {
-    "EN": "owner",
-    "GE": "შემქმნელი"
   },
   "constants_progress_planned": {
     "EN": "planned",
@@ -592,5 +571,109 @@
   "sprint_epicName": {
     "EN": "Epic name",
     "GE": "ეპიკის სახელი"
+  },
+  "constants_permissions_developer": {
+    "EN": "Developer",
+    "GE": "დეველოპერი"
+  },
+  "constants_permissions_product_owner": {
+    "EN": "Product Owner",
+    "GE": "პროდუქტის მფლობელი"
+  },
+  "constants_permissions_scrum_master": {
+    "EN": "Scrum Master",
+    "GE": "სკრამ მასტერი"
+  },
+  "constants_permissions_admin": {
+    "EN": "Admin",
+    "GE": "ადმინი"
+  },
+  "create_project_adding_second_product_owner": {
+    "EN": "You already have a product owner in your project",
+    "GE": "ამ პროექტს უკვე ჰყავს პროდუქტის მფლობელი"
+  },
+  "settings_leave_project_header": {
+    "EN": "Leave Project",
+    "GE": "პროექტიდან გასვლა"
+  },
+  "settings_leave_project_explanation": {
+    "EN": "Once you leave a project you can't come back by yourself. Please be certain.",
+    "GE": "პროექტიდან გასვლის შემდგომ თქვენით უკან ვეღარ დაბრუნდებით. გთხოვთ კარგად დაფიქრდეთ."
+  },
+  "settings_project_leave_button": {
+    "EN": "Leave Project",
+    "GE": "პროექტიდან გასვლა"
+  },
+  "settings_project_leave_swal_description": {
+    "EN": "You are leaving a project",
+    "GE": "თქვენ პროექტიდან გადიხართ"
+  },
+  "settings_project_leave_success": {
+    "EN": "You have left the project",
+    "GE": "თქვენ გახვედით პროექტიდან"
+  },
+  "settings_project_admin": {
+    "EN": "Admin",
+    "GE": "ადმინი"
+  },
+  "settings_change_member": {
+    "EN": "Member",
+    "GE": "წევრი"
+  },
+  "settings_change_permission": {
+    "EN": "Permission",
+    "GE": "უფლებები"
+  },
+  "settings_change_member_permission": {
+    "EN": "Permissions",
+    "GE": "უფლებები"
+  },
+  "settings_pruduct_owner_already_exists": {
+    "EN": "There already is product owner in this project",
+    "GE": "ამ პროექტს უკვე ჰყავს პროდუქტის მფლობელი"
+  },
+  "settings_please_select_member": {
+    "EN": "Please select project member first",
+    "GE": "გთხოვთ აირჩიოთ პროექტის წევრი"
+  },
+  "settings_remove_user": {
+    "EN": "Remove user",
+    "GE": "მომხმარებლის გაგდება"
+  },
+  "settings_remove_member": {
+    "EN": "This user will be removed from project",
+    "GE": "მომხმარებელი წაიშლება პროექტიდან"
+  },
+  "settings_scrum_masters_tex": {
+    "EN": "Scrum Masters",
+    "GE": "სკრამ მასტერები"
+  },
+  "settings_no_scrum_masters": {
+    "EN": "This project has no scrum masters",
+    "GE": "პროექტს არ ჰყავს სკრამ მასტერები"
+  },
+  "settings_product_owner": {
+    "EN": "Product owner",
+    "GE": "პროდუქტის მფლობელი"
+  },
+  "settings_no_product_owner": {
+    "EN": "This project has no product owner",
+    "GE": "პროექტს არ ჰყავს პროდუქტის მფლობელი"
+  },
+  "settings_developers": {
+    "EN": "Developers",
+    "GE": "დეველოპერები"
+  },
+  "settings_add_developer": {
+    "EN": "Add a developer",
+    "GE": "დაამატე დეველოპერი"
+  },
+  "settings_your_permission": {
+    "EN": "Your Permission level",
+    "GE": "თქვენი უფლებები დონე"
+  },
+  "settings_new_member": {
+    "EN": "New member",
+    "GE": "ახალი წევრი"
   }
 }

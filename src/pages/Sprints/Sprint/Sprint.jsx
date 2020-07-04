@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Fragment } from "react";
 import { UserContext, ProjectContext } from "App";
 
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
@@ -19,7 +19,7 @@ import {
 import { useHistory } from "react-router";
 import Tooltip from "@material-ui/core/Tooltip";
 
-const Sprint = ({ sprint, onOpen, selected }) => {
+const Sprint = ({ sprint, onOpen, selected, displayButtons }) => {
   const { project, setProject } = useContext(ProjectContext);
   const { text } = useContext(UserContext);
 
@@ -113,21 +113,25 @@ const Sprint = ({ sprint, onOpen, selected }) => {
         </div>
       </div>
 
-      <ActiveSprintButton sprint={sprint} />
+      {displayButtons && (
+        <Fragment>
+          <ActiveSprintButton sprint={sprint} />
 
-      <div className={deleteButton} onClick={deleteSprint}>
-        <DeleteForeverIcon fontSize="large" />
-      </div>
+          <div className={deleteButton} onClick={deleteSprint}>
+            <DeleteForeverIcon fontSize="large" />
+          </div>
 
-      <div style={selected ? { visibility: "hidden" } : {}}>
-        <MoreHorizIcon
-          fontSize="large"
-          onClick={(e) => {
-            e.stopPropagation();
-            onOpen(sprint);
-          }}
-        />
-      </div>
+          <div style={selected ? { visibility: "hidden" } : {}}>
+            <MoreHorizIcon
+              fontSize="large"
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpen(sprint);
+              }}
+            />
+          </div>
+        </Fragment>
+      )}
     </div>
   );
 };

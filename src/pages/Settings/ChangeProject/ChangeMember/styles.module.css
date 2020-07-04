@@ -1,0 +1,25 @@
+.wrapper {
+  width: 250px;
+  border-width: 1px;
+  border-left-style: inset;
+  border-bottom-style: groove;
+}
+
+.marginWrapper {
+  padding: 1rem;
+}
+
+.inputWrapper {
+  margin-top: 2rem;
+}
+
+.submitWrapper {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 1rem;
+}
+
+.deleteMemberWrapper {
+  margin-top: 5rem;
+}

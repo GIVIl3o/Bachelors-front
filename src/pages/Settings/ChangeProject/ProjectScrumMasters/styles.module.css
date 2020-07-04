@@ -1,0 +1,23 @@
+.masterTextWrapper {
+  height: 3rem;
+  display: grid;
+  align-items: center;
+}
+
+.mastersWrapper {
+  height: 3rem;
+}
+
+.scrumMastersText {
+  font-size: 1.5rem;
+}
+
+.noScruMastersText {
+  font-size: 1.25rem;
+}
+
+.noScrumMasterTextWrapper {
+  display: grid;
+  align-items: center;
+  height: 100%;
+}

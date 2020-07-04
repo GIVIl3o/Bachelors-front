@@ -16,6 +16,7 @@ import Sprints from "pages/Sprints";
 import Backlog from "pages/Backlog";
 import ActiveSprint from "pages/ActiveSprint";
 import ProjectTransitionWrapper from "./pages/ProjectTransitionWrapper";
+import { getPermission } from "Constants";
 
 let user = "";
 let savedLanguage = "";
@@ -74,6 +75,15 @@ const App = ({ width, imageBase }) => {
     { path: "/projects/:id/about", Component: Settings },
   ];
 
+  console.log(username);
+  console.log(project);
+  console.log(
+    project && project.members.filter((m) => m.username === username)
+  );
+  const permission = getPermission(
+    project && project.members.find((m) => m.username === username).permission
+  );
+
   return (
     <StylesProvider injectFirst>
       <UserContext.Provider
@@ -87,7 +97,7 @@ const App = ({ width, imageBase }) => {
           setLanguage,
         }}
       >
-        <ProjectContext.Provider value={{ project, setProject }}>
+        <ProjectContext.Provider value={{ project, permission, setProject }}>
           <Messages>
             <BrowserRouter>
               <div
