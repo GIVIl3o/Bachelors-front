@@ -1,0 +1,23 @@
+.ownerTextWrapper {
+  height: 3rem;
+  display: grid;
+  align-items: center;
+}
+
+.ownerWrapper {
+  height: 3rem;
+}
+
+.ownerText {
+  font-size: 1.5rem;
+}
+
+.ownerText {
+  font-size: 1.25rem;
+}
+
+.noOwnerTextWrapper {
+  display: grid;
+  align-items: center;
+  height: 100%;
+}

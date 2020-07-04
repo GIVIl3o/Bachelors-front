@@ -1,0 +1,41 @@
+.settingsWrapper {
+  display: grid;
+  grid-template-columns: auto min-content;
+  padding: 1rem;
+  align-items: center;
+}
+
+.settingsHeader {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.settingsExplanation {
+  margin-top: 0.8rem;
+  display: block;
+  font-size: 14px;
+}
+
+.buttonClass {
+  margin: 1.5rem;
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+  border-radius: 0.25em;
+  width: 200px;
+  justify-self: end;
+  height: 2.5rem;
+}
+
+.alignEndText {
+  align-self: end;
+}
+
+.ownershipClass {
+  min-width: 165px;
+}
+
+.ownerShipWrapper {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,18 @@
+.developerTextWrapper {
+  height: 3rem;
+  display: grid;
+  align-items: center;
+}
+
+.developersWrapper {
+  height: 3rem;
+}
+
+.developersText {
+  font-size: 1.5rem;
+}
+
+.addIcon {
+  font-size: 40px;
+  cursor: pointer;
+}

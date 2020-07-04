@@ -1,0 +1,23 @@
+.permissionTextWrapper {
+  height: 3rem;
+  display: grid;
+  align-items: center;
+}
+
+.actualPermissionWrapper {
+  height: 3rem;
+}
+
+.permissionText {
+  font-size: 1.5rem;
+}
+
+.permissionWrapper {
+  font-size: 1.25rem;
+}
+
+.PermissionCenteringWrapper {
+  display: grid;
+  align-items: center;
+  height: 100%;
+}

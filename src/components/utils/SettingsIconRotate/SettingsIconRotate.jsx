@@ -5,14 +5,13 @@ import { UserContext } from "App";
 
 import { rotate } from "./styles.module.css";
 
-const SettingsIconRotate = ({ textLang, className, onClick }) => {
-  const { language } = useContext(UserContext);
-
+const SettingsIconRotate = ({ text, className, onClick }) => {
   return (
     <Tooltip
-      title={textLang[language]}
+      title={text}
       placement="top"
       className={`${className} ${rotate}`}
+      style={{ cursor: "pointer" }}
       onClick={onClick}
     >
       <SettingsIcon fontSize="large" />

@@ -11,14 +11,13 @@ import { IconButton } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
 import MarginTextField from "components/utils/MarginTextField";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import { UserContext, ProjectContext } from "App";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
+import { PERMISSIONS } from "Constants";
 
 import {
   input,
@@ -48,7 +47,8 @@ const sendCreateProject = (
   text,
   textLang,
   history,
-  setProject
+  setProject,
+  username
 ) => {
   if (state.title.length < 4) {
     setMessage(textLang.project_title_min, MessageTypes.error);
@@ -61,8 +61,18 @@ const sendCreateProject = (
 
   const { selectedMember, selectedMemberPermission, ...toSend } = state;
 
-  axios.put("/projects", toSend).then((response) => {
-    const project = { ...toSend, id: response.data, epics: [] };
+  axios.post("/projects", toSend).then((response) => {
+    const project = {
+      ...toSend,
+      id: response.data,
+      epics: [],
+      sprints: [],
+      tasks: [],
+      members: [
+        ...toSend.members,
+        { username, permission: PERMISSIONS.admin.value },
+      ],
+    };
     setProject(project);
     history.push(`/projects/${response.data}/epics`);
 
@@ -81,7 +91,7 @@ const CreateProject = ({ open, setOpen }) => {
 
   const history = useHistory();
 
-  const selectedMemberPermission = textLang.permissions_member["ENUM"];
+  const selectedMemberPermission = PERMISSIONS.developer.value;
 
   const [state, setState] = useState({
     ...defaultState,
@@ -92,7 +102,7 @@ const CreateProject = ({ open, setOpen }) => {
   const setMessage = useContext(MessageContext);
 
   const handleClose = () => {
-    const selectedMemberPermission = textLang.permissions_member["ENUM"];
+    const selectedMemberPermission = PERMISSIONS.developer.value;
     setState({ ...defaultState, selectedMemberPermission });
     setOpen(false);
   };
@@ -108,7 +118,7 @@ const CreateProject = ({ open, setOpen }) => {
       setState({
         ...state,
         selectedMember: "",
-        selectedMemberPermission: textLang.permissions_member["ENUM"],
+        selectedMemberPermission: PERMISSIONS.developer.value,
         members: [...state.members, newMember],
       });
     } else {
@@ -179,25 +189,44 @@ const CreateProject = ({ open, setOpen }) => {
               className={memberSelector}
               inputValue={state.selectedMember}
             />
-            <FormControl variant="outlined" color="secondary">
-              <Select
-                value={state.selectedMemberPermission}
-                onChange={(e) =>
-                  setState({
-                    ...state,
-                    selectedMemberPermission: e.target.value,
-                  })
+            <MarginTextField
+              select
+              variant="outlined"
+              color="secondary"
+              className={margin}
+              value={state.selectedMemberPermission}
+              onChange={(e) => {
+                if (e.target.value === PERMISSIONS.owner.value) {
+                  if (
+                    state.members.find(
+                      (member) => member.permission === PERMISSIONS.owner.value
+                    )
+                  ) {
+                    setMessage(
+                      textLang.create_project_adding_second_product_owner,
+                      MessageTypes.warning
+                    );
+                    return;
+                  }
                 }
-                className={margin}
-              >
-                <MenuItem value={textLang.permissions_member["ENUM"]}>
-                  {text.permissions_member}
-                </MenuItem>
-                <MenuItem value={textLang.permissions_administrator["ENUM"]}>
-                  {text.permissions_administrator}
-                </MenuItem>
-              </Select>
-            </FormControl>
+                setState({
+                  ...state,
+                  selectedMemberPermission: e.target.value,
+                });
+              }}
+            >
+              {Object.keys(PERMISSIONS)
+                .filter((t) => PERMISSIONS[t].value !== PERMISSIONS.admin.value)
+                .map((permission) => (
+                  <MenuItem
+                    value={PERMISSIONS[permission].value}
+                    key={permission}
+                  >
+                    {text[PERMISSIONS[permission].text]}
+                  </MenuItem>
+                ))}
+            </MarginTextField>
+
             <AddCircleOutlineIcon
               fontSize={"large"}
               className={cursorPointer}
@@ -211,6 +240,13 @@ const CreateProject = ({ open, setOpen }) => {
                 id={user.username}
                 className={member}
                 key={user.username}
+                onClick={() => {
+                  const newMembers = state.members.filter(
+                    (member) => member.username !== user.username
+                  );
+                  setState({ ...state, members: newMembers });
+                  setUsernames([...usernames, user.username]);
+                }}
               />
               //<RenderMember {...user} key={user.username} />
             ))}
@@ -250,7 +286,8 @@ const CreateProject = ({ open, setOpen }) => {
                 text,
                 textLang,
                 history,
-                setProject
+                setProject,
+                username
               );
             }}
           >

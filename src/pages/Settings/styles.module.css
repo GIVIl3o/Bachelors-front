@@ -1,0 +1,7 @@
+.wrapper {
+  overflow-x: hidden;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  row-gap: 1.5rem;
+}

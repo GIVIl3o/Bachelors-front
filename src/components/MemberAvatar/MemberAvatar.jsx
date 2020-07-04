@@ -11,7 +11,7 @@ const MemberAvatar = ({ id, className, onClick }) => {
       title={id}
       placement="top"
       className={className}
-      style={{ display: "inline-block" }}
+      style={{ display: "inline-block", cursor: "pointer" }}
     >
       <Avatar src={imageBase + `/profile/${id}.png`} onClick={onClick} />
     </Tooltip>
