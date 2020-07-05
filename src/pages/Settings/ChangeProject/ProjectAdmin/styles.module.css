@@ -1,0 +1,11 @@
+.adminWrapper {
+}
+
+.adminTextWrapper {
+  font-size: 1.5rem;
+}
+
+.centerClass {
+  display: grid;
+  align-items: center;
+}

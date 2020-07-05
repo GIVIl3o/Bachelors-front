@@ -1,19 +1,11 @@
 .wrapper {
-  margin-top: 2rem;
-  font-size: 2.25rem;
-  color: #313131;
-  display: block;
-  margin-bottom: 5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
 }
 
 .titleWrapper {
   display: grid;
   grid-template-columns: 1fr auto;
-}
-
-.settingsWrapper {
-  align-self: center;
-  cursor: pointer;
 }
 
 .lineWrapper {
@@ -38,4 +30,13 @@
   line-height: 1rem;
   align-self: center;
   color: #313131;
+}
+
+.gridWrapper {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 2rem;
+  align-items: center;
+  row-gap: 1rem;
 }

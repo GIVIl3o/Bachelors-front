@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Fragment } from "react";
 import { format } from "date-fns";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
@@ -18,7 +18,14 @@ import { useHistory } from "react-router";
 
 const dateFormat = "dd.MM.yyyy";
 
-const Epic = ({ epic, onOpen, selected, deleteEpic, projectId }) => {
+const Epic = ({
+  epic,
+  onOpen,
+  selected,
+  deleteEpic,
+  projectId,
+  displayButtons,
+}) => {
   const from = format(new Date(epic.fromDate), dateFormat);
   const to = format(new Date(epic.toDate), dateFormat);
 
@@ -70,18 +77,22 @@ const Epic = ({ epic, onOpen, selected, deleteEpic, projectId }) => {
           <span className={fontWeight}>{`${to}`}</span>
           <span>)</span>
         </div>
-        <div className={deleteEpicClass}>
-          <DeleteForeverIcon fontSize="large" onClick={onDeleteEpic} />
-        </div>
-        <div style={selected ? { visibility: "hidden" } : {}}>
-          <MoreHorizIcon
-            fontSize="large"
-            onClick={(e) => {
-              e.stopPropagation();
-              onOpen(epic);
-            }}
-          />
-        </div>
+        {displayButtons && (
+          <Fragment>
+            <div className={deleteEpicClass}>
+              <DeleteForeverIcon fontSize="large" onClick={onDeleteEpic} />
+            </div>
+            <div style={selected ? { visibility: "hidden" } : {}}>
+              <MoreHorizIcon
+                fontSize="large"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onOpen(epic);
+                }}
+              />
+            </div>
+          </Fragment>
+        )}
       </div>
     </div>
   );

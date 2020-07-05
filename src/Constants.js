@@ -1,7 +1,11 @@
 const PERMISSIONS = {
-  member: { value: "MEMBER", text: "constants_permissions_member" },
+  developer: { value: "DEVELOPER", text: "constants_permissions_developer" },
+  owner: {
+    value: "PRODUCT_OWNER",
+    text: "constants_permissions_product_owner",
+  },
+  master: { value: "SCRUM_MASTER", text: "constants_permissions_scrum_master" },
   admin: { value: "ADMIN", text: "constants_permissions_admin" },
-  owner: { value: "OWNER", text: "constants_permissions_owner" },
 };
 
 const PROGRESS = {
@@ -71,13 +75,40 @@ const TASK_TYPE = {
 const getLabelValue = (value) => {
   return Object.keys(LABELS)
     .map((t) => LABELS[t])
-    .filter((label) => label.value === value)[0];
+    .find((label) => label.value === value);
 };
 
 const getTaskTypeValue = (value) => {
   return Object.keys(TASK_TYPE)
     .map((t) => TASK_TYPE[t])
-    .filter((label) => label.value === value)[0];
+    .find((label) => label.value === value);
+};
+
+const getPermission = (permission_enum) => {
+  return Object.keys(PERMISSIONS)
+    .map((t) => PERMISSIONS[t])
+    .find((permission) => permission.value === permission_enum);
+};
+
+const permissionIsAtLeast = (myPermission, requiredPermission) => {
+  console.log(myPermission);
+  console.log(requiredPermission);
+  if (requiredPermission === PERMISSIONS.developer.value) return true;
+
+  if (
+    requiredPermission === PERMISSIONS.owner.value &&
+    !myPermission.value === PERMISSIONS.developer.value
+  )
+    return true;
+
+  if (
+    requiredPermission === PERMISSIONS.master.value &&
+    myPermission.value !== PERMISSIONS.developer.value &&
+    myPermission.value !== PERMISSIONS.owner.value
+  )
+    return true;
+
+  return myPermission.value === PERMISSIONS.admin.value;
 };
 
 export {
@@ -87,4 +118,6 @@ export {
   TASK_TYPE,
   getLabelValue,
   getTaskTypeValue,
+  getPermission,
+  permissionIsAtLeast,
 };

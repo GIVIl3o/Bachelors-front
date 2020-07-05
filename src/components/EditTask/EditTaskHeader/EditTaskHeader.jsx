@@ -69,7 +69,7 @@ const EditTaskHeader = ({ task, onClose }) => {
               endAdornment: (
                 <InputAdornment
                   position="end"
-                  style={{ cursor: "pointer  " }}
+                  style={{ cursor: "pointer" }}
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={(e) => {
                     setEditTitle(false);
