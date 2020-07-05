@@ -19,6 +19,7 @@ import Sprint from "./Sprint";
 import PutSprint from "./PutSprint";
 import MarginTextField from "components/utils/MarginTextField/MarginTextField";
 import { MenuItem } from "@material-ui/core";
+import { permissionIsAtLeast, PERMISSIONS } from "Constants";
 
 const newSprint = {
   id: null,
@@ -29,7 +30,7 @@ const newSprint = {
 
 const Sprints = ({ epicId: filterEpicId }) => {
   const { text } = useContext(UserContext);
-  const { project, setProject } = useContext(ProjectContext);
+  const { project, permission, setProject } = useContext(ProjectContext);
 
   const history = useHistory();
 
@@ -56,9 +57,14 @@ const Sprints = ({ epicId: filterEpicId }) => {
     .filter((sprint) => !filterEpicId || sprint.epicId === filterEpicId)
     .sort((t1, t2) => t1.id - t2.id);
 
+  const hasScrumMasterPermissions = permissionIsAtLeast(
+    permission,
+    PERMISSIONS.master.value
+  );
+
   return (
     <div style={{ height: "100%" }}>
-      {displayAddSprint && (
+      {displayAddSprint && hasScrumMasterPermissions && (
         <div className={addIconWrapper}>
           <Tooltip
             title={text.add_sprint}
@@ -124,6 +130,7 @@ const Sprints = ({ epicId: filterEpicId }) => {
                     setOpenedSprint(sprint);
                   }}
                   selected={!displayAddSprint && sprint.id === openedSprint.id}
+                  displayButtons={hasScrumMasterPermissions}
                 />
               ))
             )}
