@@ -17,8 +17,6 @@ import { getLabelValue, getTaskTypeValue } from "Constants";
 const TaskCard = ({ task, setOpenDetailedTask }) => {
   const { text } = useContext(UserContext);
 
-  console.log(task);
-
   const ref = useRef(null);
   useEffect(() => {}, [ref]);
 

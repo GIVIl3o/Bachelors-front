@@ -21,9 +21,13 @@ import {
 } from "./styles.module.css";
 import axios from "axios";
 import SubmitButton from "components/utils/SubmitButton";
+import { MessageContext } from "components/utils/Messages/Messages";
+import { MessageTypes } from "components/utils/Messages/Messages";
 
 const ChangeProjectDescription = ({ project, editable, updateProject }) => {
-  const { text } = useContext(UserContext);
+  const { text, textLang } = useContext(UserContext);
+
+  const setMessage = useContext(MessageContext);
 
   const [editDescription, setEditDescription] = useState(false);
   const [description, setDescription] = useState(project.description);
@@ -31,7 +35,15 @@ const ChangeProjectDescription = ({ project, editable, updateProject }) => {
   const changeDescription = () => {
     if (editable) {
       setEditDescription(false);
-      updateProject({ ...project, description });
+      if (description.length >= 10) {
+        updateProject({ ...project, description });
+      } else {
+        setMessage(
+          textLang.settings_project_description_length,
+          MessageTypes.error
+        );
+        setDescription(project.description);
+      }
     }
   };
 

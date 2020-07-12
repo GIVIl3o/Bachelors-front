@@ -1,5 +1,5 @@
 .wrapper {
-  margin-top: 2.5rem;
+  margin-top: 5rem;
   display: grid;
   grid-template-rows: min-content min-content;
 }

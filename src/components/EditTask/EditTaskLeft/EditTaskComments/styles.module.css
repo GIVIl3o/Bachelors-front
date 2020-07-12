@@ -1,0 +1,38 @@
+.wrapper {
+  margin-top: 2rem;
+}
+
+.commentsText {
+  display: block;
+  font-size: 1rem;
+  color: #313131;
+  font-weight: bolder;
+}
+
+.addCommentWrapper {
+  width: 80%;
+  margin-top: 1rem;
+}
+
+.addCommentClass {
+}
+
+.submitWrapper {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  justify-items: right;
+  margin-top: 5px;
+  column-gap: 5px;
+}
+
+.commentWrapper {
+  display: grid;
+  margin-top: 1rem;
+  grid-template-columns: auto 1fr;
+  column-gap: 20px;
+}
+
+.commentAvatar {
+  display: grid;
+  align-items: center;
+}

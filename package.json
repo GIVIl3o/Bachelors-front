@@ -18,6 +18,8 @@
     "react-scripts": "3.4.0",
     "react-smooth-dnd": "^0.11.1",
     "react-transition-group": "^4.4.1",
+    "sockjs-client": "^1.4.0",
+    "stompjs": "^2.3.3",
     "sweetalert2": "^9.15.1"
   },
   "scripts": {

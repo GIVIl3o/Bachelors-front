@@ -10,7 +10,7 @@
   margin-top: 2rem;
   height: 4rem;
   display: grid;
-  grid-template-columns: 3fr 8fr 2fr;
+  grid-template-columns: 3fr 8fr 3fr;
 }
 
 .logo {
@@ -29,4 +29,22 @@
 
 .tabClassName {
   min-width: initial;
+}
+
+.rightButtonsWrapper {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  column-gap: 10px;
+  margin-left: 5px;
+  justify-items: end;
+}
+
+.userButton {
+  color: black;
+  height: 3rem;
+  align-self: center;
+  border: none;
+}
+.userButton:hover {
+  border: none;
 }

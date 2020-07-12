@@ -53,3 +53,11 @@
   height: 100%;
   padding: 0.5rem;
 }
+
+.attachmentHeaderText {
+  display: block;
+  font-size: 1rem;
+  color: #313131;
+  font-weight: bolder;
+  margin-top: 1rem;
+}
