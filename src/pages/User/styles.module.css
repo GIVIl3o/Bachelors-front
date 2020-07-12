@@ -1,0 +1,35 @@
+.wrapper {
+  display: grid;
+  justify-items: center;
+  grid-template-rows: min-content 1fr;
+}
+
+.avatarWrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding-top: 2rem;
+  height: min-content;
+}
+
+.avatarTextWrapper {
+  display: grid;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.usernameText {
+  font-size: 2rem;
+}
+
+.passwordChangeWrapper {
+  display: grid;
+  align-items: center;
+  width: 300px;
+}
+
+.passwordChangeLowerWrapper {
+  display: grid;
+  grid-template-rows: min-content min-content min-content min-content;
+  padding-bottom: 7rem;
+  row-gap: 1.5rem;
+}

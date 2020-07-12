@@ -29,7 +29,6 @@ const SprintWrapper = (props) => {
   const location = useLocation();
 
   const params = getSprintId(location);
-  console.log(params);
 
   const sprintId = params.sprintId;
 
@@ -42,7 +41,6 @@ const SprintWrapper = (props) => {
 
   for (const sprints of project.sprints) {
     if (sprints.id === sprintId) {
-      console.log(project.tasks);
       const tasks = project.tasks.filter((task) => task.sprintId === sprintId);
 
       return (

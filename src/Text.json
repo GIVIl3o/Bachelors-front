@@ -675,5 +675,85 @@
   "settings_new_member": {
     "EN": "New member",
     "GE": "ახალი წევრი"
+  },
+  "user_password_old": {
+    "EN": "Old password",
+    "GE": "ძველი პაროლი"
+  },
+  "user_password_new": {
+    "EN": "New password",
+    "GE": "ახალი პაროლი"
+  },
+  "user_password_repeat_new": {
+    "EN": "Repeat new password",
+    "GE": "გაიმეორეთ ახალი პაროლი"
+  },
+  "user_password_change_button": {
+    "EN": "Reset Password",
+    "GE": "პაროლის შეცვლა"
+  },
+  "user_old_password_mismatch": {
+    "EN": "Incorrect old password",
+    "GE": "ძველი პაროლი არასწორია"
+  },
+  "user_password_change_success": {
+    "EN": "Password changed successfully",
+    "GE": "პაროლი წარმატებით შეიცვალა"
+  },
+  "user_new_passwords_mismatch": {
+    "EN": "New password don't match",
+    "GE": "ახალი პაროლები არ ემთხვევიან"
+  },
+  "user_new_password_too_small": {
+    "EN": "New password must be at least 4 characters",
+    "GE": "ახალი პაროლი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
+  },
+  "settings_project_title_length": {
+    "EN": "Project title must be at least 4 characters",
+    "GE": "პროექტის სახელი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
+  },
+  "settings_project_description_length": {
+    "EN": "Project description must be at least 10 characters",
+    "GE": "პროექტის აღწერა 10 სიმბოლოსგან მაინც უნდა შედგებოდეს"
+  },
+  "task_watching_true": {
+    "EN": "Stop Watching",
+    "GE": "აღარ ვუყურო"
+  },
+  "task_watching_false": {
+    "EN": "Start Watching",
+    "GE": "ყურების დაწყება"
+  },
+  "task_details_add_comment": {
+    "EN": "Add Comment",
+    "GE": "დაამატე კომენტარი"
+  },
+  "task_details_comments": {
+    "EN": "Comments:",
+    "GE": "კომენტარები:"
+  },
+  "task_details_add_comment_button": {
+    "EN": "Comment",
+    "GE": "დაკომენტარება"
+  },
+  "task_details_attachment_header": {
+    "EN": "Attachments:",
+    "GE": "მიმაგრებული ფაილები:"
+  },
+  "task_new_comment_bottom_notification": {
+    "EN": "Click here to view latest comments",
+    "GE": "უახლესი კომენტარების სანახავად დააჭირე აქ"
+  },
+  "notification_comment_author": {
+    "EN": "Comment Author:",
+    "GE": "კომენტარის ავტორი:"
+  },
+  "notification_comment_text": {
+    "EN": "Text:",
+    "GE": "ტექსტი:"
+  },
+  "notifications_empty": {
+    "EN": "No new Notifications",
+    "GE": "არ გაქვთ ახალი შეტყობინება"
   }
 }

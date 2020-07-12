@@ -41,7 +41,6 @@ const BoardColumn = ({
     setLoading(true);
 
     if (removedIndex !== null && index > removedIndex) {
-      console.log("reduce");
       index++;
     }
 
@@ -57,7 +56,7 @@ const BoardColumn = ({
       sprintId,
       newProgress: PROGRESS[progressColumnName].value,
     };
-    console.log(queryObject);
+
     let queryParams = "";
     for (const q in queryObject) {
       queryParams += queryObject[q] ? `${q}=${queryObject[q]}&` : "";
@@ -83,13 +82,11 @@ const BoardColumn = ({
     task.progress = PROGRESS[progressColumnName].value;
 
     if (task.rightId === null) {
-      console.log([...tasks, task]);
       setProject({ ...project, tasks: [...tasks, task] });
     } else {
       for (let i = 0; i < tasks.length; i++) {
         if (tasks[i].id === task.rightId) {
           tasks.splice(i, 0, task);
-          console.log(tasks);
           setProject({ ...project, tasks });
           break;
         }
@@ -100,7 +97,7 @@ const BoardColumn = ({
       .post(`/tasks/${task.id}/move?${queryParams}`)
       .then(() => setLoading(false));
   };
-  console.log(addTask);
+
   return (
     <div className={wrapper}>
       {addTask && (

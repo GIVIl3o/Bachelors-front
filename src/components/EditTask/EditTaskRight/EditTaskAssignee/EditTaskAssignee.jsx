@@ -27,16 +27,26 @@ const EditTaskAssignee = ({ task }) => {
   const changeAssignee = (selectedAssignee) => {
     const assignee = selectedAssignee === "" ? null : selectedAssignee;
 
-    const newTask = { ...task, assignee };
+    const watching = task.watching
+      ? true
+      : assignee === username
+      ? true
+      : false;
 
-    axios
-      .post(`/tasks/${task.id}?projectId=${project.id}`, newTask)
-      .then(() => {
-        const tasks = [...project.tasks];
-        tasks.find((t) => t.id === task.id).assignee = assignee;
+    const newTask = { ...task, assignee, watching };
 
-        setProject({ ...project, tasks });
-      });
+    const tasks = [...project.tasks];
+
+    const searchedTask = tasks.find((t) => t.id === task.id);
+    searchedTask.assignee = assignee;
+    searchedTask.watching = watching;
+
+    setProject({ ...project, tasks });
+
+    axios.post(
+      `/tasks/${task.id}?projectId=${project.id}&assigneeWatching=${true}`,
+      newTask
+    );
   };
 
   const NoAssignee = (
