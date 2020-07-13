@@ -27,7 +27,6 @@ const EditTaskHeader = ({ task, onClose }) => {
 
   const { project, setProject } = useContext(ProjectContext);
 
-  console.log(project.sprints);
   const sprint =
     project.sprints && project.sprints.find((s) => s.id === task.sprintId);
   const epic = sprint && project.epics.find((e) => e.id === sprint.epicId);

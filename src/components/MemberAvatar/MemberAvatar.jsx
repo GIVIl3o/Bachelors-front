@@ -3,7 +3,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { UserContext } from "App";
 import { Avatar } from "@material-ui/core";
 
-const MemberAvatar = ({ id, className, onClick }) => {
+const MemberAvatar = ({ id, className, onClick, version }) => {
   const { imageBase } = useContext(UserContext);
 
   return (
@@ -13,7 +13,10 @@ const MemberAvatar = ({ id, className, onClick }) => {
       className={className}
       style={{ display: "inline-block", cursor: "pointer" }}
     >
-      <Avatar src={imageBase + `/profile/${id}.png`} onClick={onClick} />
+      <Avatar
+        src={imageBase + `/profile/${id}.png?version=${version}`}
+        onClick={onClick}
+      />
     </Tooltip>
   );
 };

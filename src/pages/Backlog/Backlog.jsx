@@ -20,36 +20,17 @@ import MarginTextField from "components/utils/MarginTextField/MarginTextField";
 import { MenuItem } from "@material-ui/core";
 import { useHistory, useLocation } from "react-router";
 
-const getQuery = (location) => {
-  const search = location.search;
-
-  const queries = search.substring(1);
-  const parsedQueries = queries.split("&");
-
-  const params = {};
-
-  for (const query of parsedQueries) {
-    const splitted = query.split("=");
-
-    params[splitted[0]] = decodeURIComponent(splitted[1]);
-  }
-
-  return params.query || "";
-};
-
 const Backlog = () => {
   const { text } = useContext(UserContext);
 
   const { project } = useContext(ProjectContext);
 
   const location = useLocation();
-  const query = getQuery(location);
+  const query = new URLSearchParams(location.search);
   const history = useHistory();
 
   const [openAddTask, setOpenAddTask] = useState(false);
   const [displayAddTask, setAddTask] = useState(true);
-
-  const [openDetailedTask, setOpenDetailedTask] = useState(undefined);
 
   if (!project) return <PageLoading />;
 
@@ -64,10 +45,31 @@ const Backlog = () => {
       setOpenAddTask(false);
     }
   };
-
+  console.log(query.get("query"));
   const tasks = project.tasks
-    .filter((task) => !task.sprintId && task.title.includes(query))
+    .filter(
+      (task) => !task.sprintId && task.title.includes(query.get("query") || "")
+    )
     .sort((t1, t2) => t1.id - t2.id);
+
+  const setOpenDetailedTask = (taskId) => {
+    const params = new URLSearchParams(location.search);
+
+    if (taskId) params.set("taskId", taskId);
+    else params.delete("taskId");
+
+    history.push(location.pathname + "?" + params.toString());
+  };
+
+  const taskId = parseInt(
+    new URLSearchParams(location.search).get("taskId"),
+    10
+  );
+
+  const searchedTask = tasks.find((t) => t.id === taskId);
+
+  const currentlyOpenedTaskId =
+    searchedTask && !searchedTask.sprintId ? taskId : undefined;
 
   return (
     <div style={{ height: "100%" }}>
@@ -94,7 +96,7 @@ const Backlog = () => {
               <MarginTextField
                 color="secondary"
                 variant="outlined"
-                value={query}
+                value={query.get("query") || ""}
                 label={text.backlog_search_query}
                 onChange={(e) => {
                   const value = encodeURIComponent(e.target.value);
@@ -140,7 +142,10 @@ const Backlog = () => {
           setOpen={onEpicOpenChange}
           projectId={project.id}
         />
-        <EditTask taskId={openDetailedTask} setTaskId={setOpenDetailedTask} />
+        <EditTask
+          taskId={currentlyOpenedTaskId}
+          setTaskId={setOpenDetailedTask}
+        />
       </div>
     </div>
   );

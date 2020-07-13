@@ -91,7 +91,7 @@ const Messages = ({ children }) => {
     if (reason !== "clickaway") setState({ ...state, open: false });
   };
 
-  const setMessage = (message, messageType, messageTime = 2000) => {
+  const setMessage = (message, messageType, params = { messageTime: 2000 }) => {
     if (state.open) window.clearTimeout(state.timeoutId);
 
     setState({
@@ -101,7 +101,8 @@ const Messages = ({ children }) => {
       messageType,
       timeoutId: window.setTimeout(() => {
         setState({ ...state, message, messageType, open: false });
-      }, messageTime),
+      }, params.messageTime),
+      onClick: params.onClick,
     });
   };
 
@@ -113,9 +114,16 @@ const Messages = ({ children }) => {
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         open={state.open}
         onClose={close}
+        onClick={() => {
+          close();
+          state.onClick && state.onClick();
+        }}
       >
         <MySnackbarContentWrapper
-          onClose={close}
+          onClose={(e, v) => {
+            e.stopPropagation();
+            close(e, v);
+          }}
           variant={state.messageType}
           message={state.message}
         />

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, Fragment } from "react";
 import { Button } from "@material-ui/core";
 import {
   languageButton,
@@ -6,17 +6,23 @@ import {
   logo,
   tabWrapper,
   tabClassName,
+  rightButtonsWrapper,
+  userButton,
 } from "./styles.module.css";
 import { UserContext } from "App";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { Redirect } from "react-router-dom";
+import MemberAvatar from "components/MemberAvatar/MemberAvatar";
+import Notifications from "./Notifications";
 
 const languageMap = { EN: "GE", GE: "EN" };
 
-const Navbar = ({ match }) => {
-  const { username, language, setLanguage } = useContext(UserContext);
+const Navbar = () => {
+  const { username, language, setLanguage, userImageVersion } = useContext(
+    UserContext
+  );
 
   const history = useHistory();
   const { text } = useContext(UserContext);
@@ -56,7 +62,8 @@ const Navbar = ({ match }) => {
   // define allowed routes
   if (username) {
     if (isProjectPage && startTab === -1) return <Redirect to="/" />;
-    if (!isProjectPage && path !== "/") return <Redirect to="/" />;
+    if (!isProjectPage && path !== "/" && path !== "/user")
+      return <Redirect to="/" />;
   }
 
   return (
@@ -92,15 +99,32 @@ const Navbar = ({ match }) => {
             </Tabs>
           )}
         </div>
+        <div className={rightButtonsWrapper}>
+          {username ? (
+            <Fragment>
+              <Notifications />
+              <Button
+                className={userButton}
+                onClick={() => history.push("/user")}
+                color="primary"
+                variant="outlined"
+              >
+                <MemberAvatar id={`${username}`} version={userImageVersion} />
+              </Button>
+            </Fragment>
+          ) : (
+            <div />
+          )}
 
-        <Button
-          className={languageButton}
-          onClick={changeLanguage}
-          color="primary"
-          variant="outlined"
-        >
-          {language}
-        </Button>
+          <Button
+            className={languageButton}
+            onClick={changeLanguage}
+            color="primary"
+            variant="outlined"
+          >
+            {language}
+          </Button>
+        </div>
       </div>
       <hr style={{ marginBottom: "0" }} />
     </div>
