@@ -13,6 +13,8 @@ import { TextField, InputAdornment } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import { ProjectContext, UserContext } from "App";
 import SettingsIconRotate from "components/utils/SettingsIconRotate/SettingsIconRotate";
+import { MessageTypes } from "components/utils/Messages/Messages";
+import { MessageContext } from "components/utils/Messages/Messages";
 
 const ChangeProjectTitle = ({
   project,
@@ -24,7 +26,8 @@ const ChangeProjectTitle = ({
   const [editTitle, setEditTitle] = useState(false);
   const [title, setTitle] = useState(project.title);
 
-  const { text } = useContext(UserContext);
+  const { text, textLang } = useContext(UserContext);
+  const setMessage = useContext(MessageContext);
 
   return (
     <div className={wrapper}>
@@ -59,7 +62,15 @@ const ChangeProjectTitle = ({
           }}
           style={{ width: "250px" }}
           onBlur={() => {
-            updateProject({ ...project, title });
+            if (title.length >= 4) {
+              updateProject({ ...project, title });
+            } else {
+              setMessage(
+                textLang.settings_project_title_length,
+                MessageTypes.error
+              );
+              setTitle(project.title);
+            }
             setEditTitle(false);
           }}
         />

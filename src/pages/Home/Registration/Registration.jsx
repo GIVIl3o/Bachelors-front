@@ -96,7 +96,7 @@ const Registration = () => {
   };
 
   const defaultAvatar = "/images/default_avatar.png";
-  console.log("dasssss");
+
   return (
     <form>
       <div className={upperLoginText}>

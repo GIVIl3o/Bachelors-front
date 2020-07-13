@@ -1,0 +1,19 @@
+.wrapper {
+  margin-bottom: 0.5rem;
+  border-width: 1px;
+  border-top-style: groove;
+  border-bottom-style: groove;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  cursor: pointer;
+}
+
+.wrapper:hover {
+  background-color: #cccccc;
+}
+
+.leftTextClass {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: rgba(0, 0, 0, 0.54);
+}

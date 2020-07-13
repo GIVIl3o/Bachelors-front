@@ -17,6 +17,11 @@ import Backlog from "pages/Backlog";
 import ActiveSprint from "pages/ActiveSprint";
 import ProjectTransitionWrapper from "./pages/ProjectTransitionWrapper";
 import { getPermission } from "Constants";
+import { useEffect } from "react";
+
+import Stomp from "stompjs";
+import sockJS from "sockjs-client";
+import User from "pages/User/";
 
 let user = "";
 let savedLanguage = "";
@@ -37,14 +42,42 @@ try {
   }
 } catch (e) {}
 
+const connectWebsocket = (setWebsocket) => {
+  const sockClient = new sockJS("http://localhost:8080/websocket");
+
+  const websocket = Stomp.over(sockClient);
+
+  websocket.connect(
+    {
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+    () => {
+      setWebsocket(websocket);
+    }
+  );
+
+  return websocket;
+};
+
 export const UserContext = createContext({});
 export const ProjectContext = createContext({});
 
 const App = ({ width, imageBase }) => {
   const [username, setUsername] = useState(user);
+  const [userImageVersion, setUserImageVersion] = useState(0);
   const [language, setLanguage] = useState(savedLanguage);
 
   const [project, setProject] = useState(undefined);
+  const [websocket, setWebsocket] = useState(undefined);
+
+  useEffect(() => {
+    if (!username) {
+      console.log("need cleanup");
+      return;
+    }
+
+    connectWebsocket(setWebsocket);
+  }, [username]);
 
   const text = { ...Text };
   const textLang = { ...Text };
@@ -60,7 +93,7 @@ const App = ({ width, imageBase }) => {
     ? [
         { path: "/", component: Homepage },
         { path: "/projects/:id", component: Epics },
-        // { path: "/epics/:id", component: Sprints},
+        { path: "/user", component: User },
       ]
     : [
         { path: "/", component: Homepage },
@@ -75,11 +108,6 @@ const App = ({ width, imageBase }) => {
     { path: "/projects/:id/about", Component: Settings },
   ];
 
-  console.log(username);
-  console.log(project);
-  console.log(
-    project && project.members.filter((m) => m.username === username)
-  );
   const permission = getPermission(
     project && project.members.find((m) => m.username === username).permission
   );
@@ -89,12 +117,15 @@ const App = ({ width, imageBase }) => {
       <UserContext.Provider
         value={{
           imageBase,
+          websocket,
           username,
           setUsername,
           text,
           textLang,
           language,
           setLanguage,
+          userImageVersion,
+          changeUserImage: () => setUserImageVersion(userImageVersion + 1),
         }}
       >
         <ProjectContext.Provider value={{ project, permission, setProject }}>

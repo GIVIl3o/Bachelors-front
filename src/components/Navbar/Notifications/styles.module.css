@@ -1,0 +1,25 @@
+.wrapper {
+  display: grid;
+  align-items: center;
+}
+.popoverWrapper {
+  margin-top: 1rem;
+  position: absolute !important;
+  overflow: visible !important;
+}
+
+.popoverPaper {
+  padding: 0.5rem;
+}
+
+.popoverPaper::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: calc(50% - 10px);
+  border-bottom: 10px solid white;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-top: 10px solid transparent;
+  z-index: 10;
+}
