@@ -6,4 +6,7 @@ import { baseUrl, imageBase } from "../package.json";
 
 axios.defaults.baseURL = baseUrl;
 
-ReactDOM.render(<App imageBase={imageBase} />, document.getElementById("root"));
+ReactDOM.render(
+  <App imageBase={imageBase} baseUrl={baseUrl} />,
+  document.getElementById("root")
+);

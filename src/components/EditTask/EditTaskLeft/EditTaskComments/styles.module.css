@@ -14,9 +14,6 @@
   margin-top: 1rem;
 }
 
-.addCommentClass {
-}
-
 .submitWrapper {
   display: grid;
   grid-template-columns: 1fr min-content;
@@ -35,4 +32,9 @@
 .commentAvatar {
   display: grid;
   align-items: center;
+}
+
+.commentClass {
+  border-radius: 1.5rem;
+  background-color: rgba(202, 229, 255, 0.5);
 }

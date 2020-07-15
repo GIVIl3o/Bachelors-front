@@ -42,8 +42,8 @@ try {
   }
 } catch (e) {}
 
-const connectWebsocket = (setWebsocket) => {
-  const sockClient = new sockJS("http://localhost:8080/websocket");
+const connectWebsocket = (setWebsocket, baseUrl) => {
+  const sockClient = new sockJS(`${baseUrl}/websocket`);
 
   const websocket = Stomp.over(sockClient);
 
@@ -62,7 +62,7 @@ const connectWebsocket = (setWebsocket) => {
 export const UserContext = createContext({});
 export const ProjectContext = createContext({});
 
-const App = ({ width, imageBase }) => {
+const App = ({ width, imageBase, baseUrl }) => {
   const [username, setUsername] = useState(user);
   const [userImageVersion, setUserImageVersion] = useState(0);
   const [language, setLanguage] = useState(savedLanguage);
@@ -76,7 +76,7 @@ const App = ({ width, imageBase }) => {
       return;
     }
 
-    connectWebsocket(setWebsocket);
+    connectWebsocket(setWebsocket, baseUrl);
   }, [username]);
 
   const text = { ...Text };
@@ -149,7 +149,7 @@ const App = ({ width, imageBase }) => {
                   />
                 ))}
                 {username && (
-                  <div style={{ position: "relative", height: "100%" }}>
+                  <div style={{ height: "100%", overflowX: "auto" }}>
                     {projectRoutes.map(({ path, Component }) => (
                       <Route key={path} exact path={path}>
                         {(props) => (

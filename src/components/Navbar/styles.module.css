@@ -10,11 +10,15 @@
   margin-top: 2rem;
   height: 4rem;
   display: grid;
-  grid-template-columns: 3fr 8fr 3fr;
+  grid-template-columns: 200px 8fr 3fr;
+}
+
+.logoWrapper {
+  display: grid;
+  align-items: end;
 }
 
 .logo {
-  height: 4rem;
   cursor: pointer;
   width: 100%;
   max-width: 199px;
@@ -24,7 +28,6 @@
 .tabWrapper {
   height: 3rem;
   align-self: end;
-  margin-left: 1rem;
 }
 
 .tabClassName {
@@ -33,10 +36,9 @@
 
 .rightButtonsWrapper {
   display: grid;
-  grid-template-columns: 1fr auto auto;
-  column-gap: 10px;
-  margin-left: 5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: end;
+  column-gap: 5px;
 }
 
 .userButton {
@@ -47,4 +49,31 @@
 }
 .userButton:hover {
   border: none;
+}
+
+.zeroPadding {
+  min-width: auto !important;
+}
+
+@media screen and (max-width: 900px) {
+  .zeroPadding {
+    padding: 5px;
+  }
+}
+
+.logoutWrapperClass {
+  cursor: pointer;
+  min-width: auto;
+  display: grid;
+  align-items: center;
+}
+
+.logoutClass {
+  width: 3rem;
+}
+
+@media screen and (max-width: 900px) {
+  .logoutClass {
+    width: 2rem;
+  }
 }
