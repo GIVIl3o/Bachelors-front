@@ -10,10 +10,13 @@ import {
   attachmentText,
   linkWrapper,
   attachmentHeaderText,
+  XWrapper,
+  XClassName,
 } from "./styles.module.css";
 import PageLoading from "components/utils/PageLoading/PageLoading";
 import ImageAttachment from "./ImageAttachment";
 import { UserContext } from "App";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 const EditTaskAttachments = ({ task }) => {
   const { text } = useContext(UserContext);
@@ -43,6 +46,12 @@ const EditTaskAttachments = ({ task }) => {
     return splitted.length === 1 ? splitted : splitted[1];
   };
 
+  const deleteAttachment = (id) => {
+    setAttachments(attachments.filter((t) => t.id !== id));
+
+    axios.delete(`/tasks/attachments/${id}?projectId=${task.projectId}`);
+  };
+
   return (
     <Fragment>
       <span className={attachmentHeaderText}>
@@ -52,9 +61,21 @@ const EditTaskAttachments = ({ task }) => {
         <AddAttachment task={task} addAttachment={addAttachment} />
         {attachments.map((attachment) =>
           attachment.contentType.startsWith("image") ? (
-            <ImageAttachment attachment={attachment} key={attachment.id} />
+            <ImageAttachment
+              attachment={attachment}
+              key={attachment.id}
+              onDelete={deleteAttachment}
+            />
           ) : (
             <div key={attachment.id} className={attachmentClass}>
+              <div className={XWrapper}>
+                <span
+                  className={XClassName}
+                  onClick={() => deleteAttachment(attachment.id)}
+                >
+                  <HighlightOffIcon />
+                </span>
+              </div>
               <a
                 href={attachment.url}
                 download={attachment.filename}
