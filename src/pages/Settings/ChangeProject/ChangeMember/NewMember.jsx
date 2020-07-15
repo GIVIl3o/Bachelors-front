@@ -43,6 +43,11 @@ const ChangeMember = ({ setOpen }) => {
   }, []);
 
   const addUserToProject = () => {
+    if (!username) {
+      setMessage(textLang.settings_add_no_user_message, MessageTypes.error);
+      return;
+    }
+
     if (permission === PERMISSIONS.owner.value) {
       if (
         project.members.find((t) => t.permission === PERMISSIONS.owner.value)

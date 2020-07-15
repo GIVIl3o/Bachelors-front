@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import axios from "axios";
 import { parseISO } from "date-fns";
@@ -9,6 +9,7 @@ import {
   pageEnterActive,
   pageExit,
   pageExitActive,
+  pageEnterDone,
 } from "./styles.module.css";
 import { useParams } from "react-router";
 
@@ -84,6 +85,11 @@ const ProjectTransitionWrapper = ({ Component, ...props }) => {
     if (id) refreshProject(id, setProject);
   }, [id]);
 
+  const style = {
+    width: "100%",
+    ...(props.match ? { height: "100%" } : { display: "none" }),
+  };
+
   return (
     <CSSTransition
       in={props.match != null}
@@ -91,19 +97,13 @@ const ProjectTransitionWrapper = ({ Component, ...props }) => {
       classNames={{
         enter: pageEnter,
         enterActive: pageEnterActive,
+        enterDone: pageEnterDone,
         exit: pageExit,
         exitActive: pageExitActive,
       }}
       unmountOnExit
     >
-      <div
-        style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          overflow: "auto",
-        }}
-      >
+      <div style={style}>
         <Component {...props} />
       </div>
     </CSSTransition>

@@ -8,6 +8,10 @@ import {
   tabClassName,
   rightButtonsWrapper,
   userButton,
+  logoWrapper,
+  zeroPadding,
+  logoutWrapperClass,
+  logoutClass,
 } from "./styles.module.css";
 import { UserContext } from "App";
 import { Link, useLocation, useHistory } from "react-router-dom";
@@ -16,16 +20,25 @@ import Tab from "@material-ui/core/Tab";
 import { Redirect } from "react-router-dom";
 import MemberAvatar from "components/MemberAvatar/MemberAvatar";
 import Notifications from "./Notifications";
+import axios from "axios";
+import { ProjectContext } from "App";
 
 const languageMap = { EN: "GE", GE: "EN" };
 
 const Navbar = () => {
-  const { username, language, setLanguage, userImageVersion } = useContext(
-    UserContext
-  );
+  const {
+    username,
+    language,
+    setLanguage,
+    userImageVersion,
+    setUsername,
+    text,
+    imageBase,
+  } = useContext(UserContext);
+
+  const { setProject } = useContext(ProjectContext);
 
   const history = useHistory();
-  const { text } = useContext(UserContext);
 
   const changeLanguage = () => {
     let newLanguage = languageMap[language];
@@ -69,9 +82,9 @@ const Navbar = () => {
   return (
     <div>
       <div className={navbarConteiner}>
-        <Link to="/" style={{ width: "fit-content" }}>
+        <Link to="/" className={logoWrapper}>
           <img
-            src="https://s3.eu-central-1.amazonaws.com/scrumhub.co/images/logo.png"
+            src={`${imageBase}/images/logo.png`}
             alt=""
             className={logo}
             onDragStart={(e) => e.preventDefault()}
@@ -99,7 +112,10 @@ const Navbar = () => {
             </Tabs>
           )}
         </div>
-        <div className={rightButtonsWrapper}>
+        <div
+          className={rightButtonsWrapper}
+          style={username ? {} : { gridTemplateColumns: "1fr" }}
+        >
           {username ? (
             <Fragment>
               <Notifications />
@@ -108,6 +124,7 @@ const Navbar = () => {
                 onClick={() => history.push("/user")}
                 color="primary"
                 variant="outlined"
+                classes={{ root: zeroPadding }}
               >
                 <MemberAvatar id={`${username}`} version={userImageVersion} />
               </Button>
@@ -121,9 +138,28 @@ const Navbar = () => {
             onClick={changeLanguage}
             color="primary"
             variant="outlined"
+            classes={{ root: zeroPadding }}
           >
             {language}
           </Button>
+          {username && (
+            <div
+              className={logoutWrapperClass}
+              onClick={() => {
+                localStorage.removeItem("jwt");
+
+                delete axios.defaults.headers.common["Authorization"];
+                setProject(undefined);
+                setUsername(undefined);
+                history.push("/");
+              }}
+            >
+              <img
+                src={`${imageBase}/images/logout.png`}
+                className={logoutClass}
+              />
+            </div>
+          )}
         </div>
       </div>
       <hr style={{ marginBottom: "0" }} />
