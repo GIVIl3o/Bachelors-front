@@ -28,3 +28,8 @@
   text-transform: none;
   display: block;
 }
+
+.avatarWrapper {
+  display: grid;
+  justify-items: center;
+}

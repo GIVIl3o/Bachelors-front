@@ -16,6 +16,7 @@ import {
 import { MenuItem } from "@material-ui/core";
 import { PERMISSIONS } from "Constants";
 import Swal from "sweetalert2";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const ChangeMember = ({ setOpen }) => {
   const { text, username: myUsername, textLang } = useContext(UserContext);
@@ -70,22 +71,23 @@ const ChangeMember = ({ setOpen }) => {
   return (
     <div className={marginWrapper}>
       <span style={{ fontSize: "1.5rem" }}>{text.settings_new_member}</span>
-      <MarginTextField
-        select
-        variant="outlined"
-        color="primary"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        label={text.settings_change_member}
+
+      <Autocomplete
         className={inputWrapper}
-        fullWidth
-      >
-        {usernames.map((username) => (
-          <MenuItem value={username} key={username}>
-            {username}
-          </MenuItem>
-        ))}
-      </MarginTextField>
+        options={usernames}
+        renderInput={(params) => (
+          <MarginTextField
+            {...params}
+            label={text.settings_change_member}
+            variant="outlined"
+            color="primary"
+            value={params.value || username || ""}
+            autoFocus
+          />
+        )}
+        onChange={(e, t) => setUsername(t)}
+        value={username}
+      />
 
       <MarginTextField
         select
