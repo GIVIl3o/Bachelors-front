@@ -42,10 +42,8 @@
 }
 
 .userButton {
-  color: black;
-  height: 3rem;
-  align-self: center;
-  border: none;
+  display: grid;
+  align-items: center;
 }
 .userButton:hover {
   border: none;
@@ -72,8 +70,21 @@
   width: 3rem;
 }
 
+.avatarClass {
+  height: 3rem;
+  width: 3rem;
+}
+
 @media screen and (max-width: 900px) {
   .logoutClass {
     width: 2rem;
+  }
+
+  .avatarClass {
+    width: 2rem;
+    height: 2rem;
+  }
+  .languageButton {
+    height: 2rem;
   }
 }

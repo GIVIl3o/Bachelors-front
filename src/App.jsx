@@ -135,7 +135,7 @@ const App = ({ width, imageBase, baseUrl }) => {
                 style={{
                   display: "grid",
                   gridTemplateRows: "auto 1fr auto",
-                  height: "100vh",
+                  minHeight: "100%",
                   ...cssMargin,
                 }}
               >

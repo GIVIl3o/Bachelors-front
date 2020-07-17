@@ -3,7 +3,12 @@ import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import Badge from "@material-ui/core/Badge";
 import Popover from "@material-ui/core/Popover";
 
-import { wrapper, popoverWrapper, popoverPaper } from "./styles.module.css";
+import {
+  wrapper,
+  popoverWrapper,
+  popoverPaper,
+  iconWrapper,
+} from "./styles.module.css";
 import { UserContext } from "App";
 import { useLocation, useHistory } from "react-router";
 import axios from "axios";
@@ -130,7 +135,7 @@ const Notifications = () => {
         <NotificationsActiveIcon
           fontSize="large"
           color="primary"
-          style={{ cursor: "pointer" }}
+          className={iconWrapper}
           onClick={(e) => setOpenEl(e.target)}
         />
       </Badge>
