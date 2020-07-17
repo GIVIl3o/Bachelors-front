@@ -55,7 +55,7 @@ const DeleteTask = ({ task, onClose }) => {
   return (
     <div className={wrapper}>
       <SubmitButton variant="contained" color="secondary" onClick={deleteTask}>
-        {text.task_eidt_delete}
+        {text.task_edit_delete}
       </SubmitButton>
     </div>
   );
