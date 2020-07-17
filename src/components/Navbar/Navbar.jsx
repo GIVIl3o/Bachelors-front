@@ -12,6 +12,7 @@ import {
   zeroPadding,
   logoutWrapperClass,
   logoutClass,
+  avatarClass,
 } from "./styles.module.css";
 import { UserContext } from "App";
 import { Link, useLocation, useHistory } from "react-router-dom";
@@ -119,15 +120,14 @@ const Navbar = () => {
           {username ? (
             <Fragment>
               <Notifications />
-              <Button
-                className={userButton}
-                onClick={() => history.push("/user")}
-                color="primary"
-                variant="outlined"
-                classes={{ root: zeroPadding }}
-              >
-                <MemberAvatar id={`${username}`} version={userImageVersion} />
-              </Button>
+
+              <div className={userButton}>
+                <MemberAvatar
+                  id={`${username}`}
+                  version={userImageVersion}
+                  className={avatarClass}
+                />
+              </div>
             </Fragment>
           ) : (
             <div />
