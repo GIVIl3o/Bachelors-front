@@ -63,7 +63,10 @@ const ChangeProject = () => {
           }}
         />
         <div className={gridWrapper}>
-          <ProjectAdmin project={project} />
+          {
+            // TODO delete line below and component itself
+          }
+          {1 === 0 && <ProjectAdmin project={project} />}
           <ProjectScrumMasters
             project={project}
             editable={isAdmin}

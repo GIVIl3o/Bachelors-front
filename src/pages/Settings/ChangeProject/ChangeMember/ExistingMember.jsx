@@ -17,6 +17,7 @@ import { MenuItem } from "@material-ui/core";
 import { PERMISSIONS } from "Constants";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const ChangeMember = ({ setOpen, state }) => {
   const { text, username: myUsername, textLang } = useContext(UserContext);
@@ -104,25 +105,23 @@ const ChangeMember = ({ setOpen, state }) => {
       <span style={{ fontSize: "1.5rem" }}>
         {text.settings_change_member_permission}
       </span>
-      <MarginTextField
-        select
-        variant="outlined"
-        color="primary"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        label={text.settings_change_member}
+      <Autocomplete
         className={inputWrapper}
-        fullWidth
-      >
-        {project.members
+        options={project.members
           .filter((member) => member.username !== myUsername)
-          .map((member) => (
-            <MenuItem value={member.username} key={member.username}>
-              {member.username}
-            </MenuItem>
-          ))}
-      </MarginTextField>
-
+          .map((t) => t.username)}
+        renderInput={(params) => (
+          <MarginTextField
+            {...params}
+            label={text.settings_change_member}
+            variant="outlined"
+            color="primary"
+            value={params.value || username || ""}
+          />
+        )}
+        onChange={(e, t) => setUsername(t)}
+        value={username}
+      />
       <MarginTextField
         select
         variant="outlined"
@@ -141,7 +140,6 @@ const ChangeMember = ({ setOpen, state }) => {
             </MenuItem>
           ))}
       </MarginTextField>
-
       <div className={submitWrapper}>
         <SubmitButton
           variant="contained"
