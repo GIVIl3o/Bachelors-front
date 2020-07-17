@@ -5,7 +5,6 @@ import MarginTextField from "components/utils/MarginTextField/MarginTextField";
 
 import {
   wrapper,
-  addCommentClass,
   commentsText,
   addCommentWrapper,
   submitWrapper,
@@ -78,7 +77,6 @@ const EditTaskComments = ({ task }) => {
             variant="outlined"
             color="primary"
             value={commentText}
-            className={addCommentClass}
             onChange={(e) => setCommentText(e.target.value)}
           />
         </div>
@@ -115,6 +113,12 @@ const EditTaskComments = ({ task }) => {
                   fullWidth
                   variant="outlined"
                   color="primary"
+                  InputProps={{
+                    style: {
+                      borderRadius: "1.5rem",
+                      backgroundColor: "rgba(202, 229, 255, 0.5)",
+                    },
+                  }}
                 />
               </div>
             </div>

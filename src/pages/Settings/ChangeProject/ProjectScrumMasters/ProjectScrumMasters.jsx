@@ -16,7 +16,9 @@ const ProjectScrumMasters = ({ project, editUsername, editable }) => {
   const { text } = useContext(UserContext);
 
   const masters = project.members.filter(
-    (t) => t.permission === PERMISSIONS.master.value
+    (t) =>
+      t.permission === PERMISSIONS.master.value ||
+      t.permission === PERMISSIONS.admin.value
   );
 
   return (

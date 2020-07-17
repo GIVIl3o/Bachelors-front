@@ -1,11 +1,22 @@
 import React from "react";
 
-import { wrapper, imgWrapper, linkWrapper } from "./styles.module.css";
+import {
+  wrapper,
+  imgWrapper,
+  linkWrapper,
+  XWrapper,
+  XClassName,
+} from "./styles.module.css";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
-const ImageAttachment = ({ attachment }) => {
-  console.log(attachment.url);
+const ImageAttachment = ({ attachment, onDelete }) => {
   return (
     <div className={wrapper}>
+      <div className={XWrapper}>
+        <span className={XClassName} onClick={() => onDelete(attachment.id)}>
+          <HighlightOffIcon />
+        </span>
+      </div>
       <a
         href={attachment.url}
         download={attachment.filename}

@@ -67,8 +67,7 @@ const register = (state, setState, setUsername, setMessage, textLang) => {
 
 const Registration = () => {
   const setMessage = useContext(MessageContext);
-  const { setUsername } = useContext(UserContext);
-  const { text, textLang } = useContext(UserContext);
+  const { setUsername, text, textLang, imageBase } = useContext(UserContext);
   const usernameRef = useRef(null);
 
   const [state, setState] = useState({
@@ -95,7 +94,7 @@ const Registration = () => {
     fileReader.readAsDataURL(image);
   };
 
-  const defaultAvatar = "/images/default_avatar.png";
+  const defaultAvatar = imageBase + "/images/default_avatar.png";
 
   return (
     <form>

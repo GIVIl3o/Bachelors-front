@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import { UserContext } from "App";
 import { Avatar } from "@material-ui/core";
 
-const MemberAvatar = ({ id, className, onClick, version }) => {
-  const { imageBase } = useContext(UserContext);
+const MemberAvatar = ({ id, className, onClick }) => {
+  const { imageBase, username, userImageVersion } = useContext(UserContext);
+
+  const version = id === username ? userImageVersion : 0;
+
+  const [lastWrongUsernameAttempt, setLastWrongUsernameAttempt] = useState(id);
 
   return (
     <Tooltip
@@ -14,8 +18,15 @@ const MemberAvatar = ({ id, className, onClick, version }) => {
       style={{ display: "inline-block", cursor: "pointer" }}
     >
       <Avatar
-        src={imageBase + `/profile/${id}.png?version=${version}`}
+        src={
+          id === lastWrongUsernameAttempt
+            ? imageBase + "/images/default_avatar.png"
+            : imageBase + `/profile/${id}.png?version=${version}`
+        }
         onClick={onClick}
+        onError={() => {
+          setLastWrongUsernameAttempt(id);
+        }}
       />
     </Tooltip>
   );

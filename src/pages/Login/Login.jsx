@@ -16,6 +16,7 @@ import {
   avatarWrapper,
   submit,
 } from "./styles.module.css";
+import MemberAvatar from "components/MemberAvatar/MemberAvatar";
 
 const login = (state, setState, setUsername, setMessage, textLang) => {
   const formData = new FormData();
@@ -51,7 +52,7 @@ const Login = () => {
     image: "",
   });
 
-  const { imageBase, text, textLang, setUsername } = useContext(UserContext);
+  const { text, textLang, setUsername } = useContext(UserContext);
   const usernameRef = useRef(null);
   const setMessage = useContext(MessageContext);
 
@@ -66,15 +67,12 @@ const Login = () => {
     const image = "/profile/" + state.username + ".png";
     state.username && setState({ ...state, image });
   };
-  console.log(state.image);
+
   return (
     <form className={centerForm}>
       <Paper className={paper}>
         <div className={avatarWrapper}>
-          <Avatar
-            src={imageBase + state.image || imageBase + defaultAvatar}
-            style={{ margin: "auto" }}
-          />
+          <MemberAvatar id={state.username} />
         </div>
         <MarginTextField
           label={text.login_button}

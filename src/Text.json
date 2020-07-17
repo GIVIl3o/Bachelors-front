@@ -755,5 +755,9 @@
   "notifications_empty": {
     "EN": "No new Notifications",
     "GE": "არ გაქვთ ახალი შეტყობინება"
+  },
+  "settings_add_no_user_message": {
+    "EN": "Please select user first",
+    "GE": "გთხოვთ აირჩიოთ მომხმარებელი"
   }
 }
