@@ -121,7 +121,7 @@ const Navbar = () => {
             <Fragment>
               <Notifications />
 
-              <div className={userButton}>
+              <div className={userButton} onClick={() => history.push("/user")}>
                 <MemberAvatar
                   id={`${username}`}
                   version={userImageVersion}
