@@ -23,3 +23,14 @@
   border-top: 10px solid transparent;
   z-index: 10;
 }
+
+.iconWrapper {
+  cursor: pointer;
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 900px) {
+  .iconWrapper {
+    font-size: 2rem;
+  }
+}
