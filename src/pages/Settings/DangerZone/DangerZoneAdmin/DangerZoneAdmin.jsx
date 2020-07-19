@@ -1,15 +1,11 @@
 import React, { useContext, useState } from "react";
 import { UserContext, ProjectContext } from "App";
-import InputLabel from "@material-ui/core/InputLabel";
 
 import Swal from "sweetalert2";
 import axios from "axios";
 import { MessageContext } from "components/utils/Messages";
 
 import {
-  dangerTextWrapper,
-  dangerText,
-  dangerWrapper,
   alignEndText,
   settingsWrapper,
   settingsHeader,

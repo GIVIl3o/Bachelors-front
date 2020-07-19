@@ -9,7 +9,7 @@ import DangerZoneOthers from "./DangerZoneOthers";
 const DangerZone = () => {
   const { text } = useContext(UserContext);
 
-  const { project, permission } = useContext(ProjectContext);
+  const { permission } = useContext(ProjectContext);
 
   return (
     <div className={wrapper}>

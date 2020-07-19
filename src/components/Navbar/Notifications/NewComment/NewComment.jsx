@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { UserContext } from "App";
 
 import { wrapper, leftTextClass } from "./styles.module.css";
-import { useHistory } from "react-router";
 
 const NewComment = ({ notification, onClick }) => {
   const { text } = useContext(UserContext);

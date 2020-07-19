@@ -3,7 +3,6 @@ import { UserContext, ProjectContext } from "App";
 
 import Swal from "sweetalert2";
 import axios from "axios";
-import { MessageContext } from "components/utils/Messages";
 
 import {
   alignEndText,
@@ -51,15 +50,13 @@ const LeaveProject = (
 };
 
 const DangerZoneAdmin = () => {
-  const { text, username, textLang } = useContext(UserContext);
+  const { text, username } = useContext(UserContext);
 
   const { project, setProject } = useContext(ProjectContext);
 
   const [leaveLoading, setLeaveLoading] = useState(false);
 
   const history = useHistory();
-
-  const setMessage = useContext(MessageContext);
 
   return (
     <div className={settingsWrapper}>

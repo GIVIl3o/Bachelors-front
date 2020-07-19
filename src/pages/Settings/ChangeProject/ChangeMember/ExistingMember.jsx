@@ -1,6 +1,5 @@
-import React, { useState, useContext, Fragment } from "react";
+import React, { useState, useContext } from "react";
 
-import Slide from "@material-ui/core/Slide";
 import MarginTextField from "components/utils/MarginTextField";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import { UserContext, ProjectContext } from "App";
@@ -21,7 +20,6 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const ChangeMember = ({ setOpen, state }) => {
   const { text, username: myUsername, textLang } = useContext(UserContext);
-  const [loading, setLoading] = useState(false);
 
   const { username: initialUsername, permission: initialPermission } = state;
 
@@ -145,7 +143,6 @@ const ChangeMember = ({ setOpen, state }) => {
           variant="contained"
           color="primary"
           onClick={updateMember}
-          loading={loading}
         >
           {text.epic_submit}
         </SubmitButton>

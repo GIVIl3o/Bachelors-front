@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { UserContext, ProjectContext } from "App";
+import { ProjectContext } from "App";
 import axios from "axios";
 import ChangeProjectTitle from "./ChangeProjectTitle";
 import { permissionIsAtLeast, PERMISSIONS } from "Constants";
@@ -15,7 +15,6 @@ import ChangeProjectDescription from "./ChangeProjectDescription";
 
 const ChangeProject = () => {
   const { project, permission, setProject } = useContext(ProjectContext);
-  const { text } = useContext(UserContext);
 
   const updateProject = (project) => {
     const { tasks, epics, sprints, ...toSend } = project;

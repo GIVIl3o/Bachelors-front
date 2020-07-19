@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 
-import Slide from "@material-ui/core/Slide";
 import MarginTextField from "components/utils/MarginTextField";
 import { MessageContext, MessageTypes } from "components/utils/Messages";
 import { UserContext, ProjectContext } from "App";
@@ -11,16 +10,13 @@ import {
   inputWrapper,
   marginWrapper,
   submitWrapper,
-  deleteMemberWrapper,
 } from "./styles.module.css";
 import { MenuItem } from "@material-ui/core";
 import { PERMISSIONS } from "Constants";
-import Swal from "sweetalert2";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const ChangeMember = ({ setOpen }) => {
-  const { text, username: myUsername, textLang } = useContext(UserContext);
-  const [loading, setLoading] = useState(false);
+  const { text, textLang } = useContext(UserContext);
 
   const [username, setUsername] = useState("");
   const [permission, setPermission] = useState(PERMISSIONS.developer.value);
@@ -117,7 +113,6 @@ const ChangeMember = ({ setOpen }) => {
           variant="contained"
           color="primary"
           onClick={addUserToProject}
-          loading={loading}
         >
           {text.epic_submit}
         </SubmitButton>

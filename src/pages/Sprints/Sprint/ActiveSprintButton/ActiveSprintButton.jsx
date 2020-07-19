@@ -32,9 +32,6 @@ const ActiveSprintButton = ({ sprint }) => {
         e.stopPropagation();
 
         setActive(sprint.id, false).then(() => {
-          const filteredSprints = project.sprints.filter(
-            (e) => e.id !== sprint.id
-          );
           const sprints = [...project.sprints];
           sprints.find((t) => t.id === sprint.id).active = false;
           setProject({ ...project, sprints });

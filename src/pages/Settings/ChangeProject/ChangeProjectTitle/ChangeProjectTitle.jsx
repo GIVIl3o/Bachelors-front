@@ -11,7 +11,7 @@ import {
 import EditIcon from "@material-ui/icons/Edit";
 import { TextField, InputAdornment } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
-import { ProjectContext, UserContext } from "App";
+import { UserContext } from "App";
 import SettingsIconRotate from "components/utils/SettingsIconRotate/SettingsIconRotate";
 import { MessageTypes } from "components/utils/Messages/Messages";
 import { MessageContext } from "components/utils/Messages/Messages";

@@ -22,19 +22,19 @@
   max-width: 400px;
   cursor: pointer;
   color: #686868;
-  border-color: #C2DACC;
+  border-color: #c2dacc;
 }
 
 .project:visited {
-  border-color: #C2DACC;
+  border-color: #c2dacc;
 }
 
 .project:hover {
-  border-color: #5EAAA8;
+  border-color: #5eaaa8;
   color: #272727;
 }
 .project:active {
-  border-color: #5EAAA8;
+  border-color: #5eaaa8;
   color: #272727 !important;
 }
 
@@ -48,16 +48,16 @@
   border-style: groove;
   cursor: pointer;
   max-width: 400px;
-  border-color: #C2DACC;
+  border-color: #c2dacc;
 }
 
 .addProject:hover {
-  border-color: #5EAAA8;
+  border-color: #5eaaa8;
   color: #272727;
 }
 
 .addProject:active {
-  border-color: #5EAAA8;
+  border-color: #5eaaa8;
 }
 
 .addProjectText:active {
@@ -65,7 +65,7 @@
 }
 
 .addProjectText {
-  font-size: 250px;
+  font-size: 200px;
   color: #555555;
   user-select: none;
   text-align: center;

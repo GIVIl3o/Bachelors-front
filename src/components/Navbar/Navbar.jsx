@@ -160,6 +160,7 @@ const Navbar = () => {
               <img
                 src={`${imageBase}/images/logout.png`}
                 className={logoutClass}
+                alt=""
               />
             </div>
           )}

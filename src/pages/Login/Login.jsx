@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef } from "react";
 import TextFieldPassword from "components/utils/TextFieldPassword/";
-import { InputAdornment, Paper, Avatar } from "@material-ui/core";
+import { InputAdornment, Paper } from "@material-ui/core";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import SubmitButton from "components/utils/SubmitButton";
 import axios from "axios";
@@ -60,8 +60,6 @@ const Login = () => {
 
   const updateState = (e) =>
     setState({ ...state, [e.target.name]: e.target.value });
-
-  const defaultAvatar = "/images/default_avatar.png";
 
   const updateImage = () => {
     const image = "/profile/" + state.username + ".png";

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button } from "@material-ui/core";
 import { UserContext } from "App";
 import MarginTextField from "components/utils/MarginTextField/MarginTextField";
 
@@ -8,7 +7,6 @@ import {
   commentsText,
   addCommentWrapper,
   submitWrapper,
-  commentClass,
   commentAvatar,
   commentWrapper,
 } from "./styles.module.css";

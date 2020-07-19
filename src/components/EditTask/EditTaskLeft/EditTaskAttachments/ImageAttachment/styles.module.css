@@ -4,6 +4,7 @@
   cursor: pointer;
   width: 200px;
   height: 130px;
+  grid-template-rows: 0px 1fr auto;
 }
 
 .wrapper:hover {
@@ -16,8 +17,8 @@
 }
 
 .imgWrapper {
-  width: 100%;
-  height: 100%;
+  width: 190px;
+  height: 122px;
 }
 
 .linkWrapper {
@@ -34,8 +35,5 @@
 
 .XClassName {
   font-size: 1.5rem;
-}
-
-.XClassName:hover {
   color: initial !important;
 }

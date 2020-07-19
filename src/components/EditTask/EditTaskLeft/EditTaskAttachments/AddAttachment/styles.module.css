@@ -4,6 +4,7 @@
   cursor: pointer;
   width: 200px;
   height: 130px;
+  align-items: center;
 }
 
 .addAttachmentClass:hover {
@@ -24,6 +25,8 @@
   color: #555555;
   user-select: none;
   text-align: center;
+  font-size: 8rem;
+  line-height: 7rem;
 }
 
 .addAttachmentText:hover {

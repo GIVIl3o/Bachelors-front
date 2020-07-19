@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { PROGRESS } from "Constants";
 
@@ -6,7 +6,6 @@ import { wrapper } from "./styles.module.css";
 import BoardColumn from "./BoardColumn";
 import EditTask from "components/EditTask";
 import { useLocation, useHistory } from "react-router";
-import { useEffect } from "react";
 
 const Board = ({ tasks, sprintId }) => {
   const location = useLocation();
@@ -21,13 +20,6 @@ const Board = ({ tasks, sprintId }) => {
 
   const currentlyOpenedTaskId =
     searchedTask && searchedTask.sprintId === sprintId ? taskId : undefined;
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const taskId = parseInt(params.get("taskId"), 10);
-
-    const searchedTask = tasks.find((t) => t.id === taskId);
-  }, [location.params]);
 
   const setOpenTask = (taskId) => {
     const params = new URLSearchParams(location.search);

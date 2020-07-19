@@ -22,7 +22,7 @@ const ImageAttachment = ({ attachment, onDelete }) => {
         download={attachment.filename}
         className={linkWrapper}
       >
-        <img src={attachment.url} className={imgWrapper} />
+        <img src={attachment.url} className={imgWrapper} alt="" />
       </a>
     </div>
   );

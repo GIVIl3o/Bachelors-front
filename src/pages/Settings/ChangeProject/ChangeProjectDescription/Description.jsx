@@ -5,21 +5,20 @@ import React, {
   useRef,
   useEffect,
 } from "react";
-import { UserContext, ProjectContext } from "App";
+import { UserContext } from "App";
 import EditIcon from "@material-ui/icons/Edit";
 
 import {
   wrapper,
   editIcon,
   editWrapper,
-  descriptionExplanation,
   descriptionWrapper,
   DescriptionElementWrapper,
   editDescriptionClass,
   buttonsWrapper,
   buttonWrapper,
 } from "./styles.module.css";
-import axios from "axios";
+
 import SubmitButton from "components/utils/SubmitButton";
 import { MessageContext } from "components/utils/Messages/Messages";
 import { MessageTypes } from "components/utils/Messages/Messages";
