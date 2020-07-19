@@ -1,7 +1,6 @@
 import React, { useContext, useState, Fragment } from "react";
 import { Button } from "@material-ui/core";
 import {
-  languageButton,
   navbarConteiner,
   logo,
   tabWrapper,
@@ -13,6 +12,8 @@ import {
   logoutWrapperClass,
   logoutClass,
   avatarClass,
+  languageWrapper,
+  languageButton,
 } from "./styles.module.css";
 import { UserContext } from "App";
 import { Link, useLocation, useHistory } from "react-router-dom";
@@ -133,15 +134,17 @@ const Navbar = () => {
             <div />
           )}
 
-          <Button
-            className={languageButton}
-            onClick={changeLanguage}
-            color="primary"
-            variant="outlined"
-            classes={{ root: zeroPadding }}
-          >
-            {language}
-          </Button>
+          <div className={languageWrapper}>
+            <Button
+              className={languageButton}
+              onClick={changeLanguage}
+              color="primary"
+              variant="outlined"
+              classes={{ root: zeroPadding }}
+            >
+              {language}
+            </Button>
+          </div>
           {username && (
             <div
               className={logoutWrapperClass}

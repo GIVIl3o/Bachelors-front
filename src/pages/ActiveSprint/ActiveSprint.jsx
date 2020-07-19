@@ -12,7 +12,11 @@ const ActiveSprint = () => {
   const activeSprint = project.sprints.find((sprint) => sprint.active);
 
   if (activeSprint === undefined)
-    return <h1>No active sprint found. Fuck. No idea what to present here</h1>;
+    return (
+      <div>
+        <span>No active sprint found. Fuck. No idea what to present here</span>
+      </div>
+    );
 
   const tasks = project.tasks.filter(
     (task) => task.sprintId === activeSprint.id

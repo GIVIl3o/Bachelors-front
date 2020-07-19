@@ -45,12 +45,19 @@ const submitTask = (
     rightId: firstTask ? firstTask.id : null,
   };
 
-  axios.post(`/tasks?projectId=${project.id}`, task).then(({ data: task }) => {
-    if (firstTask) firstTask.leftId = task.id;
+  axios
+    .post(`/tasks?projectId=${project.id}`, task)
+    .then(({ data: task, ...props }) => {
+      console.log(task);
+      console.log(props);
+      if (firstTask) firstTask.leftId = task.id;
 
-    setProject({ ...project, tasks: [task, ...project.tasks] });
-    setAddTask(false);
-  });
+      setProject({ ...project, tasks: [task, ...project.tasks] });
+      setAddTask(false);
+    })
+    .catch(() => {
+      setAddTask(false);
+    });
 };
 
 const AddTaskBoard = ({

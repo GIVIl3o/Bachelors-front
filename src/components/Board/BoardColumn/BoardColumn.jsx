@@ -95,7 +95,8 @@ const BoardColumn = ({
 
     axios
       .post(`/tasks/${task.id}/move?${queryParams}`)
-      .then(() => setLoading(false));
+      .then(() => setLoading(false))
+      .catch(() => setLoading(false));
   };
 
   return (

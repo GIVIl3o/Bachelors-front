@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useRef } from "react";
 import { Route, BrowserRouter } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
 import jwtDecode from "jwt-decode";
@@ -71,8 +71,11 @@ const App = ({ width, imageBase, baseUrl }) => {
   const [websocket, setWebsocket] = useState(undefined);
 
   useEffect(() => {
-    if (!username) {
-      console.log("need cleanup");
+    if (!username && websocket !== undefined) {
+      console.log(websocket.subscriptions);
+
+      websocket.disconnect();
+      console.log(websocket.subscriptions);
       return;
     }
 

@@ -60,10 +60,11 @@ const EditTaskDescription = ({ task }) => {
         className={buttonWrapper}
         variant="contained"
         color="secondary"
-        onClick={() => {
+        onClick={(e) => {
           setEditDescription(false);
           setDescription(task.description);
         }}
+        onMouseDown={(e) => e.preventDefault()}
       >
         {text.edit_task_description_cancel}
       </SubmitButton>

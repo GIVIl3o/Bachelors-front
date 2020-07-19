@@ -12,8 +12,10 @@ import {
   pageEnterDone,
 } from "./styles.module.css";
 import { useParams } from "react-router";
+import { useRef } from "react";
 
 const sortTaskArray = (sprintColumnTasks) => {
+  //return sprintColumnTasks;
   const sortedTasks = [];
 
   while (sortedTasks.length !== sprintColumnTasks.length) {
@@ -77,13 +79,26 @@ const refreshProject = (projectId, setProject) => {
 };
 
 const ProjectTransitionWrapper = ({ Component, ...props }) => {
-  const { setProject } = useContext(ProjectContext);
+  const { project, setProject } = useContext(ProjectContext);
+  const projectRef = useRef(null);
+  projectRef.current = project;
 
   const { id } = useParams();
 
   useEffect(() => {
     if (id) refreshProject(id, setProject);
   }, [id]);
+
+  useEffect(() => {
+    axios.interceptors.response.use(undefined, (error) => {
+      const response = error.response;
+      if (projectRef.current && response.status === 400) {
+        refreshProject(projectRef.current.id, setProject);
+      }
+
+      return Promise.reject(response);
+    });
+  }, []);
 
   const style = {
     width: "100%",
