@@ -18,6 +18,9 @@ import ActiveSprint from "pages/ActiveSprint";
 import ProjectTransitionWrapper from "./pages/ProjectTransitionWrapper";
 import { getPermission } from "Constants";
 import { useEffect } from "react";
+import { ThemeProvider } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import theme from './Theme'
 
 import Stomp from "stompjs";
 import sockJS from "sockjs-client";
@@ -116,6 +119,8 @@ const App = ({ width, imageBase, baseUrl }) => {
   );
 
   return (
+    <ThemeProvider theme={theme}>
+    <CssBaseline />
     <StylesProvider injectFirst>
       <UserContext.Provider
         value={{
@@ -173,6 +178,7 @@ const App = ({ width, imageBase, baseUrl }) => {
         </ProjectContext.Provider>
       </UserContext.Provider>
     </StylesProvider>
+    </ThemeProvider>
   );
 };
 

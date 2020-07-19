@@ -3,7 +3,7 @@
   font-weight: bold;
   margin-top: 2rem;
   font-size: 2rem;
-  color: #313131;
+  color: #272727;
 }
 
 .projectsWrapper {
@@ -21,21 +21,21 @@
   border-style: groove;
   max-width: 400px;
   cursor: pointer;
-  color: #3c3c3c;
-  border-color: #9a9a9a66;
+  color: #686868;
+  border-color: #C2DACC;
 }
 
 .project:visited {
-  border-color: #9a9a9a66;
+  border-color: #C2DACC;
 }
 
 .project:hover {
-  border-color: cornflowerblue;
-  color: #6141ff;
+  border-color: #5EAAA8;
+  color: #272727;
 }
 .project:active {
-  border-color: #1b00ff;
-  color: #341bff !important;
+  border-color: #5EAAA8;
+  color: #272727 !important;
 }
 
 .projectName {
@@ -48,19 +48,20 @@
   border-style: groove;
   cursor: pointer;
   max-width: 400px;
+  border-color: #C2DACC;
 }
 
 .addProject:hover {
-  border-color: cornflowerblue;
-  color: #6141ff;
+  border-color: #5EAAA8;
+  color: #272727;
 }
 
 .addProject:active {
-  border-color: #1b00ff;
+  border-color: #5EAAA8;
 }
 
 .addProjectText:active {
-  color: #341bff !important;
+  color: #272727 !important;
 }
 
 .addProjectText {
