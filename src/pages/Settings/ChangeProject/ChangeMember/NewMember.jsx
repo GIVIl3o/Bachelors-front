@@ -29,6 +29,7 @@ const ChangeMember = ({ setOpen }) => {
   const { project, setProject } = useContext(ProjectContext);
 
   const [usernames, setUsernames] = useState([]);
+  const [usernameField, setUsernameField] = useState("");
 
   useEffect(() => {
     axios.get("/users").then((response) => {
@@ -87,6 +88,9 @@ const ChangeMember = ({ setOpen }) => {
         )}
         onChange={(e, t) => setUsername(t)}
         value={username}
+        open={usernameField.length > 0}
+        onInputChange={(e) => setUsernameField(e.target.value || "")}
+        onBlur={() => setUsernameField("")}
       />
 
       <MarginTextField
