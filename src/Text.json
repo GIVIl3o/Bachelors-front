@@ -1,20 +1,20 @@
 {
   "site_slogan": {
-    "EN": "Fuck",
-    "GE": "ფაქ"
+    "EN": "Welcome!",
+    "GE": "კეთილი იყოს შენი მობრძანება!"
   },
   "site_description": {
-    "EN": "ScrumHub is an online project management tool made for Scrum teams.You can easily add user stories to your backlog, add priority to work items, and remain on track with customizable Scrum boards.",
-    "GE": "Scrumhub არის სკრამ გუნდებისთვის განკუთვნილი პლატფორმა. შენ შეგიძლია მარტივად დაამატო ისტორიები ბექლოგში, მიანიჭო პრიორიტეტი სამუშაოს და იყო დასინქრონიზირებული შენს პირად სქრამ დაფასთან."
+    "EN": "ScrumHub is an online project management tool made for Scrum teams.You can easily add user stories to your backlog, add priority to work items, and remain on track with customizable Scrum boards! Register now and see it yourself!",
+    "GE": "Scrumhub არის სკრამ გუნდებისთვის განკუთვნილი პლატფორმა. შენ შეგიძლია მარტივად დაამატო ისტორიები ბექლოგში, მიანიჭო პრიორიტეტი სამუშაოს და იყო დასინქრონიზირებული შენს პირად სქრამ დაფასთან! დარეგისტრირდი ახლავე და შენით ნახე!"
   },
   "login_button": { "EN": "Username", "GE": "სახელი" },
   "sign_up": { "EN": "Sign Up for free!", "GE": "შემოგვიერთდი!" },
   "have_account": { "EN": "Already have an account?", "GE": "გაქვს ექაუნთი?" },
   "login": { "EN": "Log in", "GE": "შესვლა" },
   "password": { "EN": "Password", "GE": "პაროლი" },
-  "repeat_password": { "EN": "Confirm Password", "GE": "გაიმეორეთ პაროლი" },
+  "repeat_password": { "EN": "Confirm password", "GE": "გაიმეორეთ პაროლი" },
   "submit_sign_up": { "EN": "Continue", "GE": "გაგრძელება" },
-  "profile_image": { "EN": "Profile Image", "GE": "პროფილის სურათი" },
+  "profile_image": { "EN": "Profile image", "GE": "პროფილის სურათი" },
   "username_length": {
     "EN": "Username must be at least 4 characters",
     "GE": "მომხმარებლის სახელი 4 სიმბოლოსგან მაინც უნდა შედგებოდეს"
@@ -44,8 +44,8 @@
     "GE": "მომხმარებელი ასეთი სახელით უკვე არსებობს"
   },
   "footer_text": {
-    "EN": "Footer text Maria will think of",
-    "GE": "ფუტერის ტექსტი"
+    "EN": "Copyright © 2020 ScrumbHub. All rights reserved.",
+    "GE": "Copyright © 2020 ScrumbHub. ყველა უფლება დაცულია."
   },
   "unauthorized_home_title": {
     "EN": "Scrumhub | Sign Up",
@@ -68,15 +68,15 @@
     "GE": "პროექტები"
   },
   "create_project": {
-    "EN": "Create Project",
+    "EN": "Create project",
     "GE": "პროექტის შექმნა"
   },
   "create_project_title": {
-    "EN": "Project Name",
+    "EN": "Project name",
     "GE": "პროექტის სახელი"
   },
   "create_project_description": {
-    "EN": "Project Description",
+    "EN": "Project description",
     "GE": "პროექტის აღწერა"
   },
   "create_project_description_too_long": {
@@ -117,15 +117,15 @@
     "GE": "ამ პროექტს არ გააჩნია ეპიკები"
   },
   "create_epic": {
-    "EN": "Create Epic",
+    "EN": "Create epic",
     "GE": "ეპიკის შექმნა"
   },
   "epic_name": {
-    "EN": "Epic Title",
+    "EN": "Epic title",
     "GE": "ეპიკის სახელი"
   },
   "add_sprint": {
-    "EN": "Add Sprint",
+    "EN": "Add sprint",
     "GE": "სპრინტის დამატება"
   },
   "project_no_sprints": {
@@ -137,15 +137,15 @@
     "GE": "სპრინტის შექმნა"
   },
   "sprint_name": {
-    "EN": "Sprint Name",
+    "EN": "Sprint name",
     "GE": "სპრინტის სახელი"
   },
   "epic_from_date": {
-    "EN": "Start Date",
+    "EN": "Start date",
     "GE": "საწყისი თარიღი"
   },
   "epic_to_date": {
-    "EN": "End Date",
+    "EN": "End date",
     "GE": "დასრულების თარიღი"
   },
   "epic_submit": {
@@ -230,10 +230,10 @@
   },
   "settings_danger": {
     "EN": "Danger Zone",
-    "GE": "სახიფათო მოქმედებები"
+    "GE": "ფრთხილად!"
   },
   "settings_delete_header": {
-    "EN": "Delete Project",
+    "EN": "Delete project",
     "GE": "პროექტის წაშლა"
   },
   "settings_delete_explanation": {
@@ -241,7 +241,7 @@
     "GE": "პროექტის წაშლის შემდგომ მისი აღდგენა შეუძლებელია. გთხოვთ კარგად დაფიქრდეთ."
   },
   "settings_delete_button": {
-    "EN": "Delete Project",
+    "EN": "Delete project",
     "GE": "პროექტის წაშლა"
   },
   "settings_delete_swal_title": {
@@ -249,7 +249,7 @@
     "GE": "დარწმუნებული ხარ?"
   },
   "settings_delete_swal_description": {
-    "EN": "This project will be pernamently deleted",
+    "EN": "This project will be permanently deleted",
     "GE": "პროექტი სამუდამოდ წაიშლება"
   },
   "swal_ok": {
@@ -261,7 +261,7 @@
     "GE": "პროექტი წარმატებით წაიშალა"
   },
   "settings_transfer_ownership": {
-    "EN": "Transfer Ownership",
+    "EN": "Transfer ownership",
     "GE": "პროექტის მესაკუთრეს შეცვლა"
   },
   "settings_transfer_ownership_description": {
@@ -273,7 +273,7 @@
     "GE": "გადაცემა"
   },
   "settings_transfer_admin_label": {
-    "EN": "New Admin",
+    "EN": "New admin",
     "GE": "ახალი ადმინი"
   },
   "settings_change_swal_title": {
@@ -285,11 +285,11 @@
     "GE": "პროექტს ახალი პატრონი ეყოლება"
   },
   "settings_project_changed": {
-    "EN": "Project Owner changed",
+    "EN": "Project owner changed",
     "GE": "პროექტს ახალი პატრონი ჰყავს"
   },
   "settings_project_change": {
-    "EN": "Change Project",
+    "EN": "Change project",
     "GE": "პროექტის შეცვლა"
   },
   "settings_owner": {
@@ -309,23 +309,23 @@
     "GE": "აღწერა:"
   },
   "backlog_title": {
-    "EN": "Project Backlog",
+    "EN": "Project backlog",
     "GE": "პროექტის ბექლოგი"
   },
   "backlog_add_tooltip": {
-    "EN": "Add Task",
-    "GE": "დაამატე საქმე"
+    "EN": "Add task",
+    "GE": "დაამატე დავალება"
   },
   "backlog_empty_backlog": {
     "EN": "No related tasks found",
     "GE": "დავალებები ვერ მოიძებნა"
   },
   "backlog_new_title": {
-    "EN": "Task Title",
+    "EN": "Task title",
     "GE": "დავალების სახელი"
   },
   "backlog_new_description": {
-    "EN": "Task Description",
+    "EN": "Task description",
     "GE": "დავალების აღწერა"
   },
   "backlog_new_assignee": {
@@ -341,7 +341,7 @@
     "GE": "დავალება წარმატებით შეიქმნა"
   },
   "backlog_delete_task_title": {
-    "EN": "Task will be deleted pernamently",
+    "EN": "Task will be deleted permanently",
     "GE": "დავალება წაიშლება სამუდამოდ"
   },
   "backlog_task_deleted": {
@@ -373,15 +373,15 @@
     "GE": "არ ჰყავს"
   },
   "task_edit_assign_yourself": {
-    "EN": "Assign Yourself",
-    "GE": "შევასრულებ"
+    "EN": "Assign yourself",
+    "GE": "მე შევასრულებ"
   },
   "task_assignee_edit": {
     "EN": "Edit",
     "GE": "შეცვლა"
   },
   "task_assignee_unassigne": {
-    "EN": "unassigne",
+    "EN": "unassign",
     "GE": "გააუქმე"
   },
   "task_progress": {
@@ -449,7 +449,7 @@
     "GE": "დავალების წაშლა"
   },
   "swal_task_deleted": {
-    "EN": "Task will be deleted pernamently",
+    "EN": "Task will be deleted permanently",
     "GE": "დავალება სამუდამოდ წაიშლება"
   },
   "tab_active": {
@@ -509,7 +509,7 @@
     "GE": "სპრინტები ვერ მოიძებნა"
   },
   "sprint_delete_swal_title": {
-    "EN": "Sprint will be deleted pernamently",
+    "EN": "Sprint will be deleted permanently",
     "GE": "სპრინტი სამუდამოდ წაიშლება"
   },
   "sprint_delete_swal_description": {
@@ -638,7 +638,7 @@
   },
   "settings_remove_user": {
     "EN": "Remove user",
-    "GE": "მომხმარებლის გაგდება"
+    "GE": "მომხმარებლის წაშლა"
   },
   "settings_remove_member": {
     "EN": "This user will be removed from project",
@@ -669,8 +669,8 @@
     "GE": "დაამატე დეველოპერი"
   },
   "settings_your_permission": {
-    "EN": "Your Permission level",
-    "GE": "თქვენი უფლებები დონე"
+    "EN": "Your permission level",
+    "GE": "შენი უფლებების დონე"
   },
   "settings_new_member": {
     "EN": "New member",
@@ -701,7 +701,7 @@
     "GE": "პაროლი წარმატებით შეიცვალა"
   },
   "user_new_passwords_mismatch": {
-    "EN": "New password don't match",
+    "EN": "New passwords don't match",
     "GE": "ახალი პაროლები არ ემთხვევიან"
   },
   "user_new_password_too_small": {
@@ -717,12 +717,12 @@
     "GE": "პროექტის აღწერა 10 სიმბოლოსგან მაინც უნდა შედგებოდეს"
   },
   "task_watching_true": {
-    "EN": "Stop Watching",
-    "GE": "აღარ ვუყურო"
+    "EN": "Stop watching",
+    "GE": "აღარ გაოვიწერო"
   },
   "task_watching_false": {
     "EN": "Start Watching",
-    "GE": "ყურების დაწყება"
+    "GE": "გამოწერა"
   },
   "task_details_add_comment": {
     "EN": "Add Comment",
@@ -734,7 +734,7 @@
   },
   "task_details_add_comment_button": {
     "EN": "Comment",
-    "GE": "დაკომენტარება"
+    "GE": "კომენტარის დამატება"
   },
   "task_details_attachment_header": {
     "EN": "Attachments:",
@@ -753,7 +753,7 @@
     "GE": "ტექსტი:"
   },
   "notifications_empty": {
-    "EN": "No new Notifications",
+    "EN": "No new notifications",
     "GE": "არ გაქვთ ახალი შეტყობინება"
   },
   "settings_add_no_user_message": {
