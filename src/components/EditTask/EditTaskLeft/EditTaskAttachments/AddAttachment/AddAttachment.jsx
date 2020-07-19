@@ -27,7 +27,7 @@ const AddAttachment = ({ task, addAttachment }) => {
         onChange={uploadAttachment}
       />
       <label htmlFor="attachment-button">
-        <div className={addAttachmentClass} onClick={() => console.log("asd")}>
+        <div className={addAttachmentClass}>
           <span className={addAttachmentText}>+</span>
         </div>
       </label>

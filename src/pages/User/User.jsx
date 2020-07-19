@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "App";
-import { Button } from "@material-ui/core";
 import MemberAvatar from "components/MemberAvatar/MemberAvatar";
 import axios from "axios";
 import TextFieldPassword from "components/utils/TextFieldPassword/TextFieldPassword";
@@ -18,8 +17,6 @@ import { MessageContext } from "components/utils/Messages/Messages";
 import { MessageTypes } from "components/utils/Messages/Messages";
 
 const User = () => {
-  const [image, setImage] = useState(undefined);
-
   const [passwordState, setPasswordState] = useState({
     old: "",
     new: "",

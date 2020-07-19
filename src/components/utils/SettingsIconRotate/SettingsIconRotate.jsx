@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import SettingsIcon from "@material-ui/icons/Settings";
 import Tooltip from "@material-ui/core/Tooltip";
-import { UserContext } from "App";
 
 import { rotate } from "./styles.module.css";
 

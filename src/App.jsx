@@ -1,6 +1,7 @@
-import React, { useState, createContext, useRef } from "react";
+import React, { useState, createContext } from "react";
 import { Route, BrowserRouter } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
+import "./fonts/index.css";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 import Navbar from "./components/Navbar";
@@ -18,9 +19,9 @@ import ActiveSprint from "pages/ActiveSprint";
 import ProjectTransitionWrapper from "./pages/ProjectTransitionWrapper";
 import { getPermission } from "Constants";
 import { useEffect } from "react";
-import { ThemeProvider } from '@material-ui/core/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import theme from './Theme'
+import { ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import theme from "./Theme";
 
 import Stomp from "stompjs";
 import sockJS from "sockjs-client";
@@ -120,64 +121,64 @@ const App = ({ width, imageBase, baseUrl }) => {
 
   return (
     <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <StylesProvider injectFirst>
-      <UserContext.Provider
-        value={{
-          imageBase,
-          websocket,
-          username,
-          setUsername,
-          text,
-          textLang,
-          language,
-          setLanguage,
-          userImageVersion,
-          changeUserImage: () => setUserImageVersion(userImageVersion + 1),
-        }}
-      >
-        <ProjectContext.Provider value={{ project, permission, setProject }}>
-          <Messages>
-            <BrowserRouter>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateRows: "auto 1fr auto",
-                  minHeight: "100%",
-                  ...cssMargin,
-                }}
-              >
-                <Navbar />
-                {routes.map((route) => (
-                  <Route
-                    path={route.path}
-                    component={route.component}
-                    exact
-                    key={route.path}
-                  />
-                ))}
-                {username && (
-                  <div style={{ height: "100%", overflowX: "auto" }}>
-                    {projectRoutes.map(({ path, Component }) => (
-                      <Route key={path} exact path={path}>
-                        {(props) => (
-                          <ProjectTransitionWrapper
-                            Component={Component}
-                            {...props}
-                          />
-                        )}
-                      </Route>
-                    ))}
-                  </div>
-                )}
+      <CssBaseline />
+      <StylesProvider injectFirst>
+        <UserContext.Provider
+          value={{
+            imageBase,
+            websocket,
+            username,
+            setUsername,
+            text,
+            textLang,
+            language,
+            setLanguage,
+            userImageVersion,
+            changeUserImage: () => setUserImageVersion(userImageVersion + 1),
+          }}
+        >
+          <ProjectContext.Provider value={{ project, permission, setProject }}>
+            <Messages>
+              <BrowserRouter>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateRows: "auto 1fr auto",
+                    minHeight: "100%",
+                    ...cssMargin,
+                  }}
+                >
+                  <Navbar />
+                  {routes.map((route) => (
+                    <Route
+                      path={route.path}
+                      component={route.component}
+                      exact
+                      key={route.path}
+                    />
+                  ))}
+                  {username && (
+                    <div style={{ height: "100%", overflowX: "auto" }}>
+                      {projectRoutes.map(({ path, Component }) => (
+                        <Route key={path} exact path={path}>
+                          {(props) => (
+                            <ProjectTransitionWrapper
+                              Component={Component}
+                              {...props}
+                            />
+                          )}
+                        </Route>
+                      ))}
+                    </div>
+                  )}
 
-                <Footer />
-              </div>
-            </BrowserRouter>
-          </Messages>
-        </ProjectContext.Provider>
-      </UserContext.Provider>
-    </StylesProvider>
+                  <Footer />
+                </div>
+              </BrowserRouter>
+            </Messages>
+          </ProjectContext.Provider>
+        </UserContext.Provider>
+      </StylesProvider>
     </ThemeProvider>
   );
 };
