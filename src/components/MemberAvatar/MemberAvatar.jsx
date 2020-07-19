@@ -9,7 +9,7 @@ const MemberAvatar = ({ id, className, onClick }) => {
   const version = id === username ? userImageVersion : 0;
 
   const [lastWrongUsernameAttempt, setLastWrongUsernameAttempt] = useState("");
-  console.log(className);
+
   return (
     <Tooltip
       title={id}

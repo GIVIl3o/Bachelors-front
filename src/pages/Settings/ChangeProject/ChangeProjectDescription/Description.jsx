@@ -66,6 +66,7 @@ const ChangeProjectDescription = ({ project, editable, updateProject }) => {
           setEditDescription(false);
           setDescription(project.description);
         }}
+        onMouseDown={(e) => e.preventDefault()}
       >
         {text.edit_task_description_cancel}
       </SubmitButton>

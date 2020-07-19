@@ -1,7 +1,8 @@
 .languageButton {
   color: black;
-  height: 3rem;
-  align-self: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-self: end;
   max-width: 50px;
   justify-self: right;
 }
@@ -26,8 +27,8 @@
 }
 
 .tabWrapper {
-  height: 3rem;
-  align-self: end;
+  height: 2rem;
+  align-self: center;
 }
 
 .tabClassName {
@@ -43,7 +44,7 @@
 
 .userButton {
   display: grid;
-  align-items: center;
+  align-items: end;
 }
 .userButton:hover {
   border: none;
@@ -63,16 +64,21 @@
   cursor: pointer;
   min-width: auto;
   display: grid;
-  align-items: center;
+  align-items: end;
 }
 
 .logoutClass {
-  width: 3rem;
+  width: 2.5rem;
 }
 
 .avatarClass {
-  height: 3rem;
-  width: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.languageWrapper {
+  display: grid;
+  align-items: initial !important;
+  align-self: end;
 }
 
 @media screen and (max-width: 900px) {
