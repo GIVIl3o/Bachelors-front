@@ -9,6 +9,7 @@
   display: grid;
   grid-template-rows: min-content min-content;
   height: 5rem;
+  overflow-x: hidden;
 }
 
 .assigneeWrapper {

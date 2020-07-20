@@ -2,3 +2,14 @@
   margin-top: 10rem;
   position: relative !important;
 }
+
+.noSprintWrapper {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+}
+
+.noSprintsClass {
+  font-size: 1.7rem;
+}

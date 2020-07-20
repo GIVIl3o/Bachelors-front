@@ -15,6 +15,7 @@ import {
 } from "./styles.module.css";
 import { MessageContext } from "components/utils/Messages/Messages";
 import { MessageTypes } from "components/utils/Messages/Messages";
+import { useEffect } from "react";
 
 const User = () => {
   const [passwordState, setPasswordState] = useState({
@@ -31,6 +32,10 @@ const User = () => {
     userImageVersion,
     changeUserImage,
   } = useContext(UserContext);
+
+  useEffect(() => {
+    document.title = `Scrumhub | ${username}`;
+  });
 
   const setMessage = useContext(MessageContext);
 

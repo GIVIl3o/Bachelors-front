@@ -91,8 +91,6 @@ const getPermission = (permission_enum) => {
 };
 
 const permissionIsAtLeast = (myPermission, requiredPermission) => {
-  console.log(myPermission);
-  console.log(requiredPermission);
   if (requiredPermission === PERMISSIONS.developer.value) return true;
 
   if (

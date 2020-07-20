@@ -7,39 +7,20 @@ import {
   wrapper,
   titleClass,
   closeClass,
-  dueClass,
-  toDateClass,
-  marginTop,
   editIcon,
   editTitleClass,
   editWrapper,
 } from "./styles.module.css";
 import CloseIcon from "@material-ui/icons/Close";
-import { format } from "date-fns";
 import { TextField } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import axios from "axios";
 
-const dateFormat = "dd.MM.yyyy";
-
 const EditTaskHeader = ({ task, onClose }) => {
-  const { text } = useContext(UserContext);
-
   const { project, setProject } = useContext(ProjectContext);
-
-  const sprint =
-    project.sprints && project.sprints.find((s) => s.id === task.sprintId);
-  const epic = sprint && project.epics.find((e) => e.id === sprint.epicId);
 
   const [editTitle, setEditTitle] = useState(false);
   const [title, setTitle] = useState(task.title);
-
-  const dueDate = epic && (
-    <Fragment>
-      <span className={dueClass}>{text.task_details_due} </span>
-      <span className={toDateClass}>{format(epic.toDate, dateFormat)}</span>
-    </Fragment>
-  );
 
   const changeTitle = () => {
     setEditTitle(false);
@@ -96,10 +77,7 @@ const EditTaskHeader = ({ task, onClose }) => {
   return (
     <div>
       <div className={wrapper}>
-        <div>
-          {titleElement}
-          <div className={marginTop}>{dueDate}</div>
-        </div>
+        <div>{titleElement}</div>
         <CloseIcon
           fontSize="large"
           className={closeClass}

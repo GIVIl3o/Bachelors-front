@@ -36,6 +36,8 @@
 .deleteButton {
   color: #f50057;
   margin-right: 0.5rem;
+  display: grid;
+  align-items: center;
 }
 
 .assignmentWrapper {

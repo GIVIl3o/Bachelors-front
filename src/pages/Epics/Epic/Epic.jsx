@@ -89,6 +89,7 @@ const Epic = ({
                   e.stopPropagation();
                   onOpen(epic);
                 }}
+                style={{ display: "grid" }}
               />
             </div>
           </Fragment>

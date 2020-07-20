@@ -31,8 +31,6 @@ const EditTaskSprint = ({ task }) => {
     }
     newTask.progress = PROGRESS.planned.value;
 
-    console.log(project.tasks);
-    console.log(sprintId);
     const theMostLeftTaskInNewSprint = project.tasks.find(
       (task) =>
         task.sprintId === sprintId &&
@@ -42,9 +40,7 @@ const EditTaskSprint = ({ task }) => {
     newTask.leftId = null;
     newTask.rightId = null;
 
-    console.log(theMostLeftTaskInNewSprint);
     if (theMostLeftTaskInNewSprint) {
-      console.log("whuiadsxs");
       theMostLeftTaskInNewSprint.leftId = newTask.id;
       newTask.rightId = theMostLeftTaskInNewSprint.id;
     }
@@ -66,7 +62,6 @@ const EditTaskSprint = ({ task }) => {
       queryParams += queryObject[q] ? `${q}=${queryObject[q]}&` : "";
     }
     queryParams = queryParams.substring(0, queryParams.length - 1);
-    console.log(queryParams);
 
     axios.post(`/tasks/${task.id}/move?${queryParams}`, null).then(() => {
       const tasks = project.tasks.filter((t) => t.id !== task.id);

@@ -48,8 +48,6 @@ const submitTask = (
   axios
     .post(`/tasks?projectId=${project.id}`, task)
     .then(({ data: task, ...props }) => {
-      console.log(task);
-      console.log(props);
       if (firstTask) firstTask.leftId = task.id;
 
       setProject({ ...project, tasks: [task, ...project.tasks] });

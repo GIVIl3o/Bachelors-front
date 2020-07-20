@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
-import { ProjectContext } from "App";
+import { ProjectContext, UserContext } from "App";
 import PageLoading from "components/utils/PageLoading";
 
 import Board from "components/Board/Board";
 
+import { noSprintWrapper, noSprintsClass } from "./styles.module.css";
+
 const ActiveSprint = () => {
   const { project } = useContext(ProjectContext);
+
+  const { text } = useContext(UserContext);
 
   if (!project) return <PageLoading />;
 
@@ -13,8 +17,8 @@ const ActiveSprint = () => {
 
   if (activeSprint === undefined)
     return (
-      <div>
-        <span>No active sprint found. Fuck. No idea what to present here</span>
+      <div className={noSprintWrapper}>
+        <span className={noSprintsClass}>{text.sprints_no_active}</span>
       </div>
     );
 

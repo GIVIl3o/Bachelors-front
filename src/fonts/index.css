@@ -1,6 +1,6 @@
 @font-face {
   font-family: "MyFont";
-  src: local("MyFont"), url(./FiraGO-ExtraBoldItalic.woff) format("woff");
+  src: local("MyFont"), url(./FiraGO-Regular.woff) format("woff");
 }
 
 body {
