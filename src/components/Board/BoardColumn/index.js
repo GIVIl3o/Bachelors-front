@@ -19,7 +19,6 @@ const BoardColumnWrapper = ({ progressColumnName, ...props }) => {
   const [addTask, setAddTask] = useState(false);
 
   const setCollapsed = (collapse) => {
-    console.log("wtf");
     localStorage.setItem(progressColumnName + storageAppend, collapse);
     setCollapsedUpperPart(collapse);
   };

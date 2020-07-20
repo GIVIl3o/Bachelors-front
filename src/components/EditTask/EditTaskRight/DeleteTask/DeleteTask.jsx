@@ -12,13 +12,6 @@ const DeleteTask = ({ task, onClose }) => {
 
   const { project, setProject } = useContext(ProjectContext);
 
-  console.log(project.tasks);
-  const p = project.tasks.find((t) => t.id === t.rightId);
-  if (p !== undefined) {
-    console.log("stop!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    console.log(p);
-  }
-
   const deleteTask = () => {
     Swal.fire({
       title: text.settings_delete_swal_title,
@@ -41,19 +34,16 @@ const DeleteTask = ({ task, onClose }) => {
         queryParams += queryObject[q] ? `${q}=${queryObject[q]}&` : "";
       }
       queryParams = queryParams.substring(0, queryParams.length - 1);
-      console.log(project.tasks);
 
       willDelete &&
         axios.delete(`/tasks/${task.id}?${queryParams}`).then(() => {
           onClose(() => {
-            console.log(project.tasks);
             const tasks = project.tasks.filter((t) => t.id !== task.id);
 
             if (task.leftId)
               tasks.find((t) => t.id === task.leftId).rightId = task.rightId;
             if (task.rightId)
               tasks.find((t) => t.id === task.rightId).leftId = task.leftId;
-            console.log(tasks);
 
             setProject({ ...project, tasks: [...tasks] });
           });

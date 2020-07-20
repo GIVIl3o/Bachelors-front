@@ -76,10 +76,7 @@ const App = ({ width, imageBase, baseUrl }) => {
 
   useEffect(() => {
     if (!username && websocket !== undefined) {
-      console.log(websocket.subscriptions);
-
       websocket.disconnect();
-      console.log(websocket.subscriptions);
       return;
     }
 

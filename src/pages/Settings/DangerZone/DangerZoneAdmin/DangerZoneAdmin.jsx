@@ -91,7 +91,6 @@ const changeAdmin = (
             { username: newAdmin, permission: PERMISSIONS.admin.value },
             { username: admin.username, permission: PERMISSIONS.master.value },
           ];
-          console.log(members);
 
           Swal.fire({
             title: text.settings_project_changed,

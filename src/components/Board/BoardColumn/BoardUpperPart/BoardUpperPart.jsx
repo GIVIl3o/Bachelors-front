@@ -42,7 +42,6 @@ const BoardColumn = ({
           >
             <KeyboardArrowDownIcon
               onClick={() => {
-                console.log("zevita");
                 setAddTask(false);
                 setCollapsedUpperPart(false);
               }}
@@ -67,7 +66,6 @@ const BoardColumn = ({
             >
               <KeyboardArrowRightIcon
                 onClick={() => {
-                  console.log("qvevita");
                   setCollapsedUpperPart(true);
                 }}
               />

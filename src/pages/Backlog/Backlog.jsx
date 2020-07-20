@@ -45,7 +45,7 @@ const Backlog = () => {
       setOpenAddTask(false);
     }
   };
-  console.log(query.get("query"));
+
   const tasks = project.tasks
     .filter(
       (task) => !task.sprintId && task.title.includes(query.get("query") || "")

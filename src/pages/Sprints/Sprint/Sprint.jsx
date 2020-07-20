@@ -96,7 +96,7 @@ const Sprint = ({ sprint, onOpen, selected, displayButtons }) => {
           <div className={assignmentWrapper}>
             <span>{numberOfTasks}</span>
             <div>
-              <AssignmentIcon />
+              <AssignmentIcon style={{ display: "grid" }} />
             </div>
           </div>
         </Tooltip>
@@ -128,6 +128,7 @@ const Sprint = ({ sprint, onOpen, selected, displayButtons }) => {
                 e.stopPropagation();
                 onOpen(sprint);
               }}
+              style={{ display: "grid" }}
             />
           </div>
         </Fragment>

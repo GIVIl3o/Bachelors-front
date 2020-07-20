@@ -43,9 +43,13 @@
     "EN": "User with such username already exists",
     "GE": "მომხმარებელი ასეთი სახელით უკვე არსებობს"
   },
-  "footer_text": {
-    "EN": "Copyright © 2020 ScrumbHub. All rights reserved.",
-    "GE": "Copyright © 2020 ScrumbHub. ყველა უფლება დაცულია."
+  "footer_text_left": {
+    "EN": "Copyright ",
+    "GE": "Copyright "
+  },
+  "footer_text_right": {
+    "EN": " 2020 ScrumbHub. All rights reserved.",
+    "GE": " 2020 ScrumbHub. ყველა უფლება დაცულია."
   },
   "unauthorized_home_title": {
     "EN": "Scrumhub | Sign Up",
@@ -759,5 +763,9 @@
   "settings_add_no_user_message": {
     "EN": "Please select user first",
     "GE": "გთხოვთ აირჩიოთ მომხმარებელი"
+  },
+  "sprints_no_active": {
+    "EN": "Your project currently doesn't have an active sprint",
+    "GE": "ამ პროექტს არ გააჩნია აქტიური სპრინტი"
   }
 }

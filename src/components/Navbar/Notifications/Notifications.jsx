@@ -75,8 +75,7 @@ const Notifications = () => {
 
   useEffect(() => {
     if (!websocket) return;
-    console.log(websocket);
-    console.log("au kai ra");
+
     websocket.subscribe(`/notification/${username}`, (t) => {
       const body = JSON.parse(t.body);
       const openedTaskId = getOpenedTaskId();
