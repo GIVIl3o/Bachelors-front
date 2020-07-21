@@ -12,6 +12,7 @@ import {
   usernameText,
   passwordChangeWrapper,
   passwordChangeLowerWrapper,
+  avatarLowerWrapper,
 } from "./styles.module.css";
 import { MessageContext } from "components/utils/Messages/Messages";
 import { MessageTypes } from "components/utils/Messages/Messages";
@@ -79,61 +80,68 @@ const User = () => {
 
   return (
     <div className={wrapper}>
-      <div className={avatarWrapper}>
-        <div>
-          <input
-            accept="image/*"
-            style={{ display: "none" }}
-            id="contained-button-file"
-            type="file"
-            onChange={changeImage}
-          />
-          <label htmlFor="contained-button-file">
-            <MemberAvatar id={username} version={userImageVersion} />
-          </label>
+      <div>
+        <div className={avatarWrapper}>
+          <div className={avatarLowerWrapper}>
+            <div>
+              <input
+                accept="image/*"
+                style={{ display: "none" }}
+                id="contained-button-file"
+                type="file"
+                onChange={changeImage}
+              />
+              <label htmlFor="contained-button-file">
+                <MemberAvatar id={username} version={userImageVersion} />
+              </label>
+            </div>
+            <div className={avatarTextWrapper}>
+              <span className={usernameText}>{username}</span>
+            </div>
+          </div>
         </div>
-        <div className={avatarTextWrapper}>
-          <span className={usernameText}>{username}</span>
-        </div>
-      </div>
-      <div className={passwordChangeWrapper}>
-        <div className={passwordChangeLowerWrapper}>
-          <TextFieldPassword
-            variant="outlined"
-            label={text.user_password_old}
-            onChange={(e) =>
-              setPasswordState({ ...passwordState, old: e.target.value })
-            }
-            value={passwordState.old}
-          />
-          <TextFieldPassword
-            variant="outlined"
-            label={text.user_password_new}
-            onChange={(e) =>
-              setPasswordState({ ...passwordState, new: e.target.value })
-            }
-            value={passwordState.new}
-          />
-          <TextFieldPassword
-            variant="outlined"
-            label={text.user_password_repeat_new}
-            onChange={(e) =>
-              setPasswordState({ ...passwordState, newRepeat: e.target.value })
-            }
-            value={passwordState.newRepeat}
-          />
+        <div className={passwordChangeWrapper}>
+          <div className={passwordChangeLowerWrapper}>
+            <TextFieldPassword
+              variant="outlined"
+              label={text.user_password_old}
+              onChange={(e) =>
+                setPasswordState({ ...passwordState, old: e.target.value })
+              }
+              value={passwordState.old}
+            />
+            <TextFieldPassword
+              variant="outlined"
+              label={text.user_password_new}
+              onChange={(e) =>
+                setPasswordState({ ...passwordState, new: e.target.value })
+              }
+              value={passwordState.new}
+            />
+            <TextFieldPassword
+              variant="outlined"
+              label={text.user_password_repeat_new}
+              onChange={(e) =>
+                setPasswordState({
+                  ...passwordState,
+                  newRepeat: e.target.value,
+                })
+              }
+              value={passwordState.newRepeat}
+            />
 
-          <SubmitButton
-            variant="contained"
-            color="primary"
-            onClick={(e) => {
-              e.preventDefault();
-              changePassword();
-            }}
-            loading={loading}
-          >
-            {text.user_password_change_button}
-          </SubmitButton>
+            <SubmitButton
+              variant="contained"
+              color="primary"
+              onClick={(e) => {
+                e.preventDefault();
+                changePassword();
+              }}
+              loading={loading}
+            >
+              {text.user_password_change_button}
+            </SubmitButton>
+          </div>
         </div>
       </div>
     </div>

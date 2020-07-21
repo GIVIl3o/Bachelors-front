@@ -11,7 +11,7 @@
 }
 
 .textClass {
-  align-self: end;
+  align-self: center;
   margin-left: 1rem;
 }
 
@@ -41,7 +41,7 @@
 
 .sloganText {
   font-size: 2rem;
-  color: #5DB099
+  color: #5db099;
 }
 
 .descriptionText {
