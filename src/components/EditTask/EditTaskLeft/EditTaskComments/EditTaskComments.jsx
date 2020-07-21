@@ -114,7 +114,8 @@ const EditTaskComments = ({ task }) => {
                   InputProps={{
                     style: {
                       borderRadius: "1.5rem",
-                      backgroundColor: "rgba(202, 229, 255, 0.5)",
+                      backgroundColor: "rgba(171, 238, 220,0.3)",
+                      borderColor: "red",
                     },
                   }}
                 />

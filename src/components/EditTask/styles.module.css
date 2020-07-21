@@ -1,7 +1,7 @@
 .dialogWrapper {
   padding: 2.5rem;
   width: 80vw;
-  height: 90vh;
+  height: 85vh;
   display: grid;
   grid-template-rows: auto 1fr;
 }
