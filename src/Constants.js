@@ -12,28 +12,28 @@ const PROGRESS = {
   planned: {
     value: "PLANNED",
     text: "constants_progress_planned",
-    color: "rgb(142, 68, 173)",
+    color: "#87BAC6",
   },
   todo: {
     value: "TODO",
     text: "constants_progress_todo",
-    color: "rgb(240, 173, 78)",
+    color: "#F4D369",
   },
   doing: {
     value: "DOING",
     text: "constants_progress_doing",
-    color: "rgb(92, 184, 92)",
+    color: "#87C8BB",
   },
   review: {
     value: "REVIEW",
     text: "constants_progress_review",
-    color: "rgb(105, 209, 0)",
+    color: "#EF915E",
   },
-  qa: { value: "QA", text: "constants_progress_qa", color: "rgb(209, 0, 105)" },
+  qa: { value: "QA", text: "constants_progress_qa", color: "#A4A4EA" },
   closed: {
     value: "CLOSED",
     text: "constants_progress_closed",
-    color: "rgba(255, 0, 0, 0.3)",
+    color: "#D6D6D6",
   },
 };
 
@@ -42,22 +42,22 @@ const LABELS = {
   minor: {
     value: "MINOR",
     text: "constants_labels_minor",
-    color: "rgb(105, 209, 0)",
+    color: "#5EAAA8",
   },
   major: {
     value: "MAJOR",
     text: "constants_labels_major",
-    color: "rgb(240, 173, 78)",
+    color: "#F4BA51",
   },
   blocker: {
     value: "BLOCKER",
     text: "constants_labels_blocker",
-    color: "rgb(142, 68, 173",
+    color: "#5E5E5E",
   },
   critical: {
     value: "CRITICAL",
     text: "constants_labels_critical",
-    color: "rgb(209, 0, 105)",
+    color: "#E45745",
   },
 };
 

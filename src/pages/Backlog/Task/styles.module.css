@@ -10,7 +10,7 @@
 }
 
 .wrapper:hover {
-  border-color: cornflowerblue;
+  border-color: #37987E;
 }
 
 .titleWrapper {
@@ -25,6 +25,6 @@
 }
 
 .deleteButton {
-  color: #f50057;
+  color: #E45745;
   margin-right: 0.5rem;
 }

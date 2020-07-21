@@ -4,7 +4,7 @@
     "GE": "კეთილი იყოს შენი მობრძანება!"
   },
   "site_description": {
-    "EN": "ScrumHub is an online project management tool made for Scrum teams.You can easily add user stories to your backlog, add priority to work items, and remain on track with customizable Scrum boards! Register now and see it yourself!",
+    "EN": "ScrumHub is an online project management tool made for Scrum teams. You can easily add user stories to your backlog, add priority to work items, and remain on track with customizable Scrum boards! Register now and see it yourself!",
     "GE": "Scrumhub არის სკრამ გუნდებისთვის განკუთვნილი პლატფორმა. შენ შეგიძლია მარტივად დაამატო ისტორიები ბექლოგში, მიანიჭო პრიორიტეტი სამუშაოს და იყო დასინქრონიზირებული შენს პირად სქრამ დაფასთან! დარეგისტრირდი ახლავე და შენით ნახე!"
   },
   "login_button": { "EN": "Username", "GE": "სახელი" },
@@ -62,10 +62,6 @@
   "home_title": {
     "EN": "Scrumhub | Home",
     "GE": "Scrumhub | პანელი"
-  },
-  "currently_have": {
-    "EN": "You currently have:",
-    "GE": "ახლა გაქვთ:"
   },
   "project_header": {
     "EN": "PROJECTS",

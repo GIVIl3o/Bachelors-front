@@ -8,16 +8,16 @@
 }
 
 .addAttachmentClass:hover {
-  border-color: cornflowerblue;
-  color: #6141ff;
+  border-color: #5DB099;
+  color: #37987E;
 }
 
 .addAttachmentClass:active {
-  border-color: #1b00ff;
+  border-color: #37987E;
 }
 
 .addAttachmentText:active {
-  color: #341bff !important;
+  color: #37987E !important;
 }
 
 .addAttachmentText {

@@ -19,9 +19,9 @@
 }
 
 .inputWrapperClass:focus {
-  border-color: #80bdff;
+  border-color: #A8E7D6;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(168, 231, 214);
 }
 
 .buttonsWrapper {

@@ -9,7 +9,6 @@ const Home = () => {
   document.title = text.home_title;
   return (
     <div style={{ alignSelf: "baseline" }}>
-      <span className={currentlyHave}>{text.currently_have}</span>
       <Projects />
     </div>
   );
