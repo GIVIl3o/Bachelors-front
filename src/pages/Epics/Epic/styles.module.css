@@ -12,7 +12,7 @@
 }
 
 .wrapper:hover {
-  border-color: cornflowerblue;
+  border-color: #37987E;
 }
 
 .fontWeight {
@@ -32,11 +32,11 @@
 }
 
 .selectedEpic {
-  border-color: #1b00ff !important;
+  border-color: #37987E !important;
 }
 
 .deleteEpicClass {
-  color: #f50057;
+  color: #E45745;
   margin-right: 0.5rem;
   display: grid;
   align-items: center;
