@@ -64,7 +64,7 @@
     "GE": "Scrumhub | პანელი"
   },
   "project_header": {
-    "EN": "PROJECTS",
+    "EN": "YOUR PROJECTS",
     "GE": "პროექტები"
   },
   "create_project": {
@@ -329,7 +329,7 @@
     "GE": "დავალების აღწერა"
   },
   "backlog_new_assignee": {
-    "EN": "Assigneee",
+    "EN": "Assignee",
     "GE": "შემსრულებელი"
   },
   "backlog_new_title_length": {
