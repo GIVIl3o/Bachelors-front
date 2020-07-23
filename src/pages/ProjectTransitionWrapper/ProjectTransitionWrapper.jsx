@@ -92,11 +92,12 @@ const ProjectTransitionWrapper = ({ Component, ...props }) => {
   useEffect(() => {
     axios.interceptors.response.use(undefined, (error) => {
       const response = error.response;
-      if (projectRef.current && response.status === 400) {
+
+      if (projectRef.current && response && response.status === 400) {
         refreshProject(projectRef.current.id, setProject);
       }
 
-      return Promise.reject(response);
+      return Promise.reject(error);
     });
   }, []);
 
