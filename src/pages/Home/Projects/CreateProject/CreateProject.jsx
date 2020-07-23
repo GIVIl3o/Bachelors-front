@@ -5,9 +5,6 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
-import CloseIcon from "@material-ui/icons/Close";
-import DoneIcon from "@material-ui/icons/Done";
-import { IconButton } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -27,8 +24,10 @@ import {
   margin,
   cursorPointer,
   member,
+  actionsWrapper,
 } from "./styles.module.css";
 import MemberAvatar from "components/MemberAvatar";
+import SubmitButton from "components/utils/SubmitButton/SubmitButton";
 
 const defaultState = {
   title: "",
@@ -48,7 +47,8 @@ const sendCreateProject = (
   textLang,
   history,
   setProject,
-  username
+  username,
+  setLoading
 ) => {
   if (state.title.length < 4) {
     setMessage(textLang.project_title_min, MessageTypes.error);
@@ -60,8 +60,10 @@ const sendCreateProject = (
   }
 
   const { selectedMember, selectedMemberPermission, ...toSend } = state;
+  setLoading(true);
 
   axios.post("/projects", toSend).then((response) => {
+    setLoading(false);
     const project = {
       ...toSend,
       id: response.data,
@@ -90,6 +92,7 @@ const CreateProject = ({ open, setOpen }) => {
   const { setProject } = useContext(ProjectContext);
 
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
 
   const selectedMemberPermission = PERMISSIONS.developer.value;
 
@@ -275,24 +278,35 @@ const CreateProject = ({ open, setOpen }) => {
         </DialogContent>
 
         <DialogActions>
-          <IconButton onClick={handleClose}>
-            <CloseIcon fontSize="large" color="secondary" />
-          </IconButton>
-          <IconButton
-            onClick={() => {
-              sendCreateProject(
-                state,
-                setMessage,
-                text,
-                textLang,
-                history,
-                setProject,
-                username
-              );
-            }}
-          >
-            <DoneIcon fontSize="large" color="primary" />
-          </IconButton>
+          <div className={actionsWrapper}>
+            <SubmitButton
+              variant="contained"
+              color="secondary"
+              onClick={handleClose}
+              loading={loading}
+            >
+              {text.epic_submit_cancel}
+            </SubmitButton>
+            <SubmitButton
+              variant="contained"
+              color="primary"
+              loading={loading}
+              onClick={() => {
+                sendCreateProject(
+                  state,
+                  setMessage,
+                  text,
+                  textLang,
+                  history,
+                  setProject,
+                  username,
+                  setLoading
+                );
+              }}
+            >
+              {text.epic_submit}
+            </SubmitButton>
+          </div>
         </DialogActions>
       </Dialog>
     </Fragment>

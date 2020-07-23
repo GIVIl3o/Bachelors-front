@@ -37,6 +37,14 @@ const BoardColumn = ({
   const moveTask = ({ addedIndex: index, removedIndex, payload: task }) => {
     if (index === null || loading) return;
 
+    // case when we put task at the same place
+    if (
+      task.progress === PROGRESS[progressColumnName].value &&
+      index === removedIndex
+    ) {
+      return;
+    }
+
     setDragging(false);
     setLoading(true);
 

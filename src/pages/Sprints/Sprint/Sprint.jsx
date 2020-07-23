@@ -18,6 +18,7 @@ import {
 } from "./styles.module.css";
 import { useHistory } from "react-router";
 import Tooltip from "@material-ui/core/Tooltip";
+import { PROGRESS } from "Constants";
 
 const Sprint = ({ sprint, onOpen, selected, displayButtons }) => {
   const { project, setProject } = useContext(ProjectContext);
@@ -53,10 +54,18 @@ const Sprint = ({ sprint, onOpen, selected, displayButtons }) => {
             const removeSprintIdFromTasks = (task) =>
               task.sprintId === sprint.id ? null : sprint.id;
 
-            const unconnectTasks = project.tasks.map((task) => ({
-              ...task,
-              sprintId: removeSprintIdFromTasks(task),
-            }));
+            const unconnectTasks = project.tasks
+              .filter(
+                (t) =>
+                  t.sprintId !== sprint.id ||
+                  t.progress !== PROGRESS.closed.value
+              )
+              .map((task) => ({
+                ...task,
+                leftId: task.sprintId === sprint.id ? null : sprint.leftId,
+                rightId: task.sprintId === sprint.id ? null : sprint.rightId,
+                sprintId: removeSprintIdFromTasks(task),
+              }));
 
             setProject({ ...project, sprints, tasks: unconnectTasks });
           });
